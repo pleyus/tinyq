@@ -1,0 +1,11 @@
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\bin\Debug\TinyVirtualQ.exe
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\bin\Debug\TinyVirtualQ.pdb
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\ResolveAssemblyReference.cache
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form1.resources
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form2.resources
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Properties.Resources.resources
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Resource1.resources
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\GenerateResource.read.1.tlog
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\GenerateResource.write.1.tlog
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
+H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
