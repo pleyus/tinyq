@@ -9,3 +9,14 @@ H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\GenerateRe
 H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\GenerateResource.write.1.tlog
 H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
 H:\Escritorio\Projects\Sharpy\TinyVirtualQ\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
+F:\proj\tinyq\TinyVirtualQ\bin\Debug\TinyVirtualQ.exe
+F:\proj\tinyq\TinyVirtualQ\bin\Debug\TinyVirtualQ.pdb
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csprojAssemblyReference.cache
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form1.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form2.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Properties.Resources.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Resource1.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.GenerateResource.cache
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.CoreCompileInputs.cache
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
