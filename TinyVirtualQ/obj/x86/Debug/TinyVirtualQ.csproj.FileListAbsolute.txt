@@ -21,3 +21,17 @@ F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.CoreCompileInputs.c
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.ControlPanel.resources
+C:\proj\tinyq\TinyVirtualQ\bin\Debug\TinyVirtualQ.exe
+C:\proj\tinyq\TinyVirtualQ\bin\Debug\TinyVirtualQ.pdb
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csprojAssemblyReference.cache
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.BlackScreen.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.ControlPanel.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form1.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Form2.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Logos.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Properties.Resources.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Resource1.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.GenerateResource.cache
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.CoreCompileInputs.cache
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
