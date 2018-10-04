@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <Compile Include="ScreenController.cs" />
     <EmbeddedResource Include="BlackScreen.resx">
       <DependentUpon>BlackScreen.cs</DependentUpon>
     </EmbeddedResource>

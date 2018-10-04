@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpo_proyectar = new System.Windows.Forms.GroupBox();
             this.pic_screen_proyectar = new System.Windows.Forms.PictureBox();
             this.button_quitar_proyectar = new System.Windows.Forms.Button();
             this.button_aplicar_proyectar = new System.Windows.Forms.Button();
@@ -38,7 +38,7 @@
             this.combo_screens_proyectar = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.gpo_proyectar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_screen_proyectar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,23 +52,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Panel de control";
             // 
-            // groupBox1
+            // gpo_proyectar
             // 
-            this.groupBox1.Controls.Add(this.pic_screen_proyectar);
-            this.groupBox1.Controls.Add(this.button_quitar_proyectar);
-            this.groupBox1.Controls.Add(this.button_aplicar_proyectar);
-            this.groupBox1.Controls.Add(this.button_update_proyectar);
-            this.groupBox1.Controls.Add(this.combo_mostrar_proyectar);
-            this.groupBox1.Controls.Add(this.combo_screens_proyectar);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.groupBox1.Location = new System.Drawing.Point(17, 43);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(407, 139);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Proyección";
+            this.gpo_proyectar.Controls.Add(this.pic_screen_proyectar);
+            this.gpo_proyectar.Controls.Add(this.button_quitar_proyectar);
+            this.gpo_proyectar.Controls.Add(this.button_aplicar_proyectar);
+            this.gpo_proyectar.Controls.Add(this.button_update_proyectar);
+            this.gpo_proyectar.Controls.Add(this.combo_mostrar_proyectar);
+            this.gpo_proyectar.Controls.Add(this.combo_screens_proyectar);
+            this.gpo_proyectar.Controls.Add(this.label4);
+            this.gpo_proyectar.Controls.Add(this.label3);
+            this.gpo_proyectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.gpo_proyectar.Location = new System.Drawing.Point(17, 46);
+            this.gpo_proyectar.Name = "gpo_proyectar";
+            this.gpo_proyectar.Size = new System.Drawing.Size(407, 139);
+            this.gpo_proyectar.TabIndex = 2;
+            this.gpo_proyectar.TabStop = false;
+            this.gpo_proyectar.Text = "Proyección";
             // 
             // pic_screen_proyectar
             // 
@@ -79,6 +79,7 @@
             this.pic_screen_proyectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_screen_proyectar.TabIndex = 2;
             this.pic_screen_proyectar.TabStop = false;
+            this.pic_screen_proyectar.Tag = "picture";
             // 
             // button_quitar_proyectar
             // 
@@ -86,6 +87,7 @@
             this.button_quitar_proyectar.Name = "button_quitar_proyectar";
             this.button_quitar_proyectar.Size = new System.Drawing.Size(80, 22);
             this.button_quitar_proyectar.TabIndex = 1;
+            this.button_quitar_proyectar.Tag = "clear";
             this.button_quitar_proyectar.Text = "Quitar";
             this.button_quitar_proyectar.UseVisualStyleBackColor = true;
             this.button_quitar_proyectar.Click += new System.EventHandler(this.Detener);
@@ -96,9 +98,9 @@
             this.button_aplicar_proyectar.Name = "button_aplicar_proyectar";
             this.button_aplicar_proyectar.Size = new System.Drawing.Size(80, 22);
             this.button_aplicar_proyectar.TabIndex = 1;
+            this.button_aplicar_proyectar.Tag = "apply";
             this.button_aplicar_proyectar.Text = "Aplicar";
             this.button_aplicar_proyectar.UseVisualStyleBackColor = true;
-            this.button_aplicar_proyectar.Click += new System.EventHandler(this.Proyectar);
             // 
             // button_update_proyectar
             // 
@@ -108,8 +110,8 @@
             this.button_update_proyectar.Name = "button_update_proyectar";
             this.button_update_proyectar.Size = new System.Drawing.Size(22, 22);
             this.button_update_proyectar.TabIndex = 1;
+            this.button_update_proyectar.Tag = "update";
             this.button_update_proyectar.UseVisualStyleBackColor = true;
-            this.button_update_proyectar.Click += new System.EventHandler(this.UpdateScreens);
             // 
             // combo_mostrar_proyectar
             // 
@@ -125,6 +127,7 @@
             this.combo_mostrar_proyectar.Name = "combo_mostrar_proyectar";
             this.combo_mostrar_proyectar.Size = new System.Drawing.Size(165, 21);
             this.combo_mostrar_proyectar.TabIndex = 0;
+            this.combo_mostrar_proyectar.Tag = "show";
             // 
             // combo_screens_proyectar
             // 
@@ -134,6 +137,7 @@
             this.combo_screens_proyectar.Name = "combo_screens_proyectar";
             this.combo_screens_proyectar.Size = new System.Drawing.Size(165, 21);
             this.combo_screens_proyectar.TabIndex = 0;
+            this.combo_screens_proyectar.Tag = "screen";
             // 
             // label4
             // 
@@ -143,6 +147,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 0;
+            this.label4.Tag = "show_label";
             this.label4.Text = "Mostrar";
             // 
             // label3
@@ -161,15 +166,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(841, 495);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gpo_proyectar);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ControlPanel";
             this.Text = "TinyQ";
             this.Load += new System.EventHandler(this.onLoad);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gpo_proyectar.ResumeLayout(false);
+            this.gpo_proyectar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_screen_proyectar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,7 +184,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gpo_proyectar;
         private System.Windows.Forms.ComboBox combo_screens_proyectar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button_update_proyectar;
