@@ -20,3 +20,4 @@ F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.GenerateResource.ca
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.CoreCompileInputs.cache
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.ControlPanel.resources
