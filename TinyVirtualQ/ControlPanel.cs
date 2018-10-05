@@ -34,7 +34,7 @@ namespace TinyVirtualQ
 
         private void onLoad(object sender, EventArgs e)
         {
-            PROYECTOR = new ScreenController(gpo_proyectar);
+            PROYECTOR = new ScreenController(GMaster);
         }
 
         private void Detener(object sender, EventArgs e)

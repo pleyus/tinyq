@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.gpo_proyectar = new System.Windows.Forms.GroupBox();
-            this.pic_screen_proyectar = new System.Windows.Forms.PictureBox();
-            this.button_quitar_proyectar = new System.Windows.Forms.Button();
-            this.button_aplicar_proyectar = new System.Windows.Forms.Button();
-            this.button_update_proyectar = new System.Windows.Forms.Button();
-            this.combo_mostrar_proyectar = new System.Windows.Forms.ComboBox();
-            this.combo_screens_proyectar = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.gpo_proyectar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_screen_proyectar)).BeginInit();
+            this.GMaster = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.MasterTextMessage = new System.Windows.Forms.TextBox();
+            this.MasterPictureScreen = new System.Windows.Forms.PictureBox();
+            this.MasterButtonGame = new System.Windows.Forms.Button();
+            this.MasterButtonLogo = new System.Windows.Forms.Button();
+            this.MasterButtonStatus = new System.Windows.Forms.Button();
+            this.MasterButtonMessage = new System.Windows.Forms.Button();
+            this.MasterButtonUpdate = new System.Windows.Forms.Button();
+            this.MasterComboScreens = new System.Windows.Forms.ComboBox();
+            this.MasterButtonClear = new System.Windows.Forms.Button();
+            this.GMaster.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,113 +54,135 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Panel de control";
             // 
-            // gpo_proyectar
+            // GMaster
             // 
-            this.gpo_proyectar.Controls.Add(this.pic_screen_proyectar);
-            this.gpo_proyectar.Controls.Add(this.button_quitar_proyectar);
-            this.gpo_proyectar.Controls.Add(this.button_aplicar_proyectar);
-            this.gpo_proyectar.Controls.Add(this.button_update_proyectar);
-            this.gpo_proyectar.Controls.Add(this.combo_mostrar_proyectar);
-            this.gpo_proyectar.Controls.Add(this.combo_screens_proyectar);
-            this.gpo_proyectar.Controls.Add(this.label4);
-            this.gpo_proyectar.Controls.Add(this.label3);
-            this.gpo_proyectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gpo_proyectar.Location = new System.Drawing.Point(17, 46);
-            this.gpo_proyectar.Name = "gpo_proyectar";
-            this.gpo_proyectar.Size = new System.Drawing.Size(407, 139);
-            this.gpo_proyectar.TabIndex = 2;
-            this.gpo_proyectar.TabStop = false;
-            this.gpo_proyectar.Text = "Proyección";
+            this.GMaster.Controls.Add(this.label2);
+            this.GMaster.Controls.Add(this.MasterTextMessage);
+            this.GMaster.Controls.Add(this.MasterPictureScreen);
+            this.GMaster.Controls.Add(this.MasterButtonGame);
+            this.GMaster.Controls.Add(this.MasterButtonLogo);
+            this.GMaster.Controls.Add(this.MasterButtonStatus);
+            this.GMaster.Controls.Add(this.MasterButtonClear);
+            this.GMaster.Controls.Add(this.MasterButtonMessage);
+            this.GMaster.Controls.Add(this.MasterButtonUpdate);
+            this.GMaster.Controls.Add(this.MasterComboScreens);
+            this.GMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.GMaster.Location = new System.Drawing.Point(17, 46);
+            this.GMaster.Name = "GMaster";
+            this.GMaster.Size = new System.Drawing.Size(258, 437);
+            this.GMaster.TabIndex = 2;
+            this.GMaster.TabStop = false;
+            this.GMaster.Text = "Master";
             // 
-            // pic_screen_proyectar
+            // label2
             // 
-            this.pic_screen_proyectar.BackColor = System.Drawing.Color.DimGray;
-            this.pic_screen_proyectar.Location = new System.Drawing.Point(19, 22);
-            this.pic_screen_proyectar.Name = "pic_screen_proyectar";
-            this.pic_screen_proyectar.Size = new System.Drawing.Size(120, 100);
-            this.pic_screen_proyectar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_screen_proyectar.TabIndex = 2;
-            this.pic_screen_proyectar.TabStop = false;
-            this.pic_screen_proyectar.Tag = "picture";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label2.Location = new System.Drawing.Point(19, 341);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Enviar mensaje al master";
             // 
-            // button_quitar_proyectar
+            // MasterTextMessage
             // 
-            this.button_quitar_proyectar.Location = new System.Drawing.Point(225, 100);
-            this.button_quitar_proyectar.Name = "button_quitar_proyectar";
-            this.button_quitar_proyectar.Size = new System.Drawing.Size(80, 22);
-            this.button_quitar_proyectar.TabIndex = 1;
-            this.button_quitar_proyectar.Tag = "clear";
-            this.button_quitar_proyectar.Text = "Quitar";
-            this.button_quitar_proyectar.UseVisualStyleBackColor = true;
-            this.button_quitar_proyectar.Click += new System.EventHandler(this.Detener);
+            this.MasterTextMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.MasterTextMessage.Location = new System.Drawing.Point(20, 357);
+            this.MasterTextMessage.Multiline = true;
+            this.MasterTextMessage.Name = "MasterTextMessage";
+            this.MasterTextMessage.Size = new System.Drawing.Size(179, 66);
+            this.MasterTextMessage.TabIndex = 3;
             // 
-            // button_aplicar_proyectar
+            // MasterPictureScreen
             // 
-            this.button_aplicar_proyectar.Location = new System.Drawing.Point(311, 100);
-            this.button_aplicar_proyectar.Name = "button_aplicar_proyectar";
-            this.button_aplicar_proyectar.Size = new System.Drawing.Size(80, 22);
-            this.button_aplicar_proyectar.TabIndex = 1;
-            this.button_aplicar_proyectar.Tag = "apply";
-            this.button_aplicar_proyectar.Text = "Aplicar";
-            this.button_aplicar_proyectar.UseVisualStyleBackColor = true;
+            this.MasterPictureScreen.BackColor = System.Drawing.Color.DimGray;
+            this.MasterPictureScreen.Location = new System.Drawing.Point(20, 40);
+            this.MasterPictureScreen.Name = "MasterPictureScreen";
+            this.MasterPictureScreen.Size = new System.Drawing.Size(215, 127);
+            this.MasterPictureScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MasterPictureScreen.TabIndex = 2;
+            this.MasterPictureScreen.TabStop = false;
+            this.MasterPictureScreen.Tag = "picture";
             // 
-            // button_update_proyectar
+            // MasterButtonGame
             // 
-            this.button_update_proyectar.BackgroundImage = global::TinyVirtualQ.Resource1.update;
-            this.button_update_proyectar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_update_proyectar.Location = new System.Drawing.Point(369, 22);
-            this.button_update_proyectar.Name = "button_update_proyectar";
-            this.button_update_proyectar.Size = new System.Drawing.Size(22, 22);
-            this.button_update_proyectar.TabIndex = 1;
-            this.button_update_proyectar.Tag = "update";
-            this.button_update_proyectar.UseVisualStyleBackColor = true;
+            this.MasterButtonGame.Location = new System.Drawing.Point(20, 292);
+            this.MasterButtonGame.Name = "MasterButtonGame";
+            this.MasterButtonGame.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.MasterButtonGame.Size = new System.Drawing.Size(215, 36);
+            this.MasterButtonGame.TabIndex = 1;
+            this.MasterButtonGame.Tag = "";
+            this.MasterButtonGame.Text = "Concurso";
+            this.MasterButtonGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MasterButtonGame.UseVisualStyleBackColor = true;
             // 
-            // combo_mostrar_proyectar
+            // MasterButtonLogo
             // 
-            this.combo_mostrar_proyectar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_mostrar_proyectar.FormattingEnabled = true;
-            this.combo_mostrar_proyectar.Items.AddRange(new object[] {
-            "(En negro)",
-            "Logos",
-            "Concurso",
-            "Fin",
-            "Espera..."});
-            this.combo_mostrar_proyectar.Location = new System.Drawing.Point(198, 51);
-            this.combo_mostrar_proyectar.Name = "combo_mostrar_proyectar";
-            this.combo_mostrar_proyectar.Size = new System.Drawing.Size(165, 21);
-            this.combo_mostrar_proyectar.TabIndex = 0;
-            this.combo_mostrar_proyectar.Tag = "show";
+            this.MasterButtonLogo.Location = new System.Drawing.Point(20, 250);
+            this.MasterButtonLogo.Name = "MasterButtonLogo";
+            this.MasterButtonLogo.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.MasterButtonLogo.Size = new System.Drawing.Size(215, 36);
+            this.MasterButtonLogo.TabIndex = 1;
+            this.MasterButtonLogo.Tag = "";
+            this.MasterButtonLogo.Text = "Logo";
+            this.MasterButtonLogo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MasterButtonLogo.UseVisualStyleBackColor = true;
             // 
-            // combo_screens_proyectar
+            // MasterButtonStatus
             // 
-            this.combo_screens_proyectar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.combo_screens_proyectar.FormattingEnabled = true;
-            this.combo_screens_proyectar.Location = new System.Drawing.Point(198, 22);
-            this.combo_screens_proyectar.Name = "combo_screens_proyectar";
-            this.combo_screens_proyectar.Size = new System.Drawing.Size(165, 21);
-            this.combo_screens_proyectar.TabIndex = 0;
-            this.combo_screens_proyectar.Tag = "screen";
+            this.MasterButtonStatus.Location = new System.Drawing.Point(20, 208);
+            this.MasterButtonStatus.Name = "MasterButtonStatus";
+            this.MasterButtonStatus.Padding = new System.Windows.Forms.Padding(40, 0, 0, 0);
+            this.MasterButtonStatus.Size = new System.Drawing.Size(215, 36);
+            this.MasterButtonStatus.TabIndex = 1;
+            this.MasterButtonStatus.Tag = "";
+            this.MasterButtonStatus.Text = "Estado";
+            this.MasterButtonStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MasterButtonStatus.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // MasterButtonMessage
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 54);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Tag = "show_label";
-            this.label4.Text = "Mostrar";
+            this.MasterButtonMessage.BackgroundImage = global::TinyVirtualQ.Resource1.update;
+            this.MasterButtonMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MasterButtonMessage.Location = new System.Drawing.Point(205, 357);
+            this.MasterButtonMessage.Name = "MasterButtonMessage";
+            this.MasterButtonMessage.Size = new System.Drawing.Size(30, 30);
+            this.MasterButtonMessage.TabIndex = 1;
+            this.MasterButtonMessage.Tag = "update";
+            this.MasterButtonMessage.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // MasterButtonUpdate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(146, 25);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Pantalla";
+            this.MasterButtonUpdate.BackgroundImage = global::TinyVirtualQ.Resource1.update;
+            this.MasterButtonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MasterButtonUpdate.Location = new System.Drawing.Point(205, 172);
+            this.MasterButtonUpdate.Name = "MasterButtonUpdate";
+            this.MasterButtonUpdate.Size = new System.Drawing.Size(30, 30);
+            this.MasterButtonUpdate.TabIndex = 1;
+            this.MasterButtonUpdate.Tag = "";
+            this.MasterButtonUpdate.UseVisualStyleBackColor = true;
+            // 
+            // MasterComboScreens
+            // 
+            this.MasterComboScreens.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MasterComboScreens.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.MasterComboScreens.FormattingEnabled = true;
+            this.MasterComboScreens.Location = new System.Drawing.Point(20, 173);
+            this.MasterComboScreens.Name = "MasterComboScreens";
+            this.MasterComboScreens.Size = new System.Drawing.Size(179, 28);
+            this.MasterComboScreens.TabIndex = 0;
+            this.MasterComboScreens.Tag = "";
+            // 
+            // MasterButtonClear
+            // 
+            this.MasterButtonClear.BackgroundImage = global::TinyVirtualQ.Resource1.update;
+            this.MasterButtonClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MasterButtonClear.Location = new System.Drawing.Point(205, 393);
+            this.MasterButtonClear.Name = "MasterButtonClear";
+            this.MasterButtonClear.Size = new System.Drawing.Size(30, 30);
+            this.MasterButtonClear.TabIndex = 1;
+            this.MasterButtonClear.Tag = "update";
+            this.MasterButtonClear.UseVisualStyleBackColor = true;
             // 
             // ControlPanel
             // 
@@ -166,16 +190,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(841, 495);
-            this.Controls.Add(this.gpo_proyectar);
+            this.Controls.Add(this.GMaster);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ControlPanel";
             this.Text = "TinyQ";
             this.Load += new System.EventHandler(this.onLoad);
-            this.gpo_proyectar.ResumeLayout(false);
-            this.gpo_proyectar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_screen_proyectar)).EndInit();
+            this.GMaster.ResumeLayout(false);
+            this.GMaster.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,14 +208,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gpo_proyectar;
-        private System.Windows.Forms.ComboBox combo_screens_proyectar;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button_update_proyectar;
-        private System.Windows.Forms.Button button_aplicar_proyectar;
-        private System.Windows.Forms.ComboBox combo_mostrar_proyectar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pic_screen_proyectar;
-        private System.Windows.Forms.Button button_quitar_proyectar;
+        private System.Windows.Forms.GroupBox GMaster;
+        private System.Windows.Forms.ComboBox MasterComboScreens;
+        private System.Windows.Forms.Button MasterButtonUpdate;
+        private System.Windows.Forms.Button MasterButtonStatus;
+        private System.Windows.Forms.PictureBox MasterPictureScreen;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox MasterTextMessage;
+        private System.Windows.Forms.Button MasterButtonGame;
+        private System.Windows.Forms.Button MasterButtonLogo;
+        private System.Windows.Forms.Button MasterButtonMessage;
+        private System.Windows.Forms.Button MasterButtonClear;
     }
 }
