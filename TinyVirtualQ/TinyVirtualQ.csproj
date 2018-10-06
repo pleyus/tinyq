@@ -162,7 +162,25 @@
     <None Include="Resources\question.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\update.png" />
+    <None Include="Resources\icon-send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questy-on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-game-tiny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-home-tiny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-stats-tiny.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

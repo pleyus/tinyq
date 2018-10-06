@@ -34,7 +34,10 @@ namespace TinyVirtualQ
 
         private void onLoad(object sender, EventArgs e)
         {
-            PROYECTOR = new ScreenController(GMaster);
+            PROYECTOR = new ScreenController();
+            PROYECTOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
+            PROYECTOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);
+            PROYECTOR.SetMasterSwitches(MasterButtonStatus, MasterButtonLogo, MasterButtonGame);
         }
 
         private void Detener(object sender, EventArgs e)

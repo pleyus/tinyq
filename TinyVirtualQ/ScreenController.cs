@@ -9,24 +9,24 @@ namespace TinyVirtualQ
     class ScreenController
     {
         //  Elementos de selección de pantalla
-            public PictureBox Thumbnail;
-            public ComboBox ScreenSelection;
-            public Button UpdateButton;
+            PictureBox Thumbnail;
+            ComboBox ScreenSelection;
+            Button UpdateButton;
 
         //  Botones de acción
-        public Button SwitchBlackScreen;    // Solo para master
-        public Button SwitchStatusScreen;   // Solo para slave
-        public Button SwitchLogoScreen;
-        public Button SwitchGameScreen;
+        Button SwitchBlackScreen;    // Solo para slave
+        Button SwitchStatusScreen;   // Solo para master
+        Button SwitchLogoScreen;
+        Button SwitchGameScreen;
 
         //  Elementos del envio de mensaje
-            public TextBox Message;
-            public Button SendMessage;
-            public Button ClearMessage;
+            TextBox Message;
+            Button SendMessage;
+            Button ClearMessage;
 
         //  Formularios de pantalla
-        public BlackScreen BK_SCREEN;
-        public Logos LOGO;
+        BlackScreen BK_SCREEN;
+        Logos LOGO;
 
         public ScreenController()
         {
@@ -54,7 +54,7 @@ namespace TinyVirtualQ
         /// <param name="thumbnail">Caja de imagen en donde se pondrá la vista previa del elemento que se esta mostrando</param>
         /// <param name="screenSelection">Lista en la cual se ponen las pantallas disponibles</param>
         /// <param name="updateButton">Boton para actualizar la lista de pantallas</param>
-        void SetComponent(PictureBox thumbnail, ComboBox screenSelection, Button updateButton)
+        public void SetComponent(PictureBox thumbnail, ComboBox screenSelection, Button updateButton)
         {
             Thumbnail = thumbnail;
             ScreenSelection = screenSelection;
@@ -90,7 +90,7 @@ namespace TinyVirtualQ
         /// <param name="message">El textbox en el cual estará el mensaje</param>
         /// <param name="sendMessage">Boton para enviar mensaje</param>
         /// <param name="clearMessage">Boton para eliminar el mensaje</param>
-        void SetComponent(TextBox message, Button sendMessage, Button clearMessage)
+        public void SetComponent(TextBox message, Button sendMessage, Button clearMessage)
         {
             Message = message;
             SendMessage = sendMessage;
@@ -108,22 +108,21 @@ namespace TinyVirtualQ
 
         }
 
-        void SetMasterSwitches(Button StatusButton, Button LogosButton, Button GameButton)
+        public void SetMasterSwitches(Button StatusButton, Button LogosButton, Button GameButton)
         {
-            if
             SwitchStatusScreen = StatusButton;
             SwitchLogoScreen = LogosButton;
             SwitchGameScreen = GameButton;
 
-            SwitchBlackScreen.Click += Switch;
+            SwitchStatusScreen.Click += Switch;
             SwitchLogoScreen.Click += Switch;
-            SwitchGameScreen.Click += Switch
+            SwitchGameScreen.Click += Switch;
         }
         void Switch(object s, EventArgs e)
         {
             foreach (Screen S in Screen.AllScreens)
             {
-                if (S.DeviceName == ScreenSelection.SelectedItem.ToString())
+                if (S.DeviceName == ScreenSelection.Text)
                 {
                     int x = S.WorkingArea.X;
                     int y = S.WorkingArea.Y;
@@ -149,7 +148,7 @@ namespace TinyVirtualQ
         }
 
         Bitmap img;
-        public void SetImage(object o)
+        void SetImage(object o)
         {
             if (o == BK_SCREEN)
                 Thumbnail.Image = null;
@@ -165,7 +164,7 @@ namespace TinyVirtualQ
             }
         }
 
-        public bool SetItemOnScreen(int index, int x, int y, int w, int h)
+        bool SetItemOnScreen(int index, int x, int y, int w, int h)
         {
             bool ret = false;
             //  Le quitamo a todos el topmost

@@ -35,3 +35,5 @@ C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.GenerateResource.ca
 C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.csproj.CoreCompileInputs.cache
 C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
 C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.BlackScreen.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Logos.resources
