@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace TinyVirtualQ
 {
-    public partial class MasterGameScreen : Form
+    public partial class SlaveGameScreen : Form
     {
-        public MasterGameScreen()
+        public SlaveGameScreen()
         {
             InitializeComponent();
         }

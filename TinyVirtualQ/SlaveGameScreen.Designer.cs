@@ -1,6 +1,6 @@
 ﻿namespace TinyVirtualQ
 {
-    partial class MasterGameScreen
+    partial class SlaveGameScreen
     {
         /// <summary>
         /// Required designer variable.
