@@ -76,6 +76,12 @@
     <Compile Include="Logos.Designer.cs">
       <DependentUpon>Logos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterGameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterGameScreen.Designer.cs">
+      <DependentUpon>MasterGameScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logos.resx">
       <DependentUpon>Logos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterGameScreen.resx">
+      <DependentUpon>MasterGameScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -181,6 +190,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon-stats-tiny.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round-picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\white-clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-base-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

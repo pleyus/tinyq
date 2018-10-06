@@ -35,9 +35,9 @@
             // logo
             // 
             this.logo.Image = global::TinyVirtualQ.Resource1.questy_on;
-            this.logo.Location = new System.Drawing.Point(178, 104);
+            this.logo.Location = new System.Drawing.Point(84, 169);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(240, 200);
+            this.logo.Size = new System.Drawing.Size(418, 208);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;

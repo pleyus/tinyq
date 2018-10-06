@@ -110,7 +110,27 @@ namespace TinyVirtualQ
 
         public void SetMasterSwitches(Button StatusButton, Button LogosButton, Button GameButton)
         {
+            if(SwitchBlackScreen != null)
+            {
+                MessageBox.Show("Este controlador ya ha sido ajustado como Slave, no se puede poner como maestro.", "Conflicto de controladores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             SwitchStatusScreen = StatusButton;
+            SwitchLogoScreen = LogosButton;
+            SwitchGameScreen = GameButton;
+
+            SwitchStatusScreen.Click += Switch;
+            SwitchLogoScreen.Click += Switch;
+            SwitchGameScreen.Click += Switch;
+        }
+        public void SetSlaveSwitches(Button BlackScreen, Button LogosButton, Button GameButton)
+        {
+            if (SwitchStatusScreen != null)
+            {
+                MessageBox.Show("Este controlador ya ha sido ajustado como Master, no se puede poner como esclavo.", "Conflicto de controladores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            SwitchBlackScreen = BlackScreen;
             SwitchLogoScreen = LogosButton;
             SwitchGameScreen = GameButton;
 
