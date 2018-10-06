@@ -27,6 +27,7 @@ namespace TinyVirtualQ
         //  Formularios de pantalla
         BlackScreen BK_SCREEN;
         Logos LOGO;
+        SlaveGameScreen SLAVE_GAME;
 
         public ScreenController()
         {
@@ -46,6 +47,12 @@ namespace TinyVirtualQ
             LOGO.Size = new Size(1, 1);
             LOGO.Location = new Point(0, 0);
             LOGO.Hide();
+
+            SLAVE_GAME = new SlaveGameScreen();
+            SLAVE_GAME.Show();
+            SLAVE_GAME.Size = new Size(1, 1);
+            SLAVE_GAME.Location = new Point(0, 0);
+            SLAVE_GAME.Hide();
         }
 
         /// <summary>
@@ -134,7 +141,7 @@ namespace TinyVirtualQ
             SwitchLogoScreen = LogosButton;
             SwitchGameScreen = GameButton;
 
-            SwitchStatusScreen.Click += Switch;
+            SwitchBlackScreen.Click += Switch;
             SwitchLogoScreen.Click += Switch;
             SwitchGameScreen.Click += Switch;
         }
@@ -149,14 +156,50 @@ namespace TinyVirtualQ
                     int w = S.Bounds.Width;
                     int h = S.Bounds.Height;
 
-                    int i = -1;
+                    //  Le quitamo a todos el topmost
+                    BK_SCREEN.TopMost   = false;
+                    LOGO.TopMost        = false;
+                    SLAVE_GAME.TopMost   = false;
 
+                    //  Checamos que va a hacer
                     if (s == SwitchBlackScreen)
-                        i = 0;
-                    if (s == SwitchLogoScreen)
-                        i = 1;
+                    {
+                        BK_SCREEN.Width = w;
+                        BK_SCREEN.Height = h;
+                        BK_SCREEN.Location = new Point(x, y);
+                        BK_SCREEN.TopMost = true;
+                        BK_SCREEN.Show();
+                        SetImage(BK_SCREEN);
+                    }
+                    else if (s == SwitchLogoScreen)
+                    {
+                        LOGO.Width = w;
+                        LOGO.Height = h;
+                        LOGO.Location = new Point(x, y);
+                        LOGO.TopMost = true;
+                        LOGO.Show();
+                        SetImage(LOGO);
+                    }
+                    else if (s == SwitchGameScreen)
+                    {
+                        //  Si no es null, entonces es el esclavo
+                        if (SwitchBlackScreen != null)
+                        {
+                            SLAVE_GAME.Width = w;
+                            SLAVE_GAME.Height = h;
+                            SLAVE_GAME.Location = new Point(x, y);
+                            SLAVE_GAME.TopMost = true;
+                            SLAVE_GAME.Show();
+                            SetImage(SLAVE_GAME);
+                        }
+                        //  Si no, es master
+                        else
+                        {
 
-                    if (!SetItemOnScreen(i, x, y, w, h))
+                        }
+                    }
+
+                    else
                         MessageBox.Show("No se que quieres proyectar, algo anda mal",
                             "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -182,39 +225,6 @@ namespace TinyVirtualQ
 
                 Thumbnail.Image = img;
             }
-        }
-
-        bool SetItemOnScreen(int index, int x, int y, int w, int h)
-        {
-            bool ret = false;
-            //  Le quitamo a todos el topmost
-            BK_SCREEN.TopMost = false;
-            LOGO.TopMost = false;
-
-            switch(index)
-            {
-                case 0:
-                    BK_SCREEN.Width = w;
-                    BK_SCREEN.Height = h;
-                    BK_SCREEN.Location = new Point(x, y);
-                    BK_SCREEN.TopMost = true;
-                    BK_SCREEN.Show();
-                    SetImage(BK_SCREEN);
-                    ret = true;
-                    break;
-                    
-                case 1:
-                    LOGO.Width = w;
-                    LOGO.Height = h;
-                    LOGO.Location = new Point(x, y);
-                    LOGO.TopMost = true;
-                    LOGO.Show();
-                    SetImage(LOGO);
-                    ret = true;
-                    break;
-            }
-            return ret;
-                
         }
 
     }
