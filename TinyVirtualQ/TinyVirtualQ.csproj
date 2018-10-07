@@ -76,6 +76,14 @@
     <Compile Include="Logos.Designer.cs">
       <DependentUpon>Logos.cs</DependentUpon>
     </Compile>
+    <Compile Include="MasterGameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterGameScreen.Designer.cs">
+      <DependentUpon>MasterGameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Player.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="SlaveGameScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logos.resx">
       <DependentUpon>Logos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterGameScreen.resx">
+      <DependentUpon>MasterGameScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SlaveGameScreen.resx">
       <DependentUpon>SlaveGameScreen.cs</DependentUpon>
