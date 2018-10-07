@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -19,30 +19,66 @@ namespace TinyVirtualQ
         ScreenController PROYECTOR;
         ScreenController MONITOR;
 
-        
-        
-        public Image GetImage(Logos Objeto)
-        {
-            Bitmap img = new Bitmap(Objeto.Width, Objeto.Height);
-            Objeto.DrawToBitmap(img, Objeto.ClientRectangle);
-            return img;
-        }
-
-        public Timer TimerProyector;
-        
+        int current_question = 0;
+        Round Round;
+        Question[] QuestionBank;
+        Player[] Players;
         
 
         private void onLoad(object sender, EventArgs e)
         {
-            PROYECTOR = new ScreenController();
-            PROYECTOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
-            PROYECTOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);
-            PROYECTOR.SetMasterSwitches(MasterButtonStatus, MasterButtonLogo, MasterButtonGame);
+            Round = new Round()
+            QuestionBank = Question.FromFile(@"question.db");
+            ShuffleQuestions();
+
+            MONITOR = new ScreenController(QuestionBank);
+            MONITOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
+            MONITOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);
+            MONITOR.SetMasterSwitches(MasterButtonStatus, MasterButtonLogo, MasterButtonGame);
+
+            PROYECTOR = new ScreenController(QuestionBank);
+            PROYECTOR.SetComponent(SlavePictureScreen, SlaveComboScreens, SlaveButtonUpdate);
+            PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);
+        }
+        void ShuffleQuestions()
+        {
+            // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+            for (int t = 0; t < QuestionBank.Length; t++)
+            {
+                Question tmp = QuestionBank[t];
+                int r = new Random().Next(t, QuestionBank.Length);
+                QuestionBank[t] = QuestionBank[r];
+                QuestionBank[r] = tmp;
+            }
         }
 
-        private void Detener(object sender, EventArgs e)
+        void GameActions(object sender, EventArgs e)
         {
-            
+            if (sender == AdminButtonSetQuestion && ListPlayers.SelectedItems.Count > 0)
+                Put();
+        }
+
+        void Put()
+        {
+            string id = ListPlayers.SelectedItems[0].Text;
+            int index = -1;
+            for (int i = 0; i < Players.Length; i++)
+                if (Players[i].Id == id)
+                {
+                    index = 0;
+                    break;
+                }
+
+            if (index >= 0)
+            {
+                if (Question.Current(Players[index].Questions) == null)
+                {
+                    
+                }
+                else
+                    MessageBox.Show("No se puede agregar otra pregunta ya que no se ha contestado la actual",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

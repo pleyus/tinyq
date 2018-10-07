@@ -43,7 +43,7 @@
             // butStart
             // 
             this.butStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butStart.Image = global::TinyVirtualQ.Resource1.Crono;
+            
             this.butStart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.butStart.Location = new System.Drawing.Point(13, 196);
             this.butStart.Name = "butStart";
@@ -56,7 +56,7 @@
             // butOk
             // 
             this.butOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butOk.Image = global::TinyVirtualQ.Resource1.ok1;
+            
             this.butOk.Location = new System.Drawing.Point(13, 285);
             this.butOk.Name = "butOk";
             this.butOk.Size = new System.Drawing.Size(244, 83);
@@ -67,7 +67,7 @@
             // butError
             // 
             this.butError.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.butError.Image = global::TinyVirtualQ.Resource1.incorrecto;
+            
             this.butError.Location = new System.Drawing.Point(263, 285);
             this.butError.Name = "butError";
             this.butError.Size = new System.Drawing.Size(244, 83);

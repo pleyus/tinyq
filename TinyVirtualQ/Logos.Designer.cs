@@ -34,10 +34,11 @@
             // 
             // logo
             // 
+            this.logo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.logo.Image = global::TinyVirtualQ.Resource1.questy_on;
-            this.logo.Location = new System.Drawing.Point(84, 169);
+            this.logo.Location = new System.Drawing.Point(66, 135);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(418, 208);
+            this.logo.Size = new System.Drawing.Size(496, 255);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 0;
             this.logo.TabStop = false;
@@ -47,7 +48,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.ClientSize = new System.Drawing.Size(638, 510);
             this.Controls.Add(this.logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Logos";

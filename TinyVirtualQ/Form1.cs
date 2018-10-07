@@ -201,7 +201,7 @@ namespace TinyVirtualQ
             {
                 f2.picClock.Visible = false;
                 f2.progressBar1.Visible = false;
-                f2.picActionImage.Image = Resource1.loading_squares;
+                
                 butOk.Enabled = true;
                 butError.Enabled = true;
                 f2.picActionImage.Visible = true;
@@ -217,7 +217,7 @@ namespace TinyVirtualQ
         //Boton OK
         private void butOk_Click(object sender, EventArgs e)
         {
-            f2.picActionImage.Image = Resource1._OK;
+            
             butNew.Enabled = true;
             butOk.Enabled = false;
             butError.Enabled = false;
@@ -230,7 +230,7 @@ namespace TinyVirtualQ
         //Boton Error
         private void butError_Click(object sender, EventArgs e)
         {
-            f2.picActionImage.Image = Resource1._NO;
+            
             f2.picActionImage.Visible = true;
             butNew.Enabled = true;
             butOk.Enabled = false;

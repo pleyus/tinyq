@@ -37,3 +37,5 @@ C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.exe
 C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.pdb
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.BlackScreen.resources
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.Logos.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.MasterGameScreen.resources
+C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.SlaveGameScreen.resources

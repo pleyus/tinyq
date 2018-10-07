@@ -11,16 +11,18 @@ namespace TinyVirtualQ
 {
     public partial class MasterGameScreen : Form
     {
-        public MasterGameScreen()
+        public MasterGameScreen(int BancoPreguntas)
         {
             InitializeComponent();
+            banco_preguntas = BancoPreguntas;
         }
         Timer T;
         int miliseconds = 0;
         int current_miliseconds = 0;
         int pix = 1;
+        int banco_preguntas = 0;
 
-        public void Put(Question[] Preguntas, Player Jugador)
+        public void Put(Player Jugador)
         {
             //  Si Viene el nombre de la persona lo ponemos
             if (Jugador.Firstname != "")
@@ -39,7 +41,7 @@ namespace TinyVirtualQ
             }
 
             // Llenamos la lista de preguntas
-            FillList(Preguntas);
+            FillList(Jugador.Questions);
 
             //  Ocultamos el estado
             PictureProgressContainer.Visible = PictureProgressBar.Visible = PictureState.Visible = T.Enabled = false;
@@ -138,6 +140,21 @@ namespace TinyVirtualQ
             T = new Timer();
             T.Interval = 100;
             T.Tick += Animate;
+
+            LabelName.Text = "Jugadores listos.";
+            PictureUser.Visible = false;
+
+            LabelQuestionsNum.Text = "Banco: " + banco_preguntas + " preguntas almacenadas";
+            LabelCorrectNum.Text = "";
+
+            LabelCategory.Text = "En espera";
+            LabelQuestion.Text = "Questy-ON es un sistema desarrollado para gestionar juegos de preguntas y respuestas.";
+
+            LabelMessage.Visible = false;
+
+            PictureProgressContainer.Visible = false;
+            PictureProgressBar.Visible = false;
+            PictureState.Visible = false;
         }
         void Animate(object s, EventArgs e)
         {

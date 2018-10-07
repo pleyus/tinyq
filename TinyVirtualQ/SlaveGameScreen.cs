@@ -11,21 +11,23 @@ namespace TinyVirtualQ
 {
     public partial class SlaveGameScreen : Form
     {
-        public SlaveGameScreen()
+        public SlaveGameScreen(int banco_preguntas)
         {
             InitializeComponent();
+            BancoPreguntas = banco_preguntas;
         }
 
         Timer T;
         int miliseconds = 0;
         int current_miliseconds = 0;
         int pix = 1;
+        int BancoPreguntas = 0;
 
-        public void Put(Question Pregunta, Player Jugador)
+        public void Put(Player Jugador)
         {
             //  Asignamos la pregunta y su categoría
-            LabelCategory.Text = Pregunta.Category;
-            LabelQuestion.Text = Pregunta.Text;
+            LabelCategory.Text = Question.Current(Jugador.Questions).Category;
+            LabelQuestion.Text = Question.Current(Jugador.Questions).Text;
 
             //  Si Viene el nombre de la persona lo ponemos
             if(Jugador.Firstname != "")
@@ -83,6 +85,17 @@ namespace TinyVirtualQ
             T = new Timer();
             T.Interval = 100;
             T.Tick += Animate;
+
+            LabelName.Visible = 
+                PictureUser.Visible = 
+                    PictureProgressContainer.Visible = 
+                        PictureProgressBar.Visible = 
+                            PictureState.Visible = 
+                                T.Enabled= false;
+
+            LabelCategory.Text = "En espera...";
+            LabelQuestion.Text = "Bienvenido a Questy-ON ¿Estas listo?";
+
         }
         void Animate(object s, EventArgs e)
         {

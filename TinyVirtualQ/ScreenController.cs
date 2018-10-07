@@ -14,10 +14,10 @@ namespace TinyVirtualQ
             Button UpdateButton;
 
         //  Botones de acción
-        Button SwitchBlackScreen;    // Solo para slave
+            Button SwitchBlackScreen;    // Solo para slave
         Button SwitchStatusScreen;   // Solo para master
-        Button SwitchLogoScreen;
-        Button SwitchGameScreen;
+            Button SwitchLogoScreen;
+            Button SwitchGameScreen;
 
         //  Elementos del envio de mensaje
             TextBox Message;
@@ -25,13 +25,16 @@ namespace TinyVirtualQ
             Button ClearMessage;
 
         //  Formularios de pantalla
-        BlackScreen BK_SCREEN;
-        Logos LOGO;
-        SlaveGameScreen SLAVE_GAME;
-        MasterGameScreen MASTER_GAME;
+            BlackScreen BK_SCREEN;
+            Logos LOGO;
+            SlaveGameScreen SLAVE_GAME;
+            MasterGameScreen MASTER_GAME;
 
-        public ScreenController()
+        Question[] QuestionBank;
+
+        public ScreenController(Question[] QB)
         {
+            QuestionBank = QB;
             InitScreenForms();
         }
 
@@ -49,13 +52,13 @@ namespace TinyVirtualQ
             LOGO.Location = new Point(0, 0);
             LOGO.Hide();
 
-            SLAVE_GAME = new SlaveGameScreen();
+            SLAVE_GAME = new SlaveGameScreen(QuestionBank.Length);
             SLAVE_GAME.Show();
             SLAVE_GAME.Size = new Size(1, 1);
             SLAVE_GAME.Location = new Point(0, 0);
             SLAVE_GAME.Hide();
 
-            MASTER_GAME = new MasterGameScreen();
+            MASTER_GAME = new MasterGameScreen(QuestionBank.Length);
             MASTER_GAME.Show();
             MASTER_GAME.Size = new Size(1, 1);
             MASTER_GAME.Location = new Point(0, 0);
@@ -112,10 +115,20 @@ namespace TinyVirtualQ
 
             SendMessage.Click += SendMsg;
             ClearMessage.Click += ClearMsg;
+            Message.KeyUp += SendMsg;
         }
-        void SendMsg(object o, EventArgs e)
+        void SendMsg(object o, object e)
         {
-            MASTER_GAME.ShowMessage(Message.Text);
+            if (o == Message)
+                if (((KeyEventArgs)e).KeyCode != Keys.Enter)
+                    return;
+
+            if (Message.Text.Trim() != "")
+                MASTER_GAME.ShowMessage(Message.Text.Trim());
+            else
+                ClearMsg(null, null);
+
+            Message.Text = "";
         }
         void ClearMsg(object o, EventArgs e)
         {
@@ -235,23 +248,30 @@ namespace TinyVirtualQ
 
                 if (o == LOGO)
                     LOGO.DrawToBitmap(img, C.ClientRectangle);
+                if (o == MASTER_GAME)
+                    MASTER_GAME.DrawToBitmap(img, C.ClientRectangle);
+                if (o == SLAVE_GAME)
+                    SLAVE_GAME.DrawToBitmap(img, C.ClientRectangle);
 
                 Thumbnail.Image = img;
             }
         }
 
-        public void Put(Question[] Questions, Player Person)
-        {
-            MASTER_GAME.Put(Questions, Person);
-            SLAVE_GAME.Put(CurrentQuestion(Questions), Person);
-        }
-        Question CurrentQuestion(Question[] Questions)
-        {
-            foreach (Question q in Questions)
-                if (q.Result == Question.QuestionResult.None)
-                    return q;
 
-            return null;
+        public void Run()
+        {
+            MASTER_GAME.Run();
+            SLAVE_GAME.Run();
+        }
+        public void Put(Player ThePlayer)
+        {
+            MASTER_GAME.Put(ThePlayer);
+            SLAVE_GAME.Put(ThePlayer);
+        }
+        public void Wait()
+        {
+            MASTER_GAME.Wait();
+            MASTER_GAME.Wait();
         }
     }
 }

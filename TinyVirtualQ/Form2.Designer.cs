@@ -44,7 +44,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.picClock.BackColor = System.Drawing.Color.White;
             this.picClock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picClock.Image = global::TinyVirtualQ.Resource1.Crono;
+            
             this.picClock.Location = new System.Drawing.Point(30, 14);
             this.picClock.Name = "picClock";
             this.picClock.Size = new System.Drawing.Size(74, 85);
@@ -58,7 +58,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.picActionImage.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.picActionImage.Image = global::TinyVirtualQ.Resource1._OK;
+            
             this.picActionImage.Location = new System.Drawing.Point(20, 15);
             this.picActionImage.Name = "picActionImage";
             this.picActionImage.Size = new System.Drawing.Size(92, 93);
@@ -71,7 +71,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::TinyVirtualQ.Resource1.Marco;
+            
             this.pictureBox1.Location = new System.Drawing.Point(2, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(127, 123);

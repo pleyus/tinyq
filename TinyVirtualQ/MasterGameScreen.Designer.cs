@@ -39,9 +39,9 @@
             this.LabelCorrectNum = new System.Windows.Forms.Label();
             this.ListQuestions = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LabelMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
@@ -176,6 +176,11 @@
             this.columnHeader1.Text = "Pregunta";
             this.columnHeader1.Width = 431;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Categoria";
+            this.columnHeader3.Width = 103;
+            // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Resultado";
@@ -192,11 +197,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Preguntas realizadas";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Categoria";
-            this.columnHeader3.Width = 103;
             // 
             // LabelMessage
             // 
@@ -234,6 +234,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "MasterGameScreen";
+            this.Load += new System.EventHandler(this.Init);
             ((System.ComponentModel.ISupportInitialize)(this.PictureState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureProgressBar)).EndInit();
