@@ -28,6 +28,7 @@ namespace TinyVirtualQ
         BlackScreen BK_SCREEN;
         Logos LOGO;
         SlaveGameScreen SLAVE_GAME;
+        MasterGameScreen MASTER_GAME;
 
         public ScreenController()
         {
@@ -53,6 +54,12 @@ namespace TinyVirtualQ
             SLAVE_GAME.Size = new Size(1, 1);
             SLAVE_GAME.Location = new Point(0, 0);
             SLAVE_GAME.Hide();
+
+            MASTER_GAME = new MasterGameScreen();
+            MASTER_GAME.Show();
+            MASTER_GAME.Size = new Size(1, 1);
+            MASTER_GAME.Location = new Point(0, 0);
+            MASTER_GAME.Hide();
         }
 
         /// <summary>
@@ -108,11 +115,11 @@ namespace TinyVirtualQ
         }
         void SendMsg(object o, EventArgs e)
         {
-
+            MASTER_GAME.ShowMessage(Message.Text);
         }
         void ClearMsg(object o, EventArgs e)
         {
-
+            MASTER_GAME.RemoveMessage();
         }
 
         public void SetMasterSwitches(Button StatusButton, Button LogosButton, Button GameButton)
@@ -159,7 +166,8 @@ namespace TinyVirtualQ
                     //  Le quitamo a todos el topmost
                     BK_SCREEN.TopMost   = false;
                     LOGO.TopMost        = false;
-                    SLAVE_GAME.TopMost   = false;
+                    SLAVE_GAME.TopMost  = false;
+                    MASTER_GAME.TopMost = false;
 
                     //  Checamos que va a hacer
                     if (s == SwitchBlackScreen)
@@ -195,7 +203,12 @@ namespace TinyVirtualQ
                         //  Si no, es master
                         else
                         {
-
+                            MASTER_GAME.Width = w;
+                            MASTER_GAME.Height = h;
+                            MASTER_GAME.Location = new Point(x, y);
+                            MASTER_GAME.TopMost = true;
+                            MASTER_GAME.Show();
+                            SetImage(MASTER_GAME);
                         }
                     }
 
@@ -227,5 +240,18 @@ namespace TinyVirtualQ
             }
         }
 
+        public void Put(Question[] Questions, Player Person)
+        {
+            MASTER_GAME.Put(Questions, Person);
+            SLAVE_GAME.Put(CurrentQuestion(Questions), Person);
+        }
+        Question CurrentQuestion(Question[] Questions)
+        {
+            foreach (Question q in Questions)
+                if (q.Result == Question.QuestionResult.None)
+                    return q;
+
+            return null;
+        }
     }
 }

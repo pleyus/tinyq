@@ -21,20 +21,20 @@ namespace TinyVirtualQ
         int current_miliseconds = 0;
         int pix = 1;
 
-        public void Put(string Question, string Category, string Name = "", string Picture = "")
+        public void Put(Question Pregunta, Player Jugador)
         {
             //  Asignamos la pregunta y su categoría
-            LabelCategory.Text = Category;
-            LabelQuestion.Text = Question;
+            LabelCategory.Text = Pregunta.Category;
+            LabelQuestion.Text = Pregunta.Text;
 
             //  Si Viene el nombre de la persona lo ponemos
-            if(Name != "")
+            if(Jugador.Firstname != "")
             {
                 LabelName.Visible = PictureUser.Visible = true;
 
-                LabelName.Text = Name;
-                PictureUser.BackgroundImage = File.Exists(Picture) 
-                    ? Image.FromFile(Picture) 
+                LabelName.Text = Jugador.Firstname;
+                PictureUser.BackgroundImage = File.Exists(Jugador.PictureFilename) 
+                    ? Image.FromFile(Jugador.PictureFilename) 
                     : Resource1.user_base_icon;
             }
             else

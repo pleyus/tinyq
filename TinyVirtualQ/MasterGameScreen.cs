@@ -93,6 +93,16 @@ namespace TinyVirtualQ
                     PictureState.Visible =
                         T.Enabled = true;
         }
+        public void ShowMessage(string message)
+        {
+            LabelMessage.Text = message;
+            LabelMessage.Visible = true;
+        }
+        public void RemoveMessage()
+        {
+            LabelMessage.Text = "";
+            LabelMessage.Visible = false;
+        }
         public void Wait()
         {
             T.Enabled = false;

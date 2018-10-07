@@ -42,6 +42,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LabelMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureProgressBar)).BeginInit();
@@ -197,12 +198,26 @@
             this.columnHeader3.Text = "Categoria";
             this.columnHeader3.Width = 103;
             // 
+            // LabelMessage
+            // 
+            this.LabelMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelMessage.BackColor = System.Drawing.Color.Navy;
+            this.LabelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.LabelMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.LabelMessage.Location = new System.Drawing.Point(77, 370);
+            this.LabelMessage.Name = "LabelMessage";
+            this.LabelMessage.Size = new System.Drawing.Size(638, 122);
+            this.LabelMessage.TabIndex = 5;
+            this.LabelMessage.Text = "Este es un mensaje que se podrá mostrar en esta pantalla...";
+            this.LabelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MasterGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(777, 597);
+            this.Controls.Add(this.LabelMessage);
             this.Controls.Add(this.ListQuestions);
             this.Controls.Add(this.PictureState);
             this.Controls.Add(this.PictureUser);
@@ -243,5 +258,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label LabelMessage;
     }
 }
