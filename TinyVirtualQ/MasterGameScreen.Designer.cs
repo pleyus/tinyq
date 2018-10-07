@@ -100,7 +100,7 @@
             this.LabelName.ForeColor = System.Drawing.Color.White;
             this.LabelName.Location = new System.Drawing.Point(315, 47);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(289, 35);
+            this.LabelName.Size = new System.Drawing.Size(346, 35);
             this.LabelName.TabIndex = 3;
             this.LabelName.Text = "Nombre";
             this.LabelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,7 +124,7 @@
             this.LabelQuestion.ForeColor = System.Drawing.Color.White;
             this.LabelQuestion.Location = new System.Drawing.Point(60, 200);
             this.LabelQuestion.Name = "LabelQuestion";
-            this.LabelQuestion.Size = new System.Drawing.Size(667, 94);
+            this.LabelQuestion.Size = new System.Drawing.Size(667, 132);
             this.LabelQuestion.TabIndex = 5;
             this.LabelQuestion.Text = "¿Es una pregunta lo que se esta haciendo aqui? De no ser asi, que puede ser:";
             // 
@@ -163,9 +163,9 @@
             this.columnHeader2});
             this.ListQuestions.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListQuestions.ForeColor = System.Drawing.Color.White;
-            this.ListQuestions.Location = new System.Drawing.Point(61, 313);
+            this.ListQuestions.Location = new System.Drawing.Point(61, 353);
             this.ListQuestions.Name = "ListQuestions";
-            this.ListQuestions.Size = new System.Drawing.Size(666, 165);
+            this.ListQuestions.Size = new System.Drawing.Size(666, 151);
             this.ListQuestions.TabIndex = 10;
             this.ListQuestions.UseCompatibleStateImageBehavior = false;
             this.ListQuestions.View = System.Windows.Forms.View.Details;
@@ -185,7 +185,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label3.Location = new System.Drawing.Point(57, 284);
+            this.label3.Location = new System.Drawing.Point(57, 324);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(331, 27);
             this.label3.TabIndex = 4;

@@ -46,10 +46,16 @@ namespace TinyVirtualQ
         }
         public void FillList(Question[] Preguntas)
         {
+            ListQuestions.Items.Clear();
+            int corrects = 0;
+
             foreach (Question P in Preguntas)
             {
                 ListViewItem It = new ListViewItem();
+
                 It.Text = P.Text;
+                It.SubItems.Add(P.Category);
+
                 It.SubItems.Add(
                     P.Result == Question.QuestionResult.Correct
                         ? "Correcto"
@@ -57,9 +63,19 @@ namespace TinyVirtualQ
                             ? "ERROR"
                             : "...")
                 );
-                It.SubItems.Add(P.Category);
-                
+
+                //  Como sabemos que la pregunta que no tiene respuesta es la actual, la asignamos
+                if(P.Result == Question.QuestionResult.None)
+                {
+                    LabelQuestion.Text = P.Text;
+                    LabelCategory.Text = P.Category;
+                }
+
+                ListQuestions.Items.Add(It);
             }
+
+            LabelQuestionsNum.Text = "Preguntas: " + Preguntas.Length;
+            LabelCorrectNum.Text = "Aciertos: " + corrects;
         }
         public void Run(int Seconds = 5)
         {
@@ -86,13 +102,27 @@ namespace TinyVirtualQ
         {
             T.Enabled = false;
             PictureState.Image = Resource1.wrong;
+            SetAnswer(false);
         }
         public void Correct()
         {
             T.Enabled = false;
             PictureState.Image = Resource1.correct;
+            SetAnswer(true);
         }
-
+        void SetAnswer(bool correct)
+        {
+            int c = correct ? 1 : 0;
+            for(int i = 0; i < ListQuestions.Items.Count; i++)
+            {
+                string res = ListQuestions.Items[i].SubItems[2].Text;
+                if (res == "...")
+                    ListQuestions.Items[i].SubItems[2].Text = correct ? "Correcto" : "ERROR";
+                else if (res == "Correcto")
+                    c++;
+            }
+            LabelCorrectNum.Text = "Aciertos: " + c;
+        }
         void Init(object sender, EventArgs e)
         {
             T = new Timer();
