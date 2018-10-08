@@ -113,7 +113,16 @@ namespace TinyVirtualQ
             {
                 // Le restamos 1... Hay que saber que al llenar esta madre, le pusimos un elemento al inicio...
                 index--;
+
                 ContestList[index].Rounds = DataBase.LoadRounds(ContestList[index].Id);
+
+                //  Verificamos si es jugable
+                if (ContestList[index].RequiredQuestions > QuestionBank.Length)
+                {
+                    MessageBox.Show("No se podrá jugar ya que se requiere de " + ContestList[0].RequiredQuestions + " preguntas y solo se cuenta con " + QuestionBank.Length + " en el banco.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 // Al igual que los concursos, agregamos un elemento al inicio de la lista
                 AdminComboRounds.Items.Clear();
@@ -158,7 +167,7 @@ namespace TinyVirtualQ
 
         }
 
-        private void StartRound(object sender = null, EventArgs e = null)
+        void StartRound(object sender = null, EventArgs e = null)
         {
             //  Sacamos el index para trabajar
             int i = AdminComboContest.SelectedIndex - 1;
@@ -215,8 +224,8 @@ namespace TinyVirtualQ
                     status;
             }
         }
-
-        private void PlayerClicked(object sender, EventArgs e)
+        
+        void PlayerClicked(object sender, EventArgs e)
         {
             if( ListPlayers.SelectedItems.Count > 0 )
             {

@@ -30,5 +30,18 @@ namespace TinyVirtualQ
             this.Id = Id;
             this.Name = Name;
         }
+
+        public int RequiredQuestions
+        {
+            get
+            {
+                int round_required_questions = 0;
+                foreach (Round R in Rounds)
+                    round_required_questions += R.RequiredPlayers * R.QuestionsByPlayer;
+
+                round_required_questions += (int)(round_required_questions * 0.25);
+                return round_required_questions;
+            }
+        }
     }
 }
