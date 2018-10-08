@@ -27,23 +27,29 @@ namespace TinyVirtualQ
             return Current(Questions.ToArray());
         }
 
-        public Question(int Id, string Text, string Category, string Answer)
+        public Question(int Id, string Text, string Category, string Answer, QuestionResult Result)
         {
-            Set(Id, Text, Category, Answer);
+            Set(Id, Text, Category, Answer, Result);
         }
-        public Question(string Id, string Text, string Category, string Answer)
+        public Question(string Id, string Text, string Category, string Answer, string Result)
         {
             int id = 0;
-            try { id = int.Parse(Id); }
+            QuestionResult result = QuestionResult.None;
+            try
+            {
+                id = int.Parse(Id);
+                result = (QuestionResult)int.Parse(Result);
+            }
             catch { }
-            Set(id, Text, Category, Answer);
+            Set(id, Text, Category, Answer, result);
         }
-        void Set(int Id, string Text, string Category, string Answer)
+        void Set(int Id, string Text, string Category, string Answer, QuestionResult Result)
         {
             this.Id = Id;
             this.Text = Text;
             this.Category = Category;
             this.Answer = Answer;
+            this.Result = Result;
         }
 
     }

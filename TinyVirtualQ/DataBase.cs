@@ -36,31 +36,57 @@ namespace TinyVirtualQ
         }
         public static Question[] LoadQuestions()
         {
-            DataRowCollection D = db_select("SELECT * FROM questions");
+            return GetQuestions("SELECT *, 0 AS Result FROM questions");
+        }
+        public static Question[] LoadUsedQuestions(int PlayerId, int RoundId)
+        {
+            return GetQuestions("SELECT q.*, u.Result " +
+                "FROM used_questions u " +
+                "LEFT JOIN questions q ON q.Id = u.QuestionId " +
+                "WHERE u.PlayerId = " + PlayerId + " AND u.RoundId = " + RoundId);
+        }
+        public static Question[] LoadUsedQuestions(int RoundId)
+        {
+            return GetQuestions("SELECT q.*, u.Result " +
+                "FROM used_questions u " +
+                "LEFT JOIN questions q ON q.Id = u.QuestionId " +
+                "WHERE u.RoundId = " + RoundId);
+        }
+        static Question[] GetQuestions(string sql)
+        {
+            DataRowCollection D = db_select(sql);
             List<Question> Q = new List<Question>();
             foreach (DataRow d in D)
+            {
                 Q.Add(new Question(
                         d["Id"].ToString(),
                         d["Category"].ToString(),
                         d["Question"].ToString(),
-                        d["Answer"].ToString()
+                        d["Answer"].ToString(),
+                        d["Result"].ToString()
                     )
                 );
-
+            }
             return Q.ToArray();
         }
-        public static Player[] LoadPlayers()
+        public static Player[] LoadPlayers(int RoundId = 0)
         {
             DataRowCollection D = db_select("SELECT * FROM players");
             List<Player> P = new List<Player>();
+
             foreach (DataRow d in D)
-                P.Add(new Player(
-                        d["Id"].ToString(),
-                        d["Firsname"].ToString(),
-                        d["Lastname"].ToString(),
-                        d["Picture"].ToString()
-                    )
+            {
+                Player p = new Player(
+                    d["Id"].ToString(),
+                    d["Firsname"].ToString(),
+                    d["Lastname"].ToString(),
+                    d["Picture"].ToString()
                 );
+                if (RoundId > 0)
+                    p.Questions.AddRange(LoadUsedQuestions(p.Id, RoundId));
+
+                P.Add(p);
+            }
             return P.ToArray();
         }
         static string CNN = @"Provider=Microsoft.Jet.OLEDB.4.0;Data source = " + Application.StartupPath + "\\questy-on.mdb";

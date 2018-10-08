@@ -547,6 +547,7 @@
             this.AdminButtonRoundStart.Tag = "";
             this.AdminButtonRoundStart.Text = "Iniciar";
             this.AdminButtonRoundStart.UseVisualStyleBackColor = true;
+            this.AdminButtonRoundStart.Click += new System.EventHandler(this.StartRound);
             // 
             // AdminButtonContestStart
             // 

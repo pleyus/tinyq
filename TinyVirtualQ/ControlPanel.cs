@@ -157,5 +157,27 @@ namespace TinyVirtualQ
             }
 
         }
+
+        private void StartRound(object sender, EventArgs e)
+        {
+            //  Sacamos el index para trabajar
+            int i = AdminComboRounds.SelectedIndex;
+
+            if(i > 0) // Porque siempre hay un elemento al comienzo
+            {
+                i--;
+                int j = AdminComboContest.SelectedIndex - 1; // Index del concurso actual
+
+                int RId = ContestList[j].Rounds[i].Id;
+
+                //  Cargamos los players con sus preguntas usadas en esta ronda.
+                ContestList[j].Rounds[i].Players.AddRange(DataBase.LoadPlayers( RId ));
+
+                //  Aqui pondremos la carga de preguntas en el ListView
+
+                //  Cargamos las Preguntas usadas en esta ronda.
+                ContestList[j].Rounds[i].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
+            }
+        }
     }
 }
