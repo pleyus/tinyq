@@ -685,6 +685,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ControlPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Questy-ON";
             this.Load += new System.EventHandler(this.onLoad);
             this.GMaster.ResumeLayout(false);

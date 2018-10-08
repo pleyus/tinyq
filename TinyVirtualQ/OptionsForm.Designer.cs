@@ -77,6 +77,7 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ButtonRoundAdd = new System.Windows.Forms.Button();
+            this.ButtonQuestionNew = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -154,6 +155,7 @@
             this.ButtonContestCreate.TabIndex = 2;
             this.ButtonContestCreate.Text = "Crear";
             this.ButtonContestCreate.UseVisualStyleBackColor = true;
+            this.ButtonContestCreate.Click += new System.EventHandler(this.CreateContest);
             // 
             // TextContestNew
             // 
@@ -306,6 +308,7 @@
             this.tabPage2.Controls.Add(this.TextQuestionsCategory);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.ButtonQuestionDelete);
+            this.tabPage2.Controls.Add(this.ButtonQuestionNew);
             this.tabPage2.Controls.Add(this.ButtonQuestionSave);
             this.tabPage2.Controls.Add(this.TextQuestionsAnswer);
             this.tabPage2.Controls.Add(this.TextQuestionsQuestion);
@@ -322,15 +325,15 @@
             // 
             // TextQuestionsCategory
             // 
-            this.TextQuestionsCategory.Location = new System.Drawing.Point(537, 31);
+            this.TextQuestionsCategory.Location = new System.Drawing.Point(515, 31);
             this.TextQuestionsCategory.Name = "TextQuestionsCategory";
-            this.TextQuestionsCategory.Size = new System.Drawing.Size(114, 21);
+            this.TextQuestionsCategory.Size = new System.Drawing.Size(147, 21);
             this.TextQuestionsCategory.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(534, 13);
+            this.label5.Location = new System.Drawing.Point(512, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 15);
             this.label5.TabIndex = 9;
@@ -338,28 +341,32 @@
             // 
             // ButtonQuestionDelete
             // 
-            this.ButtonQuestionDelete.Location = new System.Drawing.Point(668, 51);
+            this.ButtonQuestionDelete.Enabled = false;
+            this.ButtonQuestionDelete.Location = new System.Drawing.Point(668, 77);
             this.ButtonQuestionDelete.Name = "ButtonQuestionDelete";
-            this.ButtonQuestionDelete.Size = new System.Drawing.Size(89, 32);
+            this.ButtonQuestionDelete.Size = new System.Drawing.Size(89, 26);
             this.ButtonQuestionDelete.TabIndex = 6;
             this.ButtonQuestionDelete.Text = "Eliminar";
             this.ButtonQuestionDelete.UseVisualStyleBackColor = true;
+            this.ButtonQuestionDelete.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // ButtonQuestionSave
             // 
+            this.ButtonQuestionSave.Enabled = false;
             this.ButtonQuestionSave.Location = new System.Drawing.Point(668, 13);
             this.ButtonQuestionSave.Name = "ButtonQuestionSave";
-            this.ButtonQuestionSave.Size = new System.Drawing.Size(89, 32);
+            this.ButtonQuestionSave.Size = new System.Drawing.Size(89, 26);
             this.ButtonQuestionSave.TabIndex = 4;
             this.ButtonQuestionSave.Text = "Guardar";
             this.ButtonQuestionSave.UseVisualStyleBackColor = true;
+            this.ButtonQuestionSave.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // TextQuestionsAnswer
             // 
             this.TextQuestionsAnswer.Location = new System.Drawing.Point(266, 31);
             this.TextQuestionsAnswer.Multiline = true;
             this.TextQuestionsAnswer.Name = "TextQuestionsAnswer";
-            this.TextQuestionsAnswer.Size = new System.Drawing.Size(265, 45);
+            this.TextQuestionsAnswer.Size = new System.Drawing.Size(243, 72);
             this.TextQuestionsAnswer.TabIndex = 2;
             // 
             // TextQuestionsQuestion
@@ -367,7 +374,7 @@
             this.TextQuestionsQuestion.Location = new System.Drawing.Point(18, 31);
             this.TextQuestionsQuestion.Multiline = true;
             this.TextQuestionsQuestion.Name = "TextQuestionsQuestion";
-            this.TextQuestionsQuestion.Size = new System.Drawing.Size(242, 45);
+            this.TextQuestionsQuestion.Size = new System.Drawing.Size(242, 72);
             this.TextQuestionsQuestion.TabIndex = 1;
             // 
             // label6
@@ -391,28 +398,29 @@
             // ListQuestions
             // 
             this.ListQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
             this.columnHeader5,
+            this.columnHeader1,
             this.columnHeader6});
             this.ListQuestions.FullRowSelect = true;
-            this.ListQuestions.Location = new System.Drawing.Point(18, 89);
+            this.ListQuestions.Location = new System.Drawing.Point(18, 109);
             this.ListQuestions.Name = "ListQuestions";
-            this.ListQuestions.Size = new System.Drawing.Size(739, 272);
+            this.ListQuestions.Size = new System.Drawing.Size(739, 252);
             this.ListQuestions.TabIndex = 5;
             this.ListQuestions.UseCompatibleStateImageBehavior = false;
             this.ListQuestions.View = System.Windows.Forms.View.Details;
+            this.ListQuestions.SelectedIndexChanged += new System.EventHandler(this.QuestionSelection);
             // 
             // columnHeader1
             // 
             this.columnHeader1.DisplayIndex = 1;
             this.columnHeader1.Text = "Pregunta";
-            this.columnHeader1.Width = 352;
+            this.columnHeader1.Width = 379;
             // 
             // columnHeader5
             // 
             this.columnHeader5.DisplayIndex = 0;
             this.columnHeader5.Text = "Categoria";
-            this.columnHeader5.Width = 135;
+            this.columnHeader5.Width = 112;
             // 
             // columnHeader6
             // 
@@ -575,6 +583,16 @@
             this.ButtonRoundAdd.UseVisualStyleBackColor = true;
             this.ButtonRoundAdd.Click += new System.EventHandler(this.RoundButtonsClick);
             // 
+            // ButtonQuestionNew
+            // 
+            this.ButtonQuestionNew.Location = new System.Drawing.Point(668, 45);
+            this.ButtonQuestionNew.Name = "ButtonQuestionNew";
+            this.ButtonQuestionNew.Size = new System.Drawing.Size(89, 26);
+            this.ButtonQuestionNew.TabIndex = 4;
+            this.ButtonQuestionNew.Text = "Nueva";
+            this.ButtonQuestionNew.UseVisualStyleBackColor = true;
+            this.ButtonQuestionNew.Click += new System.EventHandler(this.QuestionsButtonsClick);
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,5 +677,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button ButtonPlayerSelectFile;
         private System.Windows.Forms.Button ButtonRoundAdd;
+        private System.Windows.Forms.Button ButtonQuestionNew;
     }
 }

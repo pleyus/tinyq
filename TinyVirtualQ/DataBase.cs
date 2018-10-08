@@ -133,8 +133,8 @@ namespace TinyVirtualQ
             {
                 Q.Add(new Question(
                         d["Id"].ToString(),
-                        d["Category"].ToString(),
                         d["Question"].ToString(),
+                        d["Category"].ToString(),
                         d["Answer"].ToString(),
                         d["Result"].ToString(),
                         d["Type"].ToString()
@@ -164,6 +164,11 @@ namespace TinyVirtualQ
             return P.ToArray();
         }
 
+        public static bool CreateNew(Contest Contest)
+        {
+            return Exec("INSERT INTO contest (ContestName) VALUES ('" + Contest.Name + "')");
+        }
+
         public static bool CreateNew(Round Round, int ContestId)
         {
             return Exec("INSERT INTO rounds (ContestId, RequiredPlayers, QuestionsByPlayer) VALUES (" + ContestId + ", " + Round.RequiredPlayers + ", " + Round.QuestionsByPlayer + ")");
@@ -180,13 +185,18 @@ namespace TinyVirtualQ
 
         public static bool CreateNew(Question Question)
         {
-            return Exec("INSERT INTO questions (Category, Question, Answer) VALUES (" + Question.Category + ", "  + Question.Text + ", " + Question.Answer + ")");
+            return Exec("INSERT INTO questions (Category, Question, Answer) VALUES ('" + Question.Category.Replace('\'', ' ') +
+                "', '"  + Question.Text.Replace('\'', ' ') + "', '" + Question.Answer.Replace('\'', ' ') + "')");
         }
         public static bool Update(Question Question)
         {
             return Exec("UPDATE questions SET Category = '" + Question.Category + 
                 "', Question = '" + Question.Text + "', Answer = '" + 
                 Question.Answer + "' WHERE Id = " + Question.Id);
+        }
+        public static bool Delete(Question Question)
+        {
+            return Exec("DELETE FROM questions WHERE Id = " + Question.Id);
         }
 
     }

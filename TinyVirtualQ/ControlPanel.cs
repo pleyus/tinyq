@@ -116,10 +116,16 @@ namespace TinyVirtualQ
 
                 ContestList[index].Rounds = DataBase.LoadRounds(ContestList[index].Id);
 
+                if(ContestList[index].Rounds.Length < 1)
+                {
+                    MessageBox.Show("No hay rondas para jugar en este concurso, ve a Opciones para agregar al menos 1", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 //  Verificamos si es jugable
                 if (ContestList[index].RequiredQuestions > QuestionBank.Length)
                 {
-                    MessageBox.Show("No se podrá jugar ya que se requiere de " + ContestList[0].RequiredQuestions + " preguntas y solo se cuenta con " + QuestionBank.Length + " en el banco.",
+                    MessageBox.Show("No se podrá jugar ya que se requiere de " + ContestList[index].RequiredQuestions + " preguntas y solo se cuenta con " + QuestionBank.Length + " en el banco.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -184,7 +190,8 @@ namespace TinyVirtualQ
 
                 int RId = ContestList[i].Rounds[j].Id;
 
-                //  Cargamos los players con sus preguntas usadas en esta ronda.
+                //  Quitamos y cargamos los players con sus preguntas usadas en esta ronda.
+                ContestList[i].Rounds[j].Players.Clear();
                 ContestList[i].Rounds[j].Players.AddRange(DataBase.LoadPlayers( RId ));
 
                 //  Cargamos los players en el listview y sus datos
@@ -209,7 +216,7 @@ namespace TinyVirtualQ
                 }
 
                 //  Cargamos las Preguntas usadas en esta ronda.
-                ContestList[j].Rounds[i].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
+                ContestList[i].Rounds[j].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
 
                 SwitchEnableGameButtons(true);
                 
