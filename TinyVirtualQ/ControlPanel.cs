@@ -28,9 +28,7 @@ namespace TinyVirtualQ
             QuestionBank = DataBase.LoadQuestions();
             ContestList = DataBase.LoadContests();
 
-            AdminComboRounds.Items.Clear();
-            foreach (Contest C in ContestList)
-                AdminComboRounds.Items.Add(C.Name);
+            LoadContestInfo();
 
             ShuffleQuestions();
 
@@ -89,6 +87,79 @@ namespace TinyVirtualQ
                     MessageBox.Show(this, "No se puede agregar otra pregunta ya que no se ha contestado la actual",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }*/
+        }
+
+        void LoadContestInfo()
+        {
+            AdminComboContest.Items.Clear();
+            foreach (Contest C in ContestList)
+                AdminComboContest.Items.Add(C.Name);
+
+            if (AdminComboContest.Items.Count > 0)
+            {
+                AdminComboContest.Text = "(Selecciona un concurso)";
+                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = false;
+            }
+            else
+            {
+                AdminComboContest.Text = "No hay concursos";
+                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = false;
+            }
+        }
+        void LoadRoundsInfo(object sender, EventArgs e)
+        {
+            int index = AdminComboContest.SelectedIndex;
+            if (index > -1)
+            {
+                ContestList[index].Rounds = DataBase.LoadRounds(ContestList[index].Id);
+                AdminComboRounds.Items.Clear();
+
+                for (int i = 0; i < ContestList[index].Rounds.Length; i++)
+                {
+                    string name = "Ronda #" + (i+1);
+                    if (i == ContestList[index].Rounds.Length - 1)
+                        name = "Final";
+                    AdminComboRounds.Items.Add(name);
+                }
+
+                if(AdminComboRounds.Items.Count > 0)
+                {
+                    //  Habilita los botones de la ronda y la lista de usuarios
+                    AdminComboRounds.Enabled = 
+                        AdminButtonRoundStart.Enabled = 
+                        AdminButtonPlayers.Enabled = 
+                        ListPlayers.Enabled =
+                        true;
+
+                    //  Ponemos el texto de seleccionar
+                    AdminComboRounds.Text = "(Seleccione)";
+
+                    //  Deshabilita la Lista de concursos y su boton
+                    AdminComboContest.Enabled =
+                        AdminButtonContestStart.Enabled =
+                        false;
+                }
+                else
+                {
+                    //  Deshabilita los botones de la ronda y la lista de usuarios
+                    AdminComboRounds.Enabled =
+                        AdminButtonRoundStart.Enabled =
+                        AdminButtonPlayers.Enabled =
+                        ListPlayers.Enabled =
+                        false;
+
+                    //  Ponemos el texto de sin rondas
+                    AdminComboRounds.Text = "(No hay rondas)";
+
+                    //  Habilita la Lista de concursos y su boton
+                    AdminComboContest.Enabled =
+                        AdminButtonContestStart.Enabled =
+                        true;
+                }
+
+
+            }
+
         }
     }
 }

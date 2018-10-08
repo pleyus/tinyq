@@ -293,17 +293,17 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Ronda #";
-            this.columnHeader2.Width = 70;
+            this.columnHeader2.Width = 98;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Jugadores permitidos";
-            this.columnHeader3.Width = 155;
+            this.columnHeader3.Width = 138;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Preguntas por jugador";
-            this.columnHeader4.Width = 150;
+            this.columnHeader4.Width = 140;
             // 
             // tabPage2
             // 

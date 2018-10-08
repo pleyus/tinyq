@@ -17,6 +17,23 @@ namespace TinyVirtualQ
 
             return C.ToArray();
         }
+        public static Round[] LoadRounds(int ContestId = 0)
+        {
+            DataRowCollection D = db_select("SELECT * FROM rounds " +
+                (ContestId > 0 ? "WHERE Id = " + ContestId : "") + 
+                " ORDER BY Id ASC");
+            List<Round> R = new List<Round>();
+            foreach (DataRow d in D)
+                R.Add(
+                    new Round(
+                        d["Id"].ToString(),
+                        d["RequiredPlayers"].ToString(),
+                        d["QuestionsByPlayer"].ToString()
+                    )
+                );
+
+            return R.ToArray();
+        }
         public static Question[] LoadQuestions()
         {
             DataRowCollection D = db_select("SELECT * FROM questions");
