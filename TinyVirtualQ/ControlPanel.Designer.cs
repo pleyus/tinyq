@@ -48,26 +48,26 @@
             this.SlaveButtonUpdate = new System.Windows.Forms.Button();
             this.SlaveComboScreens = new System.Windows.Forms.ComboBox();
             this.GAdmin = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ListPlayers = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AdminButtonWrong = new System.Windows.Forms.Button();
             this.AdminButtonCorrect = new System.Windows.Forms.Button();
             this.AdminButtonWait = new System.Windows.Forms.Button();
             this.AdminButtonRun = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.AdminButtonOptions = new System.Windows.Forms.Button();
+            this.AdminButtonPlayers = new System.Windows.Forms.Button();
+            this.AdminButtonRoundStart = new System.Windows.Forms.Button();
             this.AdminButtonContestStart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.AdminButtonSetQuestion = new System.Windows.Forms.Button();
-            this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminComboRounds = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.AdminButtonRoundStart = new System.Windows.Forms.Button();
-            this.AdminButtonPlayers = new System.Windows.Forms.Button();
+            this.AdminComboContest = new System.Windows.Forms.ComboBox();
+            this.AdminButtonOptions = new System.Windows.Forms.Button();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -373,6 +373,17 @@
             this.GAdmin.TabStop = false;
             this.GAdmin.Text = "Administrador";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label4.Location = new System.Drawing.Point(13, 70);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Ronda";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -402,11 +413,6 @@
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Desempate";
-            this.columnHeader4.Width = 92;
-            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Jugador";
@@ -421,6 +427,11 @@
             // 
             this.columnHeader3.Text = "Aciertos";
             this.columnHeader3.Width = 87;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Desempate";
+            this.columnHeader4.Width = 92;
             // 
             // AdminButtonWrong
             // 
@@ -510,18 +521,32 @@
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // AdminButtonOptions
+            // AdminButtonPlayers
             // 
-            this.AdminButtonOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminButtonOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminButtonOptions.Location = new System.Drawing.Point(954, 12);
-            this.AdminButtonOptions.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminButtonOptions.Name = "AdminButtonOptions";
-            this.AdminButtonOptions.Size = new System.Drawing.Size(91, 28);
-            this.AdminButtonOptions.TabIndex = 1;
-            this.AdminButtonOptions.Tag = "";
-            this.AdminButtonOptions.Text = "Opciones";
-            this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            this.AdminButtonPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminButtonPlayers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonPlayers.Enabled = false;
+            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 64);
+            this.AdminButtonPlayers.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonPlayers.Name = "AdminButtonPlayers";
+            this.AdminButtonPlayers.Size = new System.Drawing.Size(92, 28);
+            this.AdminButtonPlayers.TabIndex = 1;
+            this.AdminButtonPlayers.Tag = "";
+            this.AdminButtonPlayers.Text = "Jugadores";
+            this.AdminButtonPlayers.UseVisualStyleBackColor = true;
+            // 
+            // AdminButtonRoundStart
+            // 
+            this.AdminButtonRoundStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonRoundStart.Enabled = false;
+            this.AdminButtonRoundStart.Location = new System.Drawing.Point(274, 64);
+            this.AdminButtonRoundStart.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonRoundStart.Name = "AdminButtonRoundStart";
+            this.AdminButtonRoundStart.Size = new System.Drawing.Size(92, 28);
+            this.AdminButtonRoundStart.TabIndex = 1;
+            this.AdminButtonRoundStart.Tag = "";
+            this.AdminButtonRoundStart.Text = "Iniciar";
+            this.AdminButtonRoundStart.UseVisualStyleBackColor = true;
             // 
             // AdminButtonContestStart
             // 
@@ -574,6 +599,19 @@
             this.AdminButtonSetQuestion.UseVisualStyleBackColor = true;
             this.AdminButtonSetQuestion.Click += new System.EventHandler(this.GameActions);
             // 
+            // AdminComboRounds
+            // 
+            this.AdminComboRounds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AdminComboRounds.Enabled = false;
+            this.AdminComboRounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.AdminComboRounds.FormattingEnabled = true;
+            this.AdminComboRounds.Location = new System.Drawing.Point(69, 65);
+            this.AdminComboRounds.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminComboRounds.Name = "AdminComboRounds";
+            this.AdminComboRounds.Size = new System.Drawing.Size(201, 26);
+            this.AdminComboRounds.TabIndex = 0;
+            this.AdminComboRounds.Tag = "";
+            // 
             // AdminComboContest
             // 
             this.AdminComboContest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -588,57 +626,18 @@
             this.AdminComboContest.TabIndex = 0;
             this.AdminComboContest.Tag = "";
             // 
-            // AdminComboRounds
+            // AdminButtonOptions
             // 
-            this.AdminComboRounds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AdminComboRounds.Enabled = false;
-            this.AdminComboRounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.AdminComboRounds.FormattingEnabled = true;
-            this.AdminComboRounds.Location = new System.Drawing.Point(69, 65);
-            this.AdminComboRounds.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminComboRounds.Name = "AdminComboRounds";
-            this.AdminComboRounds.Size = new System.Drawing.Size(201, 26);
-            this.AdminComboRounds.TabIndex = 0;
-            this.AdminComboRounds.Tag = "";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Enabled = false;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label4.Location = new System.Drawing.Point(13, 70);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Ronda";
-            // 
-            // AdminButtonRoundStart
-            // 
-            this.AdminButtonRoundStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminButtonRoundStart.Enabled = false;
-            this.AdminButtonRoundStart.Location = new System.Drawing.Point(274, 64);
-            this.AdminButtonRoundStart.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminButtonRoundStart.Name = "AdminButtonRoundStart";
-            this.AdminButtonRoundStart.Size = new System.Drawing.Size(92, 28);
-            this.AdminButtonRoundStart.TabIndex = 1;
-            this.AdminButtonRoundStart.Tag = "";
-            this.AdminButtonRoundStart.Text = "Iniciar";
-            this.AdminButtonRoundStart.UseVisualStyleBackColor = true;
-            // 
-            // AdminButtonPlayers
-            // 
-            this.AdminButtonPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminButtonPlayers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminButtonPlayers.Enabled = false;
-            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 64);
-            this.AdminButtonPlayers.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminButtonPlayers.Name = "AdminButtonPlayers";
-            this.AdminButtonPlayers.Size = new System.Drawing.Size(92, 28);
-            this.AdminButtonPlayers.TabIndex = 1;
-            this.AdminButtonPlayers.Tag = "";
-            this.AdminButtonPlayers.Text = "Jugadores";
-            this.AdminButtonPlayers.UseVisualStyleBackColor = true;
+            this.AdminButtonOptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminButtonOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonOptions.Location = new System.Drawing.Point(954, 12);
+            this.AdminButtonOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonOptions.Name = "AdminButtonOptions";
+            this.AdminButtonOptions.Size = new System.Drawing.Size(91, 28);
+            this.AdminButtonOptions.TabIndex = 1;
+            this.AdminButtonOptions.Tag = "";
+            this.AdminButtonOptions.Text = "Opciones";
+            this.AdminButtonOptions.UseVisualStyleBackColor = true;
             // 
             // ControlPanel
             // 

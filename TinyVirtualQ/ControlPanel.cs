@@ -26,12 +26,11 @@ namespace TinyVirtualQ
         public void onLoad(object sender = null, EventArgs e = null)
         {
             QuestionBank = DataBase.LoadQuestions();
+            ShuffleQuestions(); // Mezclamos las preguntas
+
             ContestList = DataBase.LoadContests();
-
-            LoadContestInfo();
-
-            ShuffleQuestions();
-
+            LoadContestInfo();  // Cargamos la info de los concursos en el modulo
+            
             MONITOR = new ScreenController(QuestionBank);
             MONITOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
             MONITOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);
@@ -91,48 +90,50 @@ namespace TinyVirtualQ
 
         void LoadContestInfo()
         {
+            // Limpiamos y Agregamos un elemento al combo, dependiendo de si hay o no Concursos
             AdminComboContest.Items.Clear();
+            AdminComboContest.Items.Add(ContestList.Length > 0 ? "(Selecciona un concurso)" : "No hay concursos");
+
             foreach (Contest C in ContestList)
                 AdminComboContest.Items.Add(C.Name);
+            AdminComboContest.SelectedIndex = 0;
 
-            if (AdminComboContest.Items.Count > 0)
-            {
-                AdminComboContest.Text = "(Selecciona un concurso)";
-                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = false;
-            }
+            if (ContestList.Length > 0)
+                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = true;
             else
-            {
-                AdminComboContest.Text = "No hay concursos";
                 AdminComboContest.Enabled = AdminButtonContestStart.Enabled = false;
-            }
         }
         void LoadRoundsInfo(object sender, EventArgs e)
         {
+            //  Sacamos el Index tal cual
             int index = AdminComboContest.SelectedIndex;
-            if (index > -1)
+
+            // Y si es mayor que 0...
+            if (index > 0)
             {
+                // Le restamos 1... Hay que saber que al llenar esta madre, le pusimos un elemento al inicio...
+                index--;
                 ContestList[index].Rounds = DataBase.LoadRounds(ContestList[index].Id);
+
+                // Al igual que los concursos, agregamos un elemento al inicio de la lista
                 AdminComboRounds.Items.Clear();
+                AdminComboRounds.Items.Add(ContestList[index].Rounds.Length > 0 ? "(Seleccione)"  : "(No hay rondas)");
 
                 for (int i = 0; i < ContestList[index].Rounds.Length; i++)
                 {
                     string name = "Ronda #" + (i+1);
-                    if (i == ContestList[index].Rounds.Length - 1)
+                    if (i == ContestList[index].Rounds.Length - 1 && ContestList[index].Rounds.Length > 2)
                         name = "Final";
                     AdminComboRounds.Items.Add(name);
                 }
+                AdminComboRounds.SelectedIndex = 0;
 
                 if(AdminComboRounds.Items.Count > 0)
                 {
                     //  Habilita los botones de la ronda y la lista de usuarios
                     AdminComboRounds.Enabled = 
-                        AdminButtonRoundStart.Enabled = 
-                        AdminButtonPlayers.Enabled = 
-                        ListPlayers.Enabled =
+                        AdminButtonRoundStart.Enabled =
                         true;
-
-                    //  Ponemos el texto de seleccionar
-                    AdminComboRounds.Text = "(Seleccione)";
 
                     //  Deshabilita la Lista de concursos y su boton
                     AdminComboContest.Enabled =
@@ -144,12 +145,7 @@ namespace TinyVirtualQ
                     //  Deshabilita los botones de la ronda y la lista de usuarios
                     AdminComboRounds.Enabled =
                         AdminButtonRoundStart.Enabled =
-                        AdminButtonPlayers.Enabled =
-                        ListPlayers.Enabled =
-                        false;
-
-                    //  Ponemos el texto de sin rondas
-                    AdminComboRounds.Text = "(No hay rondas)";
+                        false;                    
 
                     //  Habilita la Lista de concursos y su boton
                     AdminComboContest.Enabled =
