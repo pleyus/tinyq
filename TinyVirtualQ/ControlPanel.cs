@@ -19,15 +19,12 @@ namespace TinyVirtualQ
         ScreenController PROYECTOR;
         ScreenController MONITOR;
 
-        int current_question = 0;
-        Round Round;
-        Question[] QuestionBank;
-        Player[] Players;
+        Round CurrentRound;
+        Round[] Rondas;
         
 
         private void onLoad(object sender, EventArgs e)
         {
-            Round = new Round()
             QuestionBank = Question.FromFile(@"question.db");
             ShuffleQuestions();
 
@@ -40,6 +37,8 @@ namespace TinyVirtualQ
             PROYECTOR.SetComponent(SlavePictureScreen, SlaveComboScreens, SlaveButtonUpdate);
             PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);
         }
+
+
         void ShuffleQuestions()
         {
             // Knuth shuffle algorithm :: courtesy of Wikipedia :)
@@ -56,6 +55,12 @@ namespace TinyVirtualQ
         {
             if (sender == AdminButtonSetQuestion && ListPlayers.SelectedItems.Count > 0)
                 Put();
+            if( sender == AdminButtonRun )
+            {
+                MONITOR.Run();
+                PROYECTOR.Run();
+            }
+
         }
 
         void Put()
@@ -76,7 +81,7 @@ namespace TinyVirtualQ
                     
                 }
                 else
-                    MessageBox.Show("No se puede agregar otra pregunta ya que no se ha contestado la actual",
+                    MessageBox.Show(this, "No se puede agregar otra pregunta ya que no se ha contestado la actual",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -82,6 +82,12 @@
     <Compile Include="MasterGameScreen.Designer.cs">
       <DependentUpon>MasterGameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Round.cs" />
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterGameScreen.resx">
       <DependentUpon>MasterGameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SlaveGameScreen.resx">
       <DependentUpon>SlaveGameScreen.cs</DependentUpon>

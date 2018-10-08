@@ -260,8 +260,10 @@ namespace TinyVirtualQ
 
         public void Run()
         {
-            MASTER_GAME.Run();
-            SLAVE_GAME.Run();
+            if(MASTER_GAME.IsReady)
+                MASTER_GAME.Run();
+            if (SLAVE_GAME.IsReady)
+                SLAVE_GAME.Run();
         }
         public void Put(Player ThePlayer)
         {

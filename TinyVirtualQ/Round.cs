@@ -7,19 +7,30 @@ namespace TinyVirtualQ
 {
     public class Round
     {
-        int RequiredPlayers;
-        string Name { get; set; }
-        int QuestionsByPlayer;
+        public enum RoundStatus { Open, Close, InCourse }
 
+        public int Id { get; }
+        public int RequiredPlayers { get; }
+        public string Name { get; }
+        public int QuestionsByPlayer { get; }
+
+        public RoundStatus Status { get; set; }
+
+        public List<Question> TotalQuestions { get; set; }
         public List<Question> UsedQuestions { get; set; }
-        public Player[] Players { get; set; }
+        public List<Player> Players { get; set; }
 
-        public Round(string name, int players, int question_by_player)
+        public Round(int Id)
         {
-            RequiredPlayers = players;
-            Name = name;
-            QuestionsByPlayer = question_by_player;
+            TotalQuestions = new List<Question>();
             UsedQuestions = new List<Question>();
+            Players = new List<Player>();
+        }
+
+        List<Question> LoadAllQuestions()
+        {
+            string sql = "SELECT * FROM questions";
+
         }
 
         public void AddQuestion(Question UsedQuestion, string UserId)

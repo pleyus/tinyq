@@ -22,6 +22,7 @@ namespace TinyVirtualQ
         int current_miliseconds = 0;
         int pix = 1;
         int BancoPreguntas = 0;
+        public bool IsReady { get; set; }
 
         public void Put(Player Jugador)
         {
@@ -47,6 +48,8 @@ namespace TinyVirtualQ
 
             //  Ocultamos el estado
             PictureProgressContainer.Visible = PictureProgressBar.Visible = PictureState.Visible = T.Enabled = false;
+
+            IsReady = true;
         }
         public void Run(int Seconds = 5)
         {
@@ -63,20 +66,24 @@ namespace TinyVirtualQ
                 PictureProgressBar.Visible = 
                     PictureState.Visible = 
                         T.Enabled = true;
+            IsReady = false;
         }
         public void Wait()
         {
             T.Enabled = false;
             PictureState.Image = Resource1.loading;
+            IsReady = false;
         }
         public void Wrong()
         {
             T.Enabled = false;
+            IsReady = false;
             PictureState.Image = Resource1.wrong;
         }
         public void Correct()
         {
             T.Enabled = false;
+            IsReady = false;
             PictureState.Image = Resource1.correct;
         }
 

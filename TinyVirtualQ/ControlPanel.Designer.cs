@@ -48,6 +48,7 @@
             this.SlaveButtonUpdate = new System.Windows.Forms.Button();
             this.SlaveComboScreens = new System.Windows.Forms.ComboBox();
             this.GAdmin = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.ListPlayers = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,8 +59,11 @@
             this.AdminButtonWait = new System.Windows.Forms.Button();
             this.AdminButtonRun = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.AdminButtonRoundStart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.AdminButtonSetQuestion = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AdminButtonOptions = new System.Windows.Forms.Button();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -340,14 +344,18 @@
             this.GAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GAdmin.Controls.Add(this.label3);
             this.GAdmin.Controls.Add(this.ListPlayers);
             this.GAdmin.Controls.Add(this.AdminButtonWrong);
             this.GAdmin.Controls.Add(this.AdminButtonCorrect);
             this.GAdmin.Controls.Add(this.AdminButtonWait);
             this.GAdmin.Controls.Add(this.AdminButtonRun);
             this.GAdmin.Controls.Add(this.button6);
+            this.GAdmin.Controls.Add(this.AdminButtonOptions);
+            this.GAdmin.Controls.Add(this.AdminButtonRoundStart);
             this.GAdmin.Controls.Add(this.button5);
             this.GAdmin.Controls.Add(this.AdminButtonSetQuestion);
+            this.GAdmin.Controls.Add(this.comboBox1);
             this.GAdmin.Location = new System.Drawing.Point(217, 44);
             this.GAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.GAdmin.Name = "GAdmin";
@@ -357,6 +365,17 @@
             this.GAdmin.TabIndex = 3;
             this.GAdmin.TabStop = false;
             this.GAdmin.Text = "Administrador";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label3.Location = new System.Drawing.Point(13, 30);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Ronda";
             // 
             // ListPlayers
             // 
@@ -466,9 +485,21 @@
             this.button6.Size = new System.Drawing.Size(161, 38);
             this.button6.TabIndex = 1;
             this.button6.Tag = "";
-            this.button6.Text = "Analizar resultados";
+            this.button6.Text = "Terminar";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
+            // 
+            // AdminButtonRoundStart
+            // 
+            this.AdminButtonRoundStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonRoundStart.Location = new System.Drawing.Point(231, 24);
+            this.AdminButtonRoundStart.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonRoundStart.Name = "AdminButtonRoundStart";
+            this.AdminButtonRoundStart.Size = new System.Drawing.Size(71, 28);
+            this.AdminButtonRoundStart.TabIndex = 1;
+            this.AdminButtonRoundStart.Tag = "";
+            this.AdminButtonRoundStart.Text = "Cargar";
+            this.AdminButtonRoundStart.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -503,6 +534,30 @@
             this.AdminButtonSetQuestion.UseVisualStyleBackColor = true;
             this.AdminButtonSetQuestion.Click += new System.EventHandler(this.GameActions);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(56, 25);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(171, 26);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.Tag = "";
+            // 
+            // AdminButtonOptions
+            // 
+            this.AdminButtonOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonOptions.Location = new System.Drawing.Point(446, 25);
+            this.AdminButtonOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonOptions.Name = "AdminButtonOptions";
+            this.AdminButtonOptions.Size = new System.Drawing.Size(91, 28);
+            this.AdminButtonOptions.TabIndex = 1;
+            this.AdminButtonOptions.Tag = "";
+            this.AdminButtonOptions.Text = "Opciones";
+            this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -524,6 +579,7 @@
             this.GSlave.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).EndInit();
             this.GAdmin.ResumeLayout(false);
+            this.GAdmin.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +619,9 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button AdminButtonSetQuestion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button AdminButtonRoundStart;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button AdminButtonOptions;
     }
 }
