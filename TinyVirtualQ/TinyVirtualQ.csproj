@@ -52,12 +52,14 @@
     <Compile Include="BlackScreen.Designer.cs">
       <DependentUpon>BlackScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contest.cs" />
     <Compile Include="ControlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ControlPanel.Designer.cs">
       <DependentUpon>ControlPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataBase.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

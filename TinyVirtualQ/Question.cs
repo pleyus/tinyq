@@ -8,10 +8,12 @@ namespace TinyVirtualQ
     public class Question
     {
         public enum QuestionResult { None, Correct, Wrong };
-        public string Id;
-        public string Text;
-        public string Category;
-        public QuestionResult Result;
+
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public string Category { get; set; }
+        public string Answer { get; set; }
+        public QuestionResult Result { get; set; }
 
         public static Question Current(Question[] Questions)
         {
@@ -24,33 +26,26 @@ namespace TinyVirtualQ
         {
             return Current(Questions.ToArray());
         }
-        public Question(string QuestionText, string QuestionCategory)
+
+        public Question(int Id, string Text, string Category, string Answer)
         {
-            Text = QuestionText;
-            Category = QuestionCategory;
-            Result = QuestionResult.None;
+            Set(Id, Text, Category, Answer);
         }
-        public Question(string id, string text, string category, QuestionResult result)
+        public Question(string Id, string Text, string Category, string Answer)
         {
-            Id = id;
-            Text = text;
-            Category = category;
-            Result = result;
+            int id = 0;
+            try { id = int.Parse(Id); }
+            catch { }
+            Set(id, Text, Category, Answer);
         }
-        public static Question[] FromFile(string Filename)
+        void Set(int Id, string Text, string Category, string Answer)
         {
-            List<Question> QList = new List<Question>();
-            if (File.Exists(Filename))
-            {
-                foreach (string linea in File.ReadAllLines(@"questions.db"))
-                {
-                    string[] campos = linea.Split(new string[] { "[&x]" }, StringSplitOptions.RemoveEmptyEntries);
-                    if (campos.Length > 2)
-                        QList.Add(new Question(campos[0], campos[1], campos[2], Question.QuestionResult.None));
-                }
-            }
-            return QList.ToArray();
+            this.Id = Id;
+            this.Text = Text;
+            this.Category = Category;
+            this.Answer = Answer;
         }
+
     }
 
 }

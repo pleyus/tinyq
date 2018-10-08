@@ -16,21 +16,13 @@ namespace TinyVirtualQ
 
         public RoundStatus Status { get; set; }
 
-        public List<Question> TotalQuestions { get; set; }
         public List<Question> UsedQuestions { get; set; }
         public List<Player> Players { get; set; }
 
         public Round(int Id)
         {
-            TotalQuestions = new List<Question>();
             UsedQuestions = new List<Question>();
             Players = new List<Player>();
-        }
-
-        List<Question> LoadAllQuestions()
-        {
-            string sql = "SELECT * FROM questions";
-
         }
 
         public void AddQuestion(Question UsedQuestion, string UserId)

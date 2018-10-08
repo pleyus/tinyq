@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Text;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace TinyVirtualQ
@@ -19,13 +19,19 @@ namespace TinyVirtualQ
         ScreenController PROYECTOR;
         ScreenController MONITOR;
 
-        Round CurrentRound;
-        Round[] Rondas;
+        Contest[] ContestList;
+        Question[] QuestionBank;
         
 
-        private void onLoad(object sender, EventArgs e)
+        public void onLoad(object sender = null, EventArgs e = null)
         {
-            QuestionBank = Question.FromFile(@"question.db");
+            QuestionBank = DataBase.LoadQuestions();
+            ContestList = DataBase.LoadContests();
+
+            AdminComboRounds.Items.Clear();
+            foreach (Contest C in ContestList)
+                AdminComboRounds.Items.Add(C.Name);
+
             ShuffleQuestions();
 
             MONITOR = new ScreenController(QuestionBank);
@@ -38,6 +44,7 @@ namespace TinyVirtualQ
             PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);
         }
 
+        
 
         void ShuffleQuestions()
         {

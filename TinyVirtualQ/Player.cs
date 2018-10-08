@@ -7,26 +7,30 @@ namespace TinyVirtualQ
 {
     public class Player
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string PictureFilename { get; set; }
         public List<Question> Questions { get; set; }
-        
 
-        public Player(string firstname, string lastname = "", string filename = "")
+        public Player(int Id, string Firstname, string Lastname = "", string Filename = "")
         {
-            Firstname = firstname;
-            Lastname = lastname;
-            PictureFilename = filename;
-            Questions = new List<Question>();
+            Set(Id, Firstname, Lastname, Filename);
         }
-        public Player(string firstname, Question[] questions)
+        public Player(string Id, string Firstname, string Lastname = "", string Filename = "")
         {
-            Firstname = firstname;
-            Questions.AddRange(questions);
-            Lastname = "";
-            PictureFilename = "";
+            int id = 0;
+            try { id = int.Parse(Id); }
+            catch { }
+            Set(id, Firstname, Lastname, Filename);
+        }
+        void Set(int Id, string Firstname, string Lastname, string Picture)
+        {
+            this.Id = Id;
+            this.Firstname = Firstname;
+            this.Lastname = Lastname;
+            PictureFilename = Picture;
+            Questions = new List<Question>();
         }
     }
 }

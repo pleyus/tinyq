@@ -33,7 +33,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ListContest = new System.Windows.Forms.ListView();
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ButtonContestCreate = new System.Windows.Forms.Button();
             this.TextContestNew = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,21 +62,21 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.GPlayer = new System.Windows.Forms.GroupBox();
+            this.ButtonPlayerSelectFile = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.PicturePlayersUserPic = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TextPlayerLastname = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TextPlayerSelectedImage = new System.Windows.Forms.TextBox();
+            this.TextPlayerFirstname = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ListPlayers = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TextPlayerFirstname = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.TextPlayerLastname = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TextPlayerSelectedImage = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.GPlayer = new System.Windows.Forms.GroupBox();
-            this.PicturePlayersUserPic = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ButtonPlayerSelectFile = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,9 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.NomberRoundQuestions)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.GPlayer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePlayersUserPic)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,7 +111,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(776, 379);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Nombre";
+            this.tabPage1.Text = "Concursos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -126,13 +125,12 @@
             this.groupBox2.Size = new System.Drawing.Size(309, 355);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Concursos";
+            this.groupBox2.Text = "Concursos registrados";
             // 
             // ListContest
             // 
             this.ListContest.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8});
+            this.columnHeader7});
             this.ListContest.FullRowSelect = true;
             this.ListContest.Location = new System.Drawing.Point(17, 29);
             this.ListContest.Name = "ListContest";
@@ -140,16 +138,12 @@
             this.ListContest.TabIndex = 0;
             this.ListContest.UseCompatibleStateImageBehavior = false;
             this.ListContest.View = System.Windows.Forms.View.Details;
+            this.ListContest.SelectedIndexChanged += new System.EventHandler(this.ContestSelection);
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Concurso";
             this.columnHeader7.Width = 187;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Rondas";
-            this.columnHeader8.Width = 59;
             // 
             // ButtonContestCreate
             // 
@@ -440,6 +434,111 @@
             this.tabPage3.Text = "Jugadores";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // GPlayer
+            // 
+            this.GPlayer.Controls.Add(this.ButtonPlayerSelectFile);
+            this.GPlayer.Controls.Add(this.button1);
+            this.GPlayer.Controls.Add(this.PicturePlayersUserPic);
+            this.GPlayer.Controls.Add(this.label7);
+            this.GPlayer.Controls.Add(this.label10);
+            this.GPlayer.Controls.Add(this.TextPlayerLastname);
+            this.GPlayer.Controls.Add(this.label9);
+            this.GPlayer.Controls.Add(this.TextPlayerSelectedImage);
+            this.GPlayer.Controls.Add(this.TextPlayerFirstname);
+            this.GPlayer.Location = new System.Drawing.Point(479, 6);
+            this.GPlayer.Name = "GPlayer";
+            this.GPlayer.Size = new System.Drawing.Size(281, 353);
+            this.GPlayer.TabIndex = 14;
+            this.GPlayer.TabStop = false;
+            this.GPlayer.Text = "Crear / Editar";
+            // 
+            // ButtonPlayerSelectFile
+            // 
+            this.ButtonPlayerSelectFile.Location = new System.Drawing.Point(242, 256);
+            this.ButtonPlayerSelectFile.Name = "ButtonPlayerSelectFile";
+            this.ButtonPlayerSelectFile.Size = new System.Drawing.Size(24, 24);
+            this.ButtonPlayerSelectFile.TabIndex = 2;
+            this.ButtonPlayerSelectFile.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(84, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 32);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Guardar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // PicturePlayersUserPic
+            // 
+            this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
+            this.PicturePlayersUserPic.Location = new System.Drawing.Point(84, 42);
+            this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
+            this.PicturePlayersUserPic.Size = new System.Drawing.Size(120, 120);
+            this.PicturePlayersUserPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicturePlayersUserPic.TabIndex = 13;
+            this.PicturePlayersUserPic.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 15);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Nombre";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 240);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 15);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Imagen (1:1)";
+            // 
+            // TextPlayerLastname
+            // 
+            this.TextPlayerLastname.Location = new System.Drawing.Point(156, 207);
+            this.TextPlayerLastname.Name = "TextPlayerLastname";
+            this.TextPlayerLastname.Size = new System.Drawing.Size(110, 21);
+            this.TextPlayerLastname.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(153, 189);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 15);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Apellido";
+            // 
+            // TextPlayerSelectedImage
+            // 
+            this.TextPlayerSelectedImage.BackColor = System.Drawing.Color.White;
+            this.TextPlayerSelectedImage.Location = new System.Drawing.Point(21, 258);
+            this.TextPlayerSelectedImage.Name = "TextPlayerSelectedImage";
+            this.TextPlayerSelectedImage.ReadOnly = true;
+            this.TextPlayerSelectedImage.Size = new System.Drawing.Size(215, 21);
+            this.TextPlayerSelectedImage.TabIndex = 4;
+            // 
+            // TextPlayerFirstname
+            // 
+            this.TextPlayerFirstname.Location = new System.Drawing.Point(21, 207);
+            this.TextPlayerFirstname.Name = "TextPlayerFirstname";
+            this.TextPlayerFirstname.Size = new System.Drawing.Size(118, 21);
+            this.TextPlayerFirstname.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.ListPlayers);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(467, 353);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Jugadores registrados";
+            // 
             // ListPlayers
             // 
             this.ListPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -468,111 +567,6 @@
             this.columnHeader11.Text = "Imagen";
             this.columnHeader11.Width = 164;
             // 
-            // TextPlayerFirstname
-            // 
-            this.TextPlayerFirstname.Location = new System.Drawing.Point(21, 207);
-            this.TextPlayerFirstname.Name = "TextPlayerFirstname";
-            this.TextPlayerFirstname.Size = new System.Drawing.Size(118, 21);
-            this.TextPlayerFirstname.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 189);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Nombre";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(153, 189);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 15);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Apellido";
-            // 
-            // TextPlayerLastname
-            // 
-            this.TextPlayerLastname.Location = new System.Drawing.Point(156, 207);
-            this.TextPlayerLastname.Name = "TextPlayerLastname";
-            this.TextPlayerLastname.Size = new System.Drawing.Size(110, 21);
-            this.TextPlayerLastname.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 240);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 15);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Imagen (1:1)";
-            // 
-            // TextPlayerSelectedImage
-            // 
-            this.TextPlayerSelectedImage.BackColor = System.Drawing.Color.White;
-            this.TextPlayerSelectedImage.Location = new System.Drawing.Point(21, 258);
-            this.TextPlayerSelectedImage.Name = "TextPlayerSelectedImage";
-            this.TextPlayerSelectedImage.ReadOnly = true;
-            this.TextPlayerSelectedImage.Size = new System.Drawing.Size(215, 21);
-            this.TextPlayerSelectedImage.TabIndex = 4;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.ListPlayers);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(467, 353);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Jugadores registrados";
-            // 
-            // GPlayer
-            // 
-            this.GPlayer.Controls.Add(this.ButtonPlayerSelectFile);
-            this.GPlayer.Controls.Add(this.button1);
-            this.GPlayer.Controls.Add(this.PicturePlayersUserPic);
-            this.GPlayer.Controls.Add(this.label7);
-            this.GPlayer.Controls.Add(this.label10);
-            this.GPlayer.Controls.Add(this.TextPlayerLastname);
-            this.GPlayer.Controls.Add(this.label9);
-            this.GPlayer.Controls.Add(this.TextPlayerSelectedImage);
-            this.GPlayer.Controls.Add(this.TextPlayerFirstname);
-            this.GPlayer.Location = new System.Drawing.Point(479, 6);
-            this.GPlayer.Name = "GPlayer";
-            this.GPlayer.Size = new System.Drawing.Size(281, 353);
-            this.GPlayer.TabIndex = 14;
-            this.GPlayer.TabStop = false;
-            this.GPlayer.Text = "Crear / Editar";
-            // 
-            // PicturePlayersUserPic
-            // 
-            this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
-            this.PicturePlayersUserPic.Location = new System.Drawing.Point(84, 42);
-            this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
-            this.PicturePlayersUserPic.Size = new System.Drawing.Size(120, 120);
-            this.PicturePlayersUserPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicturePlayersUserPic.TabIndex = 13;
-            this.PicturePlayersUserPic.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(84, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // ButtonPlayerSelectFile
-            // 
-            this.ButtonPlayerSelectFile.Location = new System.Drawing.Point(242, 256);
-            this.ButtonPlayerSelectFile.Name = "ButtonPlayerSelectFile";
-            this.ButtonPlayerSelectFile.Size = new System.Drawing.Size(24, 24);
-            this.ButtonPlayerSelectFile.TabIndex = 2;
-            this.ButtonPlayerSelectFile.UseVisualStyleBackColor = true;
-            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +580,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Configuración";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClose);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -597,10 +592,10 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.GPlayer.ResumeLayout(false);
             this.GPlayer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicturePlayersUserPic)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -631,7 +626,6 @@
         private System.Windows.Forms.Button ButtonContestCreate;
         private System.Windows.Forms.ListView ListContest;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextQuestionsCategory;
         private System.Windows.Forms.Label label5;

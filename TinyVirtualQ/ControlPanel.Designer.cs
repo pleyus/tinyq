@@ -59,11 +59,11 @@
             this.AdminButtonWait = new System.Windows.Forms.Button();
             this.AdminButtonRun = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.AdminButtonOptions = new System.Windows.Forms.Button();
             this.AdminButtonRoundStart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.AdminButtonSetQuestion = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.AdminButtonOptions = new System.Windows.Forms.Button();
+            this.AdminComboRounds = new System.Windows.Forms.ComboBox();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -355,7 +355,7 @@
             this.GAdmin.Controls.Add(this.AdminButtonRoundStart);
             this.GAdmin.Controls.Add(this.button5);
             this.GAdmin.Controls.Add(this.AdminButtonSetQuestion);
-            this.GAdmin.Controls.Add(this.comboBox1);
+            this.GAdmin.Controls.Add(this.AdminComboRounds);
             this.GAdmin.Location = new System.Drawing.Point(217, 44);
             this.GAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.GAdmin.Name = "GAdmin";
@@ -489,6 +489,18 @@
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // AdminButtonOptions
+            // 
+            this.AdminButtonOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminButtonOptions.Location = new System.Drawing.Point(446, 25);
+            this.AdminButtonOptions.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonOptions.Name = "AdminButtonOptions";
+            this.AdminButtonOptions.Size = new System.Drawing.Size(91, 28);
+            this.AdminButtonOptions.TabIndex = 1;
+            this.AdminButtonOptions.Tag = "";
+            this.AdminButtonOptions.Text = "Opciones";
+            this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            // 
             // AdminButtonRoundStart
             // 
             this.AdminButtonRoundStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -534,29 +546,17 @@
             this.AdminButtonSetQuestion.UseVisualStyleBackColor = true;
             this.AdminButtonSetQuestion.Click += new System.EventHandler(this.GameActions);
             // 
-            // comboBox1
+            // AdminComboRounds
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(56, 25);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 26);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Tag = "";
-            // 
-            // AdminButtonOptions
-            // 
-            this.AdminButtonOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminButtonOptions.Location = new System.Drawing.Point(446, 25);
-            this.AdminButtonOptions.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminButtonOptions.Name = "AdminButtonOptions";
-            this.AdminButtonOptions.Size = new System.Drawing.Size(91, 28);
-            this.AdminButtonOptions.TabIndex = 1;
-            this.AdminButtonOptions.Tag = "";
-            this.AdminButtonOptions.Text = "Opciones";
-            this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            this.AdminComboRounds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AdminComboRounds.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.AdminComboRounds.FormattingEnabled = true;
+            this.AdminComboRounds.Location = new System.Drawing.Point(56, 25);
+            this.AdminComboRounds.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminComboRounds.Name = "AdminComboRounds";
+            this.AdminComboRounds.Size = new System.Drawing.Size(171, 26);
+            this.AdminComboRounds.TabIndex = 0;
+            this.AdminComboRounds.Tag = "";
             // 
             // ControlPanel
             // 
@@ -621,7 +621,7 @@
         private System.Windows.Forms.Button AdminButtonSetQuestion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button AdminButtonRoundStart;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox AdminComboRounds;
         private System.Windows.Forms.Button AdminButtonOptions;
     }
 }
