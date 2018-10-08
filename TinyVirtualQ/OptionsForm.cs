@@ -80,7 +80,15 @@ namespace TinyVirtualQ
             for (int i = 0; i < C.Rounds.Length; i++)
             {
                 ListViewItem IT = new ListViewItem();
-                IT.Text = (i > 2 && i == C.Rounds.Length - 1) ? "Final" : "Ronda #" + (i + 1);
+
+                string ronda = "Ronda #" + (i + 1);
+                if (C.Rounds.Length > 2 && i == C.Rounds.Length - 1)
+                    ronda = "Final";
+                if (C.Rounds.Length > 2 && i == C.Rounds.Length - 2)
+                    ronda = "Semifinal";
+
+                IT.Text = ronda;
+
                 IT.SubItems.Add(C.Rounds[i].RequiredPlayers.ToString());
                 IT.SubItems.Add(C.Rounds[i].QuestionsByPlayer.ToString());
                 IT.Tag = C.Rounds[i];
@@ -114,9 +122,9 @@ namespace TinyVirtualQ
                 FillRounds(C);
 
                 //  Habilitamos
-                GRounds.Enabled =
-                    ButtonRoundDelete.Enabled =
-                    ButtonRoundSave.Enabled = true;
+                GRounds.Enabled = true;
+
+                //  Mantenemos deshabilitados los botones de save y delete...
             }
         }
 

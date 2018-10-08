@@ -133,6 +133,8 @@ namespace TinyVirtualQ
                     string name = "Ronda #" + (i+1);
                     if (i == ContestList[index].Rounds.Length - 1 && ContestList[index].Rounds.Length > 2)
                         name = "Final";
+                    if (i == ContestList[index].Rounds.Length - 2 && ContestList[index].Rounds.Length > 2)
+                        name = "Semifinal";
                     AdminComboRounds.Items.Add(name);
                 }
                 AdminComboRounds.SelectedIndex = 0;
