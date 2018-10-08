@@ -182,30 +182,12 @@ namespace TinyVirtualQ
                     Player P = ContestList[i].Rounds[j].Players[k];
                     P.Questions.AddRange(DataBase.LoadUsedQuestions(P.Id, RId));
 
-                    int aciertos = 0;
-                    int desempate = 0;
-                    int preguntas = 0;
-
-                    foreach (Question q in P.Questions)
-                    {
-                        if (q.Result == Question.QuestionResult.Correct)
-                        {
-                            if (q.Type == Question.QuestionType.Normal)
-                            {
-                                aciertos++;
-                                preguntas++;
-                            }
-                            else
-                                desempate++;
-                        }
-                        
-                    }
-
                     ListViewItem IT = new ListViewItem();
                     IT.Text = P.Firstname + " " + P.Lastname;
-                    IT.SubItems.Add(preguntas.ToString());
-                    IT.SubItems.Add(aciertos.ToString());
-                    IT.SubItems.Add(desempate.ToString());
+                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.Normal).ToString());
+                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.NormalCorrects).ToString());
+                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreak).ToString());
+                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreakCorrect).ToString());
                     IT.Tag = P;
 
                     ListPlayers.Items.Add(IT);

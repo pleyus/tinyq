@@ -69,6 +69,7 @@
             this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminButtonOptions = new System.Windows.Forms.Button();
             this.AdminButtonSetBreak = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -406,7 +407,8 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.ListPlayers.Enabled = false;
             this.ListPlayers.Location = new System.Drawing.Point(16, 111);
             this.ListPlayers.Name = "ListPlayers";
@@ -662,6 +664,11 @@
             this.AdminButtonSetBreak.UseVisualStyleBackColor = true;
             this.AdminButtonSetBreak.Click += new System.EventHandler(this.GameActions);
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "D. aciertos";
+            this.columnHeader5.Width = 99;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -733,5 +740,6 @@
         private System.Windows.Forms.Button AdminButtonRoundStart;
         private System.Windows.Forms.ComboBox AdminComboRounds;
         private System.Windows.Forms.Button AdminButtonSetBreak;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
