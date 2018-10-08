@@ -410,6 +410,7 @@
             this.columnHeader4,
             this.columnHeader5});
             this.ListPlayers.Enabled = false;
+            this.ListPlayers.FullRowSelect = true;
             this.ListPlayers.Location = new System.Drawing.Point(16, 111);
             this.ListPlayers.Name = "ListPlayers";
             this.ListPlayers.Size = new System.Drawing.Size(590, 208);
@@ -531,7 +532,7 @@
             this.AdminButtonPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AdminButtonPlayers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AdminButtonPlayers.Enabled = false;
-            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 61);
+            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 64);
             this.AdminButtonPlayers.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonPlayers.Name = "AdminButtonPlayers";
             this.AdminButtonPlayers.Size = new System.Drawing.Size(92, 28);
@@ -644,6 +645,7 @@
             this.AdminButtonOptions.Tag = "";
             this.AdminButtonOptions.Text = "Opciones";
             this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            this.AdminButtonOptions.Click += new System.EventHandler(this.OptionsInit);
             // 
             // AdminButtonSetBreak
             // 

@@ -38,11 +38,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.GRounds = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.NumberRoundPlayers = new System.Windows.Forms.NumericUpDown();
             this.ButtonRoundDelete = new System.Windows.Forms.Button();
-            this.NomberRoundQuestions = new System.Windows.Forms.NumericUpDown();
+            this.NumberRoundQuestions = new System.Windows.Forms.NumericUpDown();
             this.ButtonRoundSave = new System.Windows.Forms.Button();
             this.ListRounds = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,12 +76,13 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ButtonRoundAdd = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.GRounds.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NomberRoundQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.GPlayer.SuspendLayout();
@@ -122,7 +122,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(6, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(309, 355);
+            this.groupBox2.Size = new System.Drawing.Size(344, 355);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Concursos registrados";
@@ -134,7 +134,7 @@
             this.ListContest.FullRowSelect = true;
             this.ListContest.Location = new System.Drawing.Point(17, 29);
             this.ListContest.Name = "ListContest";
-            this.ListContest.Size = new System.Drawing.Size(272, 271);
+            this.ListContest.Size = new System.Drawing.Size(310, 271);
             this.ListContest.TabIndex = 0;
             this.ListContest.UseCompatibleStateImageBehavior = false;
             this.ListContest.View = System.Windows.Forms.View.Details;
@@ -143,12 +143,12 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Concurso";
-            this.columnHeader7.Width = 187;
+            this.columnHeader7.Width = 280;
             // 
             // ButtonContestCreate
             // 
             this.ButtonContestCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.ButtonContestCreate.Location = new System.Drawing.Point(230, 312);
+            this.ButtonContestCreate.Location = new System.Drawing.Point(268, 311);
             this.ButtonContestCreate.Name = "ButtonContestCreate";
             this.ButtonContestCreate.Size = new System.Drawing.Size(59, 26);
             this.ButtonContestCreate.TabIndex = 2;
@@ -161,7 +161,7 @@
             this.TextContestNew.Location = new System.Drawing.Point(64, 313);
             this.TextContestNew.Margin = new System.Windows.Forms.Padding(5);
             this.TextContestNew.Name = "TextContestNew";
-            this.TextContestNew.Size = new System.Drawing.Size(158, 23);
+            this.TextContestNew.Size = new System.Drawing.Size(196, 23);
             this.TextContestNew.TabIndex = 1;
             // 
             // label8
@@ -176,16 +176,17 @@
             // GRounds
             // 
             this.GRounds.Controls.Add(this.label2);
-            this.GRounds.Controls.Add(this.label1);
             this.GRounds.Controls.Add(this.label3);
             this.GRounds.Controls.Add(this.NumberRoundPlayers);
             this.GRounds.Controls.Add(this.ButtonRoundDelete);
-            this.GRounds.Controls.Add(this.NomberRoundQuestions);
+            this.GRounds.Controls.Add(this.NumberRoundQuestions);
+            this.GRounds.Controls.Add(this.ButtonRoundAdd);
             this.GRounds.Controls.Add(this.ButtonRoundSave);
             this.GRounds.Controls.Add(this.ListRounds);
-            this.GRounds.Location = new System.Drawing.Point(321, 6);
+            this.GRounds.Enabled = false;
+            this.GRounds.Location = new System.Drawing.Point(356, 6);
             this.GRounds.Name = "GRounds";
-            this.GRounds.Size = new System.Drawing.Size(442, 355);
+            this.GRounds.Size = new System.Drawing.Size(403, 355);
             this.GRounds.TabIndex = 13;
             this.GRounds.TabStop = false;
             this.GRounds.Text = "Rondas";
@@ -193,33 +194,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 26);
+            this.label2.Location = new System.Drawing.Point(18, 297);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 15);
             this.label2.TabIndex = 0;
             this.label2.Text = "Jugadores";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rondas del concurso";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(100, 26);
+            this.label3.Location = new System.Drawing.Point(98, 297);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 15);
+            this.label3.Size = new System.Drawing.Size(102, 15);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Preguntas por jugador";
+            this.label3.Text = "Preg. por jugador";
             // 
             // NumberRoundPlayers
             // 
-            this.NumberRoundPlayers.Location = new System.Drawing.Point(21, 44);
+            this.NumberRoundPlayers.Location = new System.Drawing.Point(21, 315);
             this.NumberRoundPlayers.Minimum = new decimal(new int[] {
             3,
             0,
@@ -227,7 +219,7 @@
             0});
             this.NumberRoundPlayers.Name = "NumberRoundPlayers";
             this.NumberRoundPlayers.Size = new System.Drawing.Size(62, 21);
-            this.NumberRoundPlayers.TabIndex = 1;
+            this.NumberRoundPlayers.TabIndex = 2;
             this.NumberRoundPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.NumberRoundPlayers.Value = new decimal(new int[] {
             10,
@@ -237,31 +229,33 @@
             // 
             // ButtonRoundDelete
             // 
-            this.ButtonRoundDelete.Location = new System.Drawing.Point(337, 302);
+            this.ButtonRoundDelete.BackgroundImage = global::TinyVirtualQ.Resource1.icon_trash;
+            this.ButtonRoundDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonRoundDelete.Location = new System.Drawing.Point(358, 310);
             this.ButtonRoundDelete.Name = "ButtonRoundDelete";
-            this.ButtonRoundDelete.Size = new System.Drawing.Size(89, 34);
-            this.ButtonRoundDelete.TabIndex = 5;
-            this.ButtonRoundDelete.Text = "Eliminar";
+            this.ButtonRoundDelete.Size = new System.Drawing.Size(26, 26);
+            this.ButtonRoundDelete.TabIndex = 6;
             this.ButtonRoundDelete.UseVisualStyleBackColor = true;
+            this.ButtonRoundDelete.Click += new System.EventHandler(this.RoundButtonsClick);
             // 
-            // NomberRoundQuestions
+            // NumberRoundQuestions
             // 
-            this.NomberRoundQuestions.Location = new System.Drawing.Point(103, 44);
-            this.NomberRoundQuestions.Maximum = new decimal(new int[] {
+            this.NumberRoundQuestions.Location = new System.Drawing.Point(101, 315);
+            this.NumberRoundQuestions.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.NomberRoundQuestions.Minimum = new decimal(new int[] {
+            this.NumberRoundQuestions.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.NomberRoundQuestions.Name = "NomberRoundQuestions";
-            this.NomberRoundQuestions.Size = new System.Drawing.Size(62, 21);
-            this.NomberRoundQuestions.TabIndex = 2;
-            this.NomberRoundQuestions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NomberRoundQuestions.Value = new decimal(new int[] {
+            this.NumberRoundQuestions.Name = "NumberRoundQuestions";
+            this.NumberRoundQuestions.Size = new System.Drawing.Size(62, 21);
+            this.NumberRoundQuestions.TabIndex = 3;
+            this.NumberRoundQuestions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NumberRoundQuestions.Value = new decimal(new int[] {
             3,
             0,
             0,
@@ -269,12 +263,13 @@
             // 
             // ButtonRoundSave
             // 
-            this.ButtonRoundSave.Location = new System.Drawing.Point(337, 26);
+            this.ButtonRoundSave.Location = new System.Drawing.Point(214, 310);
             this.ButtonRoundSave.Name = "ButtonRoundSave";
-            this.ButtonRoundSave.Size = new System.Drawing.Size(89, 34);
-            this.ButtonRoundSave.TabIndex = 3;
+            this.ButtonRoundSave.Size = new System.Drawing.Size(66, 26);
+            this.ButtonRoundSave.TabIndex = 4;
             this.ButtonRoundSave.Text = "Guardar";
             this.ButtonRoundSave.UseVisualStyleBackColor = true;
+            this.ButtonRoundSave.Click += new System.EventHandler(this.RoundButtonsClick);
             // 
             // ListRounds
             // 
@@ -283,12 +278,13 @@
             this.columnHeader3,
             this.columnHeader4});
             this.ListRounds.FullRowSelect = true;
-            this.ListRounds.Location = new System.Drawing.Point(21, 94);
+            this.ListRounds.Location = new System.Drawing.Point(21, 29);
             this.ListRounds.Name = "ListRounds";
-            this.ListRounds.Size = new System.Drawing.Size(405, 202);
-            this.ListRounds.TabIndex = 4;
+            this.ListRounds.Size = new System.Drawing.Size(363, 265);
+            this.ListRounds.TabIndex = 1;
             this.ListRounds.UseCompatibleStateImageBehavior = false;
             this.ListRounds.View = System.Windows.Forms.View.Details;
+            this.ListRounds.SelectedIndexChanged += new System.EventHandler(this.RoundSelection);
             // 
             // columnHeader2
             // 
@@ -297,13 +293,13 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Jugadores permitidos";
-            this.columnHeader3.Width = 138;
+            this.columnHeader3.Text = "Jugadores req.";
+            this.columnHeader3.Width = 106;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Preguntas por jugador";
-            this.columnHeader4.Width = 140;
+            this.columnHeader4.Text = "Preg. por jugador";
+            this.columnHeader4.Width = 112;
             // 
             // tabPage2
             // 
@@ -398,6 +394,7 @@
             this.columnHeader1,
             this.columnHeader5,
             this.columnHeader6});
+            this.ListQuestions.FullRowSelect = true;
             this.ListQuestions.Location = new System.Drawing.Point(18, 89);
             this.ListQuestions.Name = "ListQuestions";
             this.ListQuestions.Size = new System.Drawing.Size(739, 272);
@@ -545,6 +542,7 @@
             this.columnHeader9,
             this.columnHeader10,
             this.columnHeader11});
+            this.ListPlayers.FullRowSelect = true;
             this.ListPlayers.Location = new System.Drawing.Point(17, 29);
             this.ListPlayers.Name = "ListPlayers";
             this.ListPlayers.Size = new System.Drawing.Size(430, 300);
@@ -567,6 +565,16 @@
             this.columnHeader11.Text = "Imagen";
             this.columnHeader11.Width = 164;
             // 
+            // ButtonRoundAdd
+            // 
+            this.ButtonRoundAdd.Location = new System.Drawing.Point(286, 310);
+            this.ButtonRoundAdd.Name = "ButtonRoundAdd";
+            this.ButtonRoundAdd.Size = new System.Drawing.Size(66, 26);
+            this.ButtonRoundAdd.TabIndex = 5;
+            this.ButtonRoundAdd.Text = "Nueva...";
+            this.ButtonRoundAdd.UseVisualStyleBackColor = true;
+            this.ButtonRoundAdd.Click += new System.EventHandler(this.RoundButtonsClick);
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -588,7 +596,7 @@
             this.GRounds.ResumeLayout(false);
             this.GRounds.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NomberRoundQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
@@ -611,7 +619,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.NumericUpDown NomberRoundQuestions;
+        private System.Windows.Forms.NumericUpDown NumberRoundQuestions;
         private System.Windows.Forms.NumericUpDown NumberRoundPlayers;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -626,7 +634,6 @@
         private System.Windows.Forms.Button ButtonContestCreate;
         private System.Windows.Forms.ListView ListContest;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextQuestionsCategory;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ButtonQuestionDelete;
@@ -651,5 +658,6 @@
         private System.Windows.Forms.TextBox TextPlayerFirstname;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button ButtonPlayerSelectFile;
+        private System.Windows.Forms.Button ButtonRoundAdd;
     }
 }

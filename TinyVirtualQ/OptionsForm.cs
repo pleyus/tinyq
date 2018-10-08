@@ -71,15 +71,97 @@ namespace TinyVirtualQ
                 ListPlayers.Items.Add(IT);
             }
         }
+        void FillRounds(Contest C)
+        {
+            //  Limpiamos la lista
+            ListContest.Items.Clear();
+
+            //  Recorremos todas las rondas para agregarlas a la lista
+            for (int i = 0; i < C.Rounds.Length; i++)
+            {
+                ListViewItem IT = new ListViewItem();
+                IT.Text = (i > 2 && i == C.Rounds.Length - 1) ? "Final" : "Ronda #" + (i + 1);
+                IT.SubItems.Add(C.Rounds[i].RequiredPlayers.ToString());
+                IT.SubItems.Add(C.Rounds[i].QuestionsByPlayer.ToString());
+                IT.Tag = C.Rounds[i];
+
+                //  Agregamos el item
+                ListContest.Items.Add(IT);
+            }
+        }
         
         private void ContestSelection(object sender, EventArgs e)
         {
-            
+
+            //  Si se seleccionó algo
+            if( ListContest.SelectedItems.Count > 0)
+            {
+                //  Sacamos el objeto y lo parseamos a Contest
+                Contest C = (Contest)ListContest.SelectedItems[0].Tag;
+
+                //  Sacamos las rondas del Contest
+                C.Rounds = DataBase.LoadRounds(C.Id);
+
+                //  Regresamos el Contest a la lista
+                ListContest.SelectedItems[0].Tag = C;
+
+                //  Llenamos la lista de Rondas
+                FillRounds(C);
+
+                //  Habilitamos
+                GRounds.Enabled =
+                    ButtonRoundDelete.Enabled =
+                    ButtonRoundSave.Enabled = false;
+            }
+            else
+            {
+                //  Deshabilitamos y limpiamos la ronda
+                ListContest.Items.Clear();
+                GRounds.Enabled = 
+                    ButtonRoundDelete.Enabled = 
+                    ButtonRoundSave.Enabled = false;
+            }
         }
 
         private void OnClose(object sender, FormClosingEventArgs e)
         {
             Main.onLoad();
+        }
+
+        private void RoundSelection(object sender, EventArgs e)
+        {
+            if(ListRounds.SelectedItems.Count > 0)
+            {
+                Round R = (Round)ListRounds.SelectedItems[0].Tag;
+
+                NumberRoundPlayers.Value = R.RequiredPlayers;
+                NumberRoundQuestions.Value = R.QuestionsByPlayer;
+
+                ButtonRoundDelete.Enabled = ButtonRoundSave.Enabled = true;
+            }
+            else
+                ButtonRoundDelete.Enabled = ButtonRoundSave.Enabled = false;
+        }
+
+        private void RoundButtonsClick(object sender, EventArgs e)
+        {
+            // Si es es el boton de agregar...
+            if (sender == ButtonRoundAdd)    
+            {
+                //  TODO: Agregar nuevo
+            }
+            //  Si no, es el boton de Save o Delete
+            else
+            {
+                if(sender == ButtonRoundDelete)
+                {
+                    //  TODO: Eliminar (Round)ListRounds.SelectedItems[0].Tag
+                }
+                else
+                {
+                    //  TODO: Guardamos cambios (Round)ListRounds.SelectedItems[0].Tag > Id
+                }
+            }
         }
     }
 }

@@ -147,6 +147,7 @@ namespace TinyVirtualQ
                     //  Deshabilita la Lista de concursos y su boton
                     AdminComboContest.Enabled =
                         AdminButtonContestStart.Enabled =
+                        AdminButtonOptions.Enabled =
                         false;
                 }
                 else
@@ -159,6 +160,7 @@ namespace TinyVirtualQ
                     //  Habilita la Lista de concursos y su boton
                     AdminComboContest.Enabled =
                         AdminButtonContestStart.Enabled =
+                        AdminButtonOptions.Enabled =
                         true;
                 }
 
@@ -238,6 +240,12 @@ namespace TinyVirtualQ
                 //  Vemos si pondemos seguir aplicandole preguntas al men...
                 AdminButtonSetQuestion.Enabled = P.CountQuestions(Player.CounterParams.Normal) < R.QuestionsByPlayer;
             }
+        }
+
+        void OptionsInit(object sender, EventArgs e)
+        {
+            OptionsForm Op = new OptionsForm(this);
+            Op.ShowDialog();
         }
     }
 }
