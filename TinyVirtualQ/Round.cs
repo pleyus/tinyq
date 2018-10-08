@@ -7,6 +7,7 @@ namespace TinyVirtualQ
 {
     public class Round
     {
+
         // CQNEN: public enum RoundStatus { Open, Close, InCourse }
 
         public int Id { get; set; }
@@ -36,6 +37,7 @@ namespace TinyVirtualQ
         {
             Set(Id, RequiredPlayers, QuestionsByPlayer);
         }
+
 
         void Set(int Id, int RequiredPlayers, int QuestionsByPlayer)
         {

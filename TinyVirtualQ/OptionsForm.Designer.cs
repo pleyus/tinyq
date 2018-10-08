@@ -213,7 +213,7 @@
             // 
             this.NumberRoundPlayers.Location = new System.Drawing.Point(21, 315);
             this.NumberRoundPlayers.Minimum = new decimal(new int[] {
-            3,
+            2,
             0,
             0,
             0});

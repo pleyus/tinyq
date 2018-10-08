@@ -74,7 +74,7 @@ namespace TinyVirtualQ
         void FillRounds(Contest C)
         {
             //  Limpiamos la lista
-            ListContest.Items.Clear();
+            ListRounds.Items.Clear();
 
             //  Recorremos todas las rondas para agregarlas a la lista
             for (int i = 0; i < C.Rounds.Length; i++)
@@ -86,15 +86,20 @@ namespace TinyVirtualQ
                 IT.Tag = C.Rounds[i];
 
                 //  Agregamos el item
-                ListContest.Items.Add(IT);
+                ListRounds.Items.Add(IT);
             }
         }
         
-        private void ContestSelection(object sender, EventArgs e)
+        private void ContestSelection(object sender = null, EventArgs e = null)
         {
+            //  Deshabilitamos y limpiamos la ronda
+            ListRounds.Items.Clear();
+            GRounds.Enabled =
+                ButtonRoundDelete.Enabled =
+                ButtonRoundSave.Enabled = false;
 
             //  Si se seleccionó algo
-            if( ListContest.SelectedItems.Count > 0)
+            if ( ListContest.SelectedItems.Count > 0)
             {
                 //  Sacamos el objeto y lo parseamos a Contest
                 Contest C = (Contest)ListContest.SelectedItems[0].Tag;
@@ -111,15 +116,7 @@ namespace TinyVirtualQ
                 //  Habilitamos
                 GRounds.Enabled =
                     ButtonRoundDelete.Enabled =
-                    ButtonRoundSave.Enabled = false;
-            }
-            else
-            {
-                //  Deshabilitamos y limpiamos la ronda
-                ListContest.Items.Clear();
-                GRounds.Enabled = 
-                    ButtonRoundDelete.Enabled = 
-                    ButtonRoundSave.Enabled = false;
+                    ButtonRoundSave.Enabled = true;
             }
         }
 
@@ -128,7 +125,7 @@ namespace TinyVirtualQ
             Main.onLoad();
         }
 
-        private void RoundSelection(object sender, EventArgs e)
+        private void RoundSelection(object sender = null, EventArgs e = null)
         {
             if(ListRounds.SelectedItems.Count > 0)
             {
@@ -145,22 +142,52 @@ namespace TinyVirtualQ
 
         private void RoundButtonsClick(object sender, EventArgs e)
         {
+            int CId = ((Contest)ListContest.SelectedItems[0].Tag).Id;
+
             // Si es es el boton de agregar...
             if (sender == ButtonRoundAdd)    
             {
-                //  TODO: Agregar nuevo
+                Round R = new Round(0, (int)NumberRoundPlayers.Value, (int)NumberRoundQuestions.Value);
+                if(DataBase.CreateNew(R, CId))
+                {
+                    MessageBox.Show("Se creó correctamente la ronda", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ContestSelection();
+                }
             }
             //  Si no, es el boton de Save o Delete
-            else
+            else if( ListRounds.SelectedItems.Count > 0 )
             {
-                if(sender == ButtonRoundDelete)
+                //  Preparamos la ronda a modificar
+                Round R = (Round)ListRounds.SelectedItems[0].Tag;
+                R.RequiredPlayers = (int)NumberRoundPlayers.Value;
+                R.QuestionsByPlayer = (int)NumberRoundQuestions.Value;
+
+                //  Si es el boton de borrar
+                if (sender == ButtonRoundDelete)
                 {
-                    //  TODO: Eliminar (Round)ListRounds.SelectedItems[0].Tag
+                    //  Si no se puede borrar mandamos un mensaje y fuera
+                    if (!DataBase.Delete(R))
+                    {
+                        MessageBox.Show("No se pudo borrar la ronda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
+                //  Si no, es el de Guardar
                 else
                 {
-                    //  TODO: Guardamos cambios (Round)ListRounds.SelectedItems[0].Tag > Id
+                    if (!DataBase.Update(R))
+                    {
+                        MessageBox.Show("No se pudo actualizar la ronda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
+
+                //  Si no hubo pedo, continuamos
+                MessageBox.Show("Se aplicaron los cambios correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ContestSelection();
+
+                //  Deshabilitamos los botones... Esque al llenar la lista se deselecciona el elemento
+                ButtonRoundDelete.Enabled = ButtonRoundSave.Enabled = false;
             }
         }
     }
