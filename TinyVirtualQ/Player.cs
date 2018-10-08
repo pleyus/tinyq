@@ -32,5 +32,42 @@ namespace TinyVirtualQ
             PictureFilename = Picture;
             Questions = new List<Question>();
         }
+
+        public enum CounterParams { Correct, Normal, NormalCorrects, TieBreak, TieBreakCorrect }
+        public int CountQuestions(CounterParams Condition)
+        {
+            int i = 0;
+
+            foreach (Question Q in Questions)
+            {
+                if (Condition == CounterParams.Correct)
+                {
+                    if (Q.Result == Question.QuestionResult.Correct)
+                        i++;
+                }
+                if(Condition == CounterParams.Normal)
+                {
+                    if (Q.Type == Question.QuestionType.Normal)
+                        i++;
+                }
+                if(Condition == CounterParams.NormalCorrects)
+                {
+                    if (Q.Type == Question.QuestionType.Normal && Q.Result == Question.QuestionResult.Correct)
+                        i++;
+                }
+                if (Condition == CounterParams.TieBreak)
+                {
+                    if (Q.Type == Question.QuestionType.TieBreak)
+                        i++;
+                }
+                if (Condition == CounterParams.TieBreakCorrect)
+                {
+                    if (Q.Type == Question.QuestionType.TieBreak && Q.Result == Question.QuestionResult.Correct)
+                        i++;
+                }
+            }
+
+            return i;
+        }
     }
 }

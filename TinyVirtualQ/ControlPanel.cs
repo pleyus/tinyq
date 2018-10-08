@@ -158,25 +158,94 @@ namespace TinyVirtualQ
 
         }
 
-        private void StartRound(object sender, EventArgs e)
+        private void StartRound(object sender = null, EventArgs e = null)
         {
             //  Sacamos el index para trabajar
-            int i = AdminComboRounds.SelectedIndex;
+            int i = AdminComboContest.SelectedIndex - 1;
+            int j = AdminComboRounds.SelectedIndex;
 
-            if(i > 0) // Porque siempre hay un elemento al comienzo
+            if(j > 0) // Porque siempre hay un elemento al comienzo
             {
-                i--;
-                int j = AdminComboContest.SelectedIndex - 1; // Index del concurso actual
+                j--;
+                 // Index del concurso actual
 
-                int RId = ContestList[j].Rounds[i].Id;
+                int RId = ContestList[i].Rounds[j].Id;
 
                 //  Cargamos los players con sus preguntas usadas en esta ronda.
-                ContestList[j].Rounds[i].Players.AddRange(DataBase.LoadPlayers( RId ));
+                ContestList[i].Rounds[j].Players.AddRange(DataBase.LoadPlayers( RId ));
 
-                //  Aqui pondremos la carga de preguntas en el ListView
+                //  Cargamos los players en el listview y sus datos
+                ListPlayers.Items.Clear();
+                for (int k = 0; k < ContestList[i].Rounds[j].Players.Count; k++)
+                {
+
+                    Player P = ContestList[i].Rounds[j].Players[k];
+                    P.Questions.AddRange(DataBase.LoadUsedQuestions(P.Id, RId));
+
+                    int aciertos = 0;
+                    int desempate = 0;
+                    int preguntas = 0;
+
+                    foreach (Question q in P.Questions)
+                    {
+                        if (q.Result == Question.QuestionResult.Correct)
+                        {
+                            if (q.Type == Question.QuestionType.Normal)
+                            {
+                                aciertos++;
+                                preguntas++;
+                            }
+                            else
+                                desempate++;
+                        }
+                        
+                    }
+
+                    ListViewItem IT = new ListViewItem();
+                    IT.Text = P.Firstname + " " + P.Lastname;
+                    IT.SubItems.Add(preguntas.ToString());
+                    IT.SubItems.Add(aciertos.ToString());
+                    IT.SubItems.Add(desempate.ToString());
+                    IT.Tag = P;
+
+                    ListPlayers.Items.Add(IT);
+
+                    ContestList[i].Rounds[j].Players[k] = P;
+                }
 
                 //  Cargamos las Preguntas usadas en esta ronda.
                 ContestList[j].Rounds[i].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
+
+                SwitchEnableGameButtons(true);
+                
+            }
+            void SwitchEnableGameButtons(bool status)
+            {
+                //  Habilitamos los botones necesarios
+                AdminButtonPlayers.Enabled =
+                    ListPlayers.Enabled =
+                    AdminButtonSetQuestion.Enabled =
+                    AdminButtonSetBreak.Enabled =
+                    AdminButtonRun.Enabled =
+                    AdminButtonWait.Enabled =
+                    AdminButtonCorrect.Enabled =
+                    AdminButtonWrong.Enabled =
+                    status;
+            }
+        }
+
+        private void PlayerClicked(object sender, EventArgs e)
+        {
+            if( ListPlayers.SelectedItems.Count > 0 )
+            {
+                int c = AdminComboContest.SelectedIndex - 1;
+                int r = AdminComboRounds.SelectedIndex - 1;
+
+                Player P = (Player)ListPlayers.SelectedItems[0].Tag;
+                Round R = ContestList[c].Rounds[r];
+
+                //  Vemos si pondemos seguir aplicandole preguntas al men...
+                AdminButtonSetQuestion.Enabled = P.CountQuestions(Player.CounterParams.Normal) < R.QuestionsByPlayer;
             }
         }
     }

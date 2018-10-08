@@ -68,6 +68,7 @@
             this.AdminComboRounds = new System.Windows.Forms.ComboBox();
             this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminButtonOptions = new System.Windows.Forms.Button();
+            this.AdminButtonSetBreak = new System.Windows.Forms.Button();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -360,6 +361,7 @@
             this.GAdmin.Controls.Add(this.AdminButtonRoundStart);
             this.GAdmin.Controls.Add(this.AdminButtonContestStart);
             this.GAdmin.Controls.Add(this.button5);
+            this.GAdmin.Controls.Add(this.AdminButtonSetBreak);
             this.GAdmin.Controls.Add(this.AdminButtonSetQuestion);
             this.GAdmin.Controls.Add(this.AdminComboRounds);
             this.GAdmin.Controls.Add(this.AdminComboContest);
@@ -412,6 +414,7 @@
             this.ListPlayers.TabIndex = 2;
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
+            this.ListPlayers.SelectedIndexChanged += new System.EventHandler(this.PlayerClicked);
             // 
             // columnHeader1
             // 
@@ -439,10 +442,10 @@
             this.AdminButtonWrong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AdminButtonWrong.Enabled = false;
             this.AdminButtonWrong.Image = global::TinyVirtualQ.Resource1.wrong;
-            this.AdminButtonWrong.Location = new System.Drawing.Point(161, 415);
+            this.AdminButtonWrong.Location = new System.Drawing.Point(178, 414);
             this.AdminButtonWrong.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonWrong.Name = "AdminButtonWrong";
-            this.AdminButtonWrong.Size = new System.Drawing.Size(141, 54);
+            this.AdminButtonWrong.Size = new System.Drawing.Size(157, 54);
             this.AdminButtonWrong.TabIndex = 1;
             this.AdminButtonWrong.Tag = "";
             this.AdminButtonWrong.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -458,7 +461,7 @@
             this.AdminButtonCorrect.Location = new System.Drawing.Point(16, 415);
             this.AdminButtonCorrect.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonCorrect.Name = "AdminButtonCorrect";
-            this.AdminButtonCorrect.Size = new System.Drawing.Size(141, 54);
+            this.AdminButtonCorrect.Size = new System.Drawing.Size(157, 54);
             this.AdminButtonCorrect.TabIndex = 1;
             this.AdminButtonCorrect.Tag = "";
             this.AdminButtonCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -472,11 +475,11 @@
             this.AdminButtonWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AdminButtonWait.Enabled = false;
             this.AdminButtonWait.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonWait.Location = new System.Drawing.Point(161, 372);
+            this.AdminButtonWait.Location = new System.Drawing.Point(178, 372);
             this.AdminButtonWait.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonWait.Name = "AdminButtonWait";
             this.AdminButtonWait.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonWait.Size = new System.Drawing.Size(141, 38);
+            this.AdminButtonWait.Size = new System.Drawing.Size(157, 38);
             this.AdminButtonWait.TabIndex = 1;
             this.AdminButtonWait.Tag = "";
             this.AdminButtonWait.Text = "Detener";
@@ -495,7 +498,7 @@
             this.AdminButtonRun.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonRun.Name = "AdminButtonRun";
             this.AdminButtonRun.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonRun.Size = new System.Drawing.Size(141, 38);
+            this.AdminButtonRun.Size = new System.Drawing.Size(157, 38);
             this.AdminButtonRun.TabIndex = 1;
             this.AdminButtonRun.Tag = "";
             this.AdminButtonRun.Text = "Corre tiempo";
@@ -592,7 +595,7 @@
             this.AdminButtonSetQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonSetQuestion.Name = "AdminButtonSetQuestion";
             this.AdminButtonSetQuestion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonSetQuestion.Size = new System.Drawing.Size(286, 38);
+            this.AdminButtonSetQuestion.Size = new System.Drawing.Size(196, 38);
             this.AdminButtonSetQuestion.TabIndex = 1;
             this.AdminButtonSetQuestion.Tag = "";
             this.AdminButtonSetQuestion.Text = "Asignar siguiente pregunta";
@@ -639,6 +642,25 @@
             this.AdminButtonOptions.Tag = "";
             this.AdminButtonOptions.Text = "Opciones";
             this.AdminButtonOptions.UseVisualStyleBackColor = true;
+            // 
+            // AdminButtonSetBreak
+            // 
+            this.AdminButtonSetBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AdminButtonSetBreak.BackgroundImage = global::TinyVirtualQ.Resource1.icon_stats_tiny;
+            this.AdminButtonSetBreak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AdminButtonSetBreak.Enabled = false;
+            this.AdminButtonSetBreak.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminButtonSetBreak.Location = new System.Drawing.Point(216, 330);
+            this.AdminButtonSetBreak.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonSetBreak.Name = "AdminButtonSetBreak";
+            this.AdminButtonSetBreak.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.AdminButtonSetBreak.Size = new System.Drawing.Size(119, 38);
+            this.AdminButtonSetBreak.TabIndex = 1;
+            this.AdminButtonSetBreak.Tag = "";
+            this.AdminButtonSetBreak.Text = "Desempate";
+            this.AdminButtonSetBreak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminButtonSetBreak.UseVisualStyleBackColor = true;
+            this.AdminButtonSetBreak.Click += new System.EventHandler(this.GameActions);
             // 
             // ControlPanel
             // 
@@ -710,5 +732,6 @@
         private System.Windows.Forms.Button AdminButtonPlayers;
         private System.Windows.Forms.Button AdminButtonRoundStart;
         private System.Windows.Forms.ComboBox AdminComboRounds;
+        private System.Windows.Forms.Button AdminButtonSetBreak;
     }
 }

@@ -36,14 +36,15 @@ namespace TinyVirtualQ
         }
         public static Question[] LoadQuestions()
         {
-            return GetQuestions("SELECT *, 0 AS Result FROM questions");
+            return GetQuestions("SELECT *, 0 AS Result, 0 AS Type FROM questions");
         }
         public static Question[] LoadUsedQuestions(int PlayerId, int RoundId)
         {
             return GetQuestions("SELECT q.*, u.Result " +
                 "FROM used_questions u " +
                 "LEFT JOIN questions q ON q.Id = u.QuestionId " +
-                "WHERE u.PlayerId = " + PlayerId + " AND u.RoundId = " + RoundId);
+                "WHERE u.PlayerId = " + PlayerId + 
+                " AND u.RoundId = " + RoundId);
         }
         public static Question[] LoadUsedQuestions(int RoundId)
         {
@@ -63,7 +64,8 @@ namespace TinyVirtualQ
                         d["Category"].ToString(),
                         d["Question"].ToString(),
                         d["Answer"].ToString(),
-                        d["Result"].ToString()
+                        d["Result"].ToString(),
+                        d["Type"].ToString()
                     )
                 );
             }
@@ -78,7 +80,7 @@ namespace TinyVirtualQ
             {
                 Player p = new Player(
                     d["Id"].ToString(),
-                    d["Firsname"].ToString(),
+                    d["Firstname"].ToString(),
                     d["Lastname"].ToString(),
                     d["Picture"].ToString()
                 );
