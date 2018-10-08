@@ -46,11 +46,11 @@ namespace TinyVirtualQ
                 );
             return P.ToArray();
         }
-
+        static string CNN = @"Provider=Microsoft.Jet.OLEDB.4.0;Data source = " + Application.StartupPath + "\\questy-on.mdb";
         public static bool db_exect(string sql_string, OleDbParameter[] Params = null)
         {
             OleDbConnection conn = new OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data source=" + Application.ExecutablePath + "\\questy-on.mdb";
+            conn.ConnectionString = CNN;
 
             try
             {
@@ -75,7 +75,7 @@ namespace TinyVirtualQ
         }
         public static DataRowCollection db_select(string sql_string, OleDbParameter[] Params = null)
         {
-            string strAccessConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Application.ExecutablePath + "\\questy-on.mdb";
+            string strAccessConn = CNN;
 
             // Create the dataset and add the Categories table to it:
             DataSet myDataSet = new DataSet();

@@ -51,7 +51,7 @@ namespace TinyVirtualQ
 
             IsReady = true;
         }
-        public void FillList(Question[] Preguntas)
+        public void FillList(List<Question> Preguntas)
         {
             ListQuestions.Items.Clear();
             int corrects = 0;
@@ -81,7 +81,7 @@ namespace TinyVirtualQ
                 ListQuestions.Items.Add(It);
             }
 
-            LabelQuestionsNum.Text = "Preguntas: " + Preguntas.Length;
+            LabelQuestionsNum.Text = "Preguntas: " + Preguntas.Count;
             LabelCorrectNum.Text = "Aciertos: " + corrects;
         }
         public void Run(int Seconds = 5)

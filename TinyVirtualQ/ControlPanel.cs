@@ -43,12 +43,10 @@ namespace TinyVirtualQ
             PROYECTOR.SetComponent(SlavePictureScreen, SlaveComboScreens, SlaveButtonUpdate);
             PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);
         }
-
         
 
         void ShuffleQuestions()
         {
-            // Knuth shuffle algorithm :: courtesy of Wikipedia :)
             for (int t = 0; t < QuestionBank.Length; t++)
             {
                 Question tmp = QuestionBank[t];
@@ -72,7 +70,7 @@ namespace TinyVirtualQ
 
         void Put()
         {
-            string id = ListPlayers.SelectedItems[0].Text;
+           /* string id = ListPlayers.SelectedItems[0].Text;
             int index = -1;
             for (int i = 0; i < Players.Length; i++)
                 if (Players[i].Id == id)
@@ -90,7 +88,7 @@ namespace TinyVirtualQ
                 else
                     MessageBox.Show(this, "No se puede agregar otra pregunta ya que no se ha contestado la actual",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
     }
 }
