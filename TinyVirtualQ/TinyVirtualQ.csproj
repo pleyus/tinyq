@@ -155,9 +155,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Crono.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Error.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -171,15 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ok.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BlueBack.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_NO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\_OK.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\square.png" />

@@ -526,7 +526,7 @@
             this.AdminButtonPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AdminButtonPlayers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AdminButtonPlayers.Enabled = false;
-            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 64);
+            this.AdminButtonPlayers.Location = new System.Drawing.Point(514, 61);
             this.AdminButtonPlayers.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonPlayers.Name = "AdminButtonPlayers";
             this.AdminButtonPlayers.Size = new System.Drawing.Size(92, 28);
