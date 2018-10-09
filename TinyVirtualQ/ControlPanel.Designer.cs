@@ -423,7 +423,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Jugador";
-            this.columnHeader1.Width = 291;
+            this.columnHeader1.Width = 188;
             // 
             // columnHeader2
             // 

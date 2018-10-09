@@ -190,13 +190,29 @@ namespace TinyVirtualQ
         }
         public static bool Update(Question Question)
         {
-            return Exec("UPDATE questions SET Category = '" + Question.Category + 
-                "', Question = '" + Question.Text + "', Answer = '" + 
-                Question.Answer + "' WHERE Id = " + Question.Id);
+            return Exec("UPDATE questions SET Category = '" + Question.Category.Replace('\'', ' ') + 
+                "', Question = '" + Question.Text.Replace('\'', ' ') + "', Answer = '" + 
+                Question.Answer.Replace('\'', ' ') + "' WHERE Id = " + Question.Id);
         }
         public static bool Delete(Question Question)
         {
             return Exec("DELETE FROM questions WHERE Id = " + Question.Id);
+        }
+
+        public static bool CreateNew(Player Player)
+        {
+            return Exec("INSERT INTO players (Firstname, Lastname, Picture) VALUES ('" + Player.Firstname.Replace('\'', ' ') +
+                "', '" + Player.Lastname.Replace('\'', ' ') + "', '" + Player.PictureFilename.Replace('\'', ' ') + "')");
+        }
+        public static bool Update(Player Player)
+        {
+            return Exec("UPDATE players SET Firstname = '" + Player.Firstname.Replace('\'', ' ') +
+                "', Lastname = '" + Player.Lastname.Replace('\'', ' ') + "', Picture = '" +
+                Player.PictureFilename.Replace('\'', ' ') + "' WHERE Id = " + Player.Id);
+        }
+        public static bool Delete(Player Player)
+        {
+            return Exec("DELETE FROM players WHERE Id = " + Player.Id);
         }
 
     }

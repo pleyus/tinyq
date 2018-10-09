@@ -111,6 +111,13 @@ namespace TinyVirtualQ
         }
         void LoadRoundsInfo(object sender, EventArgs e)
         {
+            if(AdminButtonContestStart.Text == "Finalizar")
+            {
+                ActiveContest(false);
+                return;
+            }
+
+            // Si no continuamos...
             //  Sacamos el Index tal cual
             int index = AdminComboContest.SelectedIndex;
 
@@ -151,54 +158,51 @@ namespace TinyVirtualQ
                 }
                 AdminComboRounds.SelectedIndex = 0;
 
-                if(AdminComboRounds.Items.Count > 0)
-                {
-                    //  Habilita los botones de la ronda y la lista de usuarios
-                    AdminComboRounds.Enabled = 
-                        AdminButtonRoundStart.Enabled =
-                        true;
-
-                    //  Deshabilita la Lista de concursos y su boton
-                    AdminComboContest.Enabled =
-                        AdminButtonContestStart.Enabled =
-                        AdminButtonOptions.Enabled =
-                        false;
-                }
-                else
-                {
-                    //  Deshabilita los botones de la ronda y la lista de usuarios
-                    AdminComboRounds.Enabled =
-                        AdminButtonRoundStart.Enabled =
-                        false;                    
-
-                    //  Habilita la Lista de concursos y su boton
-                    AdminComboContest.Enabled =
-                        AdminButtonContestStart.Enabled =
-                        AdminButtonOptions.Enabled =
-                        true;
-                }
-
-
+                ActiveContest(AdminComboRounds.Items.Count > 0);
             }
+            
+        }
+        void ActiveContest(bool active)
+        {
+            //  Habilita los botones de la ronda y la lista de usuarios
+            AdminComboRounds.Enabled =
+                AdminButtonRoundStart.Enabled =
+                active;
 
+            //  Deshabilita la Lista de concursos y su boton
+            AdminComboContest.Enabled =
+                AdminButtonOptions.Enabled =
+                !active;
+
+            AdminButtonContestStart.Text = active ? "Finalizar" : "Cargar";
         }
 
         void StartRound(object sender = null, EventArgs e = null)
         {
+            //  Si se va a terminar la ronda...
+            if(AdminButtonRoundStart.Text == "Terminar")
+            {
+                ListPlayers.Items.Clear();
+                SwitchEnableGameButtons(false);
+                return;
+            }
+
+            // Si no, seguimos
+
             //  Sacamos el index para trabajar
             int i = AdminComboContest.SelectedIndex - 1;
             int j = AdminComboRounds.SelectedIndex;
 
-            if(j > 0) // Porque siempre hay un elemento al comienzo
+            if (j > 0) // Porque siempre hay un elemento al comienzo
             {
                 j--;
-                 // Index del concurso actual
+                // Index del concurso actual
 
                 int RId = ContestList[i].Rounds[j].Id;
 
                 //  Quitamos y cargamos los players con sus preguntas usadas en esta ronda.
                 ContestList[i].Rounds[j].Players.Clear();
-                ContestList[i].Rounds[j].Players.AddRange(DataBase.LoadPlayers( RId ));
+                ContestList[i].Rounds[j].Players.AddRange(DataBase.LoadPlayers(RId));
 
                 //  Cargamos los players en el listview y sus datos
                 ListPlayers.Items.Clear();
@@ -225,22 +229,28 @@ namespace TinyVirtualQ
                 ContestList[i].Rounds[j].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
 
                 SwitchEnableGameButtons(true);
-                
-            }
-            void SwitchEnableGameButtons(bool status)
-            {
-                //  Habilitamos los botones necesarios
-                AdminButtonPlayers.Enabled =
-                    ListPlayers.Enabled =
-                    AdminButtonSetQuestion.Enabled =
-                    AdminButtonSetBreak.Enabled =
-                    AdminButtonRun.Enabled =
-                    AdminButtonWait.Enabled =
-                    AdminButtonCorrect.Enabled =
-                    AdminButtonWrong.Enabled =
-                    status;
+
             }
         }
+        void SwitchEnableGameButtons(bool status)
+        {
+            //  Habilitamos los botones necesarios
+            AdminButtonPlayers.Enabled =
+                ListPlayers.Enabled =
+                AdminButtonSetQuestion.Enabled =
+                AdminButtonSetBreak.Enabled =
+                AdminButtonRun.Enabled =
+                AdminButtonWait.Enabled =
+                AdminButtonCorrect.Enabled =
+                AdminButtonWrong.Enabled =
+                status;
+
+            AdminComboRounds.Enabled = !status;
+            AdminButtonRoundStart.Text = status ? "Terminar" : "Iniciar";
+
+            AdminButtonContestStart.Enabled = !status;
+        }
+        
         
         void PlayerClicked(object sender, EventArgs e)
         {

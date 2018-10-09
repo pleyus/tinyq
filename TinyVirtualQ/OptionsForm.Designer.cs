@@ -525,6 +525,7 @@
             // PicturePlayersUserPic
             // 
             this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
+            this.PicturePlayersUserPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PicturePlayersUserPic.Image = global::TinyVirtualQ.Resource1.round_picture_white;
             this.PicturePlayersUserPic.Location = new System.Drawing.Point(84, 42);
             this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
@@ -607,7 +608,7 @@
             this.ListPlayers.TabIndex = 1;
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
-            this.ListPlayers.SelectedIndexChanged += new System.EventHandler(this.UserSelection);
+            this.ListPlayers.SelectedIndexChanged += new System.EventHandler(this.PlayerSelection);
             // 
             // columnHeader9
             // 
@@ -636,6 +637,7 @@
             this.Name = "OptionsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuración";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClose);
             this.tabControl1.ResumeLayout(false);

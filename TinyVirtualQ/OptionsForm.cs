@@ -78,6 +78,14 @@ namespace TinyVirtualQ
                 IT.Tag = P;
                 ListPlayers.Items.Add(IT);
             }
+
+            //  Preparamos para agregar nuevo
+            TextPlayerFirstname.Text = TextPlayerLastname.Text = TextPlayerSelectedImage.Text = "";
+            ButtonPlayerSave.Enabled =
+                ButtonPlayerDelete.Enabled = false;
+
+            ButtonPlayerNew.Enabled = true;
+            PicturePlayersUserPic.BackgroundImage = null;
         }
         void FillRounds(Contest C)
         {
@@ -325,14 +333,15 @@ namespace TinyVirtualQ
             }
         }
 
-        private void UserSelection(object sender, EventArgs e)
+        private void PlayerSelection(object sender = null, EventArgs e = null)
         {
             //  Deshabilitamos y limpiamos la pregunta
             TextPlayerFirstname.Text = TextPlayerLastname.Text = TextPlayerSelectedImage.Text = "";
             ButtonPlayerSave.Enabled =
-                ButtonQuestionDelete.Enabled = false;
+                ButtonPlayerDelete.Enabled = false;
 
             ButtonPlayerNew.Enabled = true;
+            PicturePlayersUserPic.BackgroundImage = null;
 
             //  Si se seleccionó algo
             if (ListPlayers.SelectedItems.Count > 0)
@@ -348,9 +357,11 @@ namespace TinyVirtualQ
                 string filename = Application.StartupPath + "\\pics\\" + P.PictureFilename;
                 if (File.Exists(filename))
                     PicturePlayersUserPic.BackgroundImage = Image.FromFile(filename);
+                else
+                    PicturePlayersUserPic.BackgroundImage = null;
 
                 ButtonPlayerSave.Enabled =
-                    ButtonQuestionDelete.Enabled = true;
+                    ButtonPlayerDelete.Enabled = true;
 
                 ButtonPlayerNew.Enabled = false;
 
@@ -371,17 +382,73 @@ namespace TinyVirtualQ
                 if (OF.ShowDialog() == DialogResult.OK && File.Exists(OF.FileName))
                 {
                     TextPlayerSelectedImage.Text = OF.FileName;
-                    PicturePlayersUserPic.Image = Image.FromFile(OF.FileName);
+                    PicturePlayersUserPic.BackgroundImage = Image.FromFile(OF.FileName);
                 }
             }
-            else if (sender == ButtonPlayerSave)
+            else if (sender == ButtonPlayerNew)
             {
-                //  TODO: Agregar el codigo para guardar
-                if (File.Exists(TextPlayerSelectedImage.Text))
+                if (TextPlayerFirstname.Text.Trim() != "")
                 {
-                    File.Copy(TextPlayerSelectedImage.Text,
-                        Application.StartupPath + "\\pics\\" +
-                        CalculateMD5(TextPlayerSelectedImage.Text), true);
+                    //  Sacamos el nuevo nombre del archivo de imagen
+                    string filename = "";
+                    if (File.Exists(TextPlayerSelectedImage.Text))
+                        filename = CalculateMD5(TextPlayerSelectedImage.Text);
+
+                    Player P = new Player(0, TextPlayerFirstname.Text.Trim(), TextPlayerLastname.Text.Trim(), filename);
+                    if (DataBase.CreateNew(P))
+                    {
+                        //  Si existe el archivo, lo copiamos a la carpeta de imagenes
+                        if(File.Exists(TextPlayerSelectedImage.Text))
+                            File.Copy(TextPlayerSelectedImage.Text, Application.StartupPath + "\\pics\\" + filename, true);
+                        MessageBox.Show("Se creó correctamente el jugador", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    //  Recargamos la lista de usuarios
+                    RegistredPlayers = DataBase.LoadPlayers();
+                    FillPlayers();
+                }
+                else
+                {
+                    MessageBox.Show("Se requiere el nombre o alias para agregar un nuevo jugador", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TextPlayerFirstname.Focus();
+                }
+            }
+            else
+            {
+                if (ListPlayers.SelectedItems.Count > 0)
+                {
+                    Player P = (Player)ListPlayers.SelectedItems[0].Tag;
+
+                    if (sender == ButtonPlayerSave)
+                    {
+                        if (TextPlayerFirstname.Text.Trim() != "")
+                        {
+                            if (File.Exists(TextPlayerSelectedImage.Text))
+                            {
+                                string filename = CalculateMD5(TextPlayerSelectedImage.Text);
+                                File.Copy(TextPlayerSelectedImage.Text, Application.StartupPath + "\\pics\\" + filename, true);
+                                P.PictureFilename = filename;
+                            }
+
+                            if (DataBase.Update(P))
+                                MessageBox.Show("Se actualizó correctamente el jugador", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se requiere el nombre o alias para actualizar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            TextPlayerFirstname.Focus();
+                        }
+                    }
+                    else
+                    {
+                        if (DataBase.Delete(P))
+                            MessageBox.Show("Se eliminó el jugador");
+                    }
+
+                    //  Recargamos la lista de jugadores
+                    RegistredPlayers = DataBase.LoadPlayers();
+                    FillPlayers();
                 }
             }
         }
