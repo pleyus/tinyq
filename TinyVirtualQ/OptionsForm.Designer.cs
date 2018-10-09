@@ -42,6 +42,7 @@
             this.NumberRoundPlayers = new System.Windows.Forms.NumericUpDown();
             this.ButtonRoundDelete = new System.Windows.Forms.Button();
             this.NumberRoundQuestions = new System.Windows.Forms.NumericUpDown();
+            this.ButtonRoundAdd = new System.Windows.Forms.Button();
             this.ButtonRoundSave = new System.Windows.Forms.Button();
             this.ListRounds = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,19 +52,22 @@
             this.TextQuestionsCategory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ButtonQuestionDelete = new System.Windows.Forms.Button();
+            this.ButtonQuestionNew = new System.Windows.Forms.Button();
             this.ButtonQuestionSave = new System.Windows.Forms.Button();
             this.TextQuestionsAnswer = new System.Windows.Forms.TextBox();
             this.TextQuestionsQuestion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ListQuestions = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.GPlayer = new System.Windows.Forms.GroupBox();
+            this.ButtonPlayerDelete = new System.Windows.Forms.Button();
+            this.ButtonPlayerNew = new System.Windows.Forms.Button();
+            this.ButtonPlayerSave = new System.Windows.Forms.Button();
             this.ButtonPlayerSelectFile = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.PicturePlayersUserPic = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,8 +80,6 @@
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ButtonRoundAdd = new System.Windows.Forms.Button();
-            this.ButtonQuestionNew = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -134,6 +136,7 @@
             this.columnHeader7});
             this.ListContest.FullRowSelect = true;
             this.ListContest.Location = new System.Drawing.Point(17, 29);
+            this.ListContest.MultiSelect = false;
             this.ListContest.Name = "ListContest";
             this.ListContest.Size = new System.Drawing.Size(310, 271);
             this.ListContest.TabIndex = 0;
@@ -263,6 +266,16 @@
             0,
             0});
             // 
+            // ButtonRoundAdd
+            // 
+            this.ButtonRoundAdd.Location = new System.Drawing.Point(286, 310);
+            this.ButtonRoundAdd.Name = "ButtonRoundAdd";
+            this.ButtonRoundAdd.Size = new System.Drawing.Size(66, 26);
+            this.ButtonRoundAdd.TabIndex = 5;
+            this.ButtonRoundAdd.Text = "Nueva...";
+            this.ButtonRoundAdd.UseVisualStyleBackColor = true;
+            this.ButtonRoundAdd.Click += new System.EventHandler(this.RoundButtonsClick);
+            // 
             // ButtonRoundSave
             // 
             this.ButtonRoundSave.Location = new System.Drawing.Point(214, 310);
@@ -281,6 +294,7 @@
             this.columnHeader4});
             this.ListRounds.FullRowSelect = true;
             this.ListRounds.Location = new System.Drawing.Point(21, 29);
+            this.ListRounds.MultiSelect = false;
             this.ListRounds.Name = "ListRounds";
             this.ListRounds.Size = new System.Drawing.Size(363, 265);
             this.ListRounds.TabIndex = 1;
@@ -350,6 +364,16 @@
             this.ButtonQuestionDelete.UseVisualStyleBackColor = true;
             this.ButtonQuestionDelete.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
+            // ButtonQuestionNew
+            // 
+            this.ButtonQuestionNew.Location = new System.Drawing.Point(668, 45);
+            this.ButtonQuestionNew.Name = "ButtonQuestionNew";
+            this.ButtonQuestionNew.Size = new System.Drawing.Size(89, 26);
+            this.ButtonQuestionNew.TabIndex = 4;
+            this.ButtonQuestionNew.Text = "Nueva";
+            this.ButtonQuestionNew.UseVisualStyleBackColor = true;
+            this.ButtonQuestionNew.Click += new System.EventHandler(this.QuestionsButtonsClick);
+            // 
             // ButtonQuestionSave
             // 
             this.ButtonQuestionSave.Enabled = false;
@@ -403,6 +427,7 @@
             this.columnHeader6});
             this.ListQuestions.FullRowSelect = true;
             this.ListQuestions.Location = new System.Drawing.Point(18, 109);
+            this.ListQuestions.MultiSelect = false;
             this.ListQuestions.Name = "ListQuestions";
             this.ListQuestions.Size = new System.Drawing.Size(739, 252);
             this.ListQuestions.TabIndex = 5;
@@ -410,17 +435,15 @@
             this.ListQuestions.View = System.Windows.Forms.View.Details;
             this.ListQuestions.SelectedIndexChanged += new System.EventHandler(this.QuestionSelection);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.DisplayIndex = 1;
-            this.columnHeader1.Text = "Pregunta";
-            this.columnHeader1.Width = 379;
-            // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 0;
             this.columnHeader5.Text = "Categoria";
             this.columnHeader5.Width = 112;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Pregunta";
+            this.columnHeader1.Width = 379;
             // 
             // columnHeader6
             // 
@@ -441,8 +464,10 @@
             // 
             // GPlayer
             // 
+            this.GPlayer.Controls.Add(this.ButtonPlayerDelete);
+            this.GPlayer.Controls.Add(this.ButtonPlayerNew);
+            this.GPlayer.Controls.Add(this.ButtonPlayerSave);
             this.GPlayer.Controls.Add(this.ButtonPlayerSelectFile);
-            this.GPlayer.Controls.Add(this.button1);
             this.GPlayer.Controls.Add(this.PicturePlayersUserPic);
             this.GPlayer.Controls.Add(this.label7);
             this.GPlayer.Controls.Add(this.label10);
@@ -452,10 +477,41 @@
             this.GPlayer.Controls.Add(this.TextPlayerFirstname);
             this.GPlayer.Location = new System.Drawing.Point(479, 6);
             this.GPlayer.Name = "GPlayer";
-            this.GPlayer.Size = new System.Drawing.Size(281, 353);
+            this.GPlayer.Size = new System.Drawing.Size(281, 355);
             this.GPlayer.TabIndex = 14;
             this.GPlayer.TabStop = false;
             this.GPlayer.Text = "Crear / Editar";
+            // 
+            // ButtonPlayerDelete
+            // 
+            this.ButtonPlayerDelete.BackgroundImage = global::TinyVirtualQ.Resource1.icon_trash;
+            this.ButtonPlayerDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonPlayerDelete.Location = new System.Drawing.Point(202, 314);
+            this.ButtonPlayerDelete.Name = "ButtonPlayerDelete";
+            this.ButtonPlayerDelete.Size = new System.Drawing.Size(26, 26);
+            this.ButtonPlayerDelete.TabIndex = 16;
+            this.ButtonPlayerDelete.UseVisualStyleBackColor = true;
+            this.ButtonPlayerDelete.Click += new System.EventHandler(this.PlayersButtonsClick);
+            // 
+            // ButtonPlayerNew
+            // 
+            this.ButtonPlayerNew.Location = new System.Drawing.Point(130, 314);
+            this.ButtonPlayerNew.Name = "ButtonPlayerNew";
+            this.ButtonPlayerNew.Size = new System.Drawing.Size(66, 26);
+            this.ButtonPlayerNew.TabIndex = 15;
+            this.ButtonPlayerNew.Text = "Nueva...";
+            this.ButtonPlayerNew.UseVisualStyleBackColor = true;
+            this.ButtonPlayerNew.Click += new System.EventHandler(this.PlayersButtonsClick);
+            // 
+            // ButtonPlayerSave
+            // 
+            this.ButtonPlayerSave.Location = new System.Drawing.Point(58, 314);
+            this.ButtonPlayerSave.Name = "ButtonPlayerSave";
+            this.ButtonPlayerSave.Size = new System.Drawing.Size(66, 26);
+            this.ButtonPlayerSave.TabIndex = 14;
+            this.ButtonPlayerSave.Text = "Guardar";
+            this.ButtonPlayerSave.UseVisualStyleBackColor = true;
+            this.ButtonPlayerSave.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // ButtonPlayerSelectFile
             // 
@@ -464,19 +520,12 @@
             this.ButtonPlayerSelectFile.Size = new System.Drawing.Size(24, 24);
             this.ButtonPlayerSelectFile.TabIndex = 2;
             this.ButtonPlayerSelectFile.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(84, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonPlayerSelectFile.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // PicturePlayersUserPic
             // 
             this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
+            this.PicturePlayersUserPic.Image = global::TinyVirtualQ.Resource1.round_picture_white;
             this.PicturePlayersUserPic.Location = new System.Drawing.Point(84, 42);
             this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
             this.PicturePlayersUserPic.Size = new System.Drawing.Size(120, 120);
@@ -504,15 +553,15 @@
             // 
             // TextPlayerLastname
             // 
-            this.TextPlayerLastname.Location = new System.Drawing.Point(156, 207);
+            this.TextPlayerLastname.Location = new System.Drawing.Point(145, 207);
             this.TextPlayerLastname.Name = "TextPlayerLastname";
-            this.TextPlayerLastname.Size = new System.Drawing.Size(110, 21);
+            this.TextPlayerLastname.Size = new System.Drawing.Size(121, 21);
             this.TextPlayerLastname.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(153, 189);
+            this.label9.Location = new System.Drawing.Point(142, 189);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 15);
             this.label9.TabIndex = 11;
@@ -539,7 +588,7 @@
             this.groupBox1.Controls.Add(this.ListPlayers);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(467, 353);
+            this.groupBox1.Size = new System.Drawing.Size(467, 355);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jugadores registrados";
@@ -552,11 +601,13 @@
             this.columnHeader11});
             this.ListPlayers.FullRowSelect = true;
             this.ListPlayers.Location = new System.Drawing.Point(17, 29);
+            this.ListPlayers.MultiSelect = false;
             this.ListPlayers.Name = "ListPlayers";
-            this.ListPlayers.Size = new System.Drawing.Size(430, 300);
+            this.ListPlayers.Size = new System.Drawing.Size(430, 311);
             this.ListPlayers.TabIndex = 1;
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
+            this.ListPlayers.SelectedIndexChanged += new System.EventHandler(this.UserSelection);
             // 
             // columnHeader9
             // 
@@ -572,26 +623,6 @@
             // 
             this.columnHeader11.Text = "Imagen";
             this.columnHeader11.Width = 164;
-            // 
-            // ButtonRoundAdd
-            // 
-            this.ButtonRoundAdd.Location = new System.Drawing.Point(286, 310);
-            this.ButtonRoundAdd.Name = "ButtonRoundAdd";
-            this.ButtonRoundAdd.Size = new System.Drawing.Size(66, 26);
-            this.ButtonRoundAdd.TabIndex = 5;
-            this.ButtonRoundAdd.Text = "Nueva...";
-            this.ButtonRoundAdd.UseVisualStyleBackColor = true;
-            this.ButtonRoundAdd.Click += new System.EventHandler(this.RoundButtonsClick);
-            // 
-            // ButtonQuestionNew
-            // 
-            this.ButtonQuestionNew.Location = new System.Drawing.Point(668, 45);
-            this.ButtonQuestionNew.Name = "ButtonQuestionNew";
-            this.ButtonQuestionNew.Size = new System.Drawing.Size(89, 26);
-            this.ButtonQuestionNew.TabIndex = 4;
-            this.ButtonQuestionNew.Text = "Nueva";
-            this.ButtonQuestionNew.UseVisualStyleBackColor = true;
-            this.ButtonQuestionNew.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // OptionsForm
             // 
@@ -666,7 +697,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.GroupBox GPlayer;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox PicturePlayersUserPic;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
@@ -678,5 +708,8 @@
         private System.Windows.Forms.Button ButtonPlayerSelectFile;
         private System.Windows.Forms.Button ButtonRoundAdd;
         private System.Windows.Forms.Button ButtonQuestionNew;
+        private System.Windows.Forms.Button ButtonPlayerDelete;
+        private System.Windows.Forms.Button ButtonPlayerNew;
+        private System.Windows.Forms.Button ButtonPlayerSave;
     }
 }

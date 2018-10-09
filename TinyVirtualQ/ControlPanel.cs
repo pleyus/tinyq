@@ -22,15 +22,21 @@ namespace TinyVirtualQ
         Contest[] ContestList;
         Question[] QuestionBank;
         
-
-        public void onLoad(object sender = null, EventArgs e = null)
+        public void LoadData()
         {
             QuestionBank = DataBase.LoadQuestions();
             ShuffleQuestions(); // Mezclamos las preguntas
 
             ContestList = DataBase.LoadContests();
             LoadContestInfo();  // Cargamos la info de los concursos en el modulo
-            
+        }
+        public void onLoad(object sender = null, EventArgs e = null)
+        {
+            LoadData();
+
+            if(!Directory.Exists(Application.StartupPath + "\\pics\\"))
+                Directory.CreateDirectory(Application.StartupPath + "\\pics\\");
+
             MONITOR = new ScreenController(QuestionBank);
             MONITOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
             MONITOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);

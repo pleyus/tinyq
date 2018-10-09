@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>QuestyON.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -203,9 +206,6 @@
     <None Include="Resources\icon-stats-tiny.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\round-picture.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\white-clock.png" />
   </ItemGroup>
   <ItemGroup>
@@ -213,6 +213,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round-picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\round-picture_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuestyON.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

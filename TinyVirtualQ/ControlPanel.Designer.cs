@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlPanel));
             this.label1 = new System.Windows.Forms.Label();
             this.GMaster = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AdminButtonWrong = new System.Windows.Forms.Button();
             this.AdminButtonCorrect = new System.Windows.Forms.Button();
             this.AdminButtonWait = new System.Windows.Forms.Button();
@@ -64,12 +66,11 @@
             this.AdminButtonRoundStart = new System.Windows.Forms.Button();
             this.AdminButtonContestStart = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.AdminButtonSetBreak = new System.Windows.Forms.Button();
             this.AdminButtonSetQuestion = new System.Windows.Forms.Button();
             this.AdminComboRounds = new System.Windows.Forms.ComboBox();
             this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminButtonOptions = new System.Windows.Forms.Button();
-            this.AdminButtonSetBreak = new System.Windows.Forms.Button();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -439,6 +440,11 @@
             this.columnHeader4.Text = "Desempate";
             this.columnHeader4.Width = 92;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "D. aciertos";
+            this.columnHeader5.Width = 99;
+            // 
             // AdminButtonWrong
             // 
             this.AdminButtonWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -587,6 +593,25 @@
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // AdminButtonSetBreak
+            // 
+            this.AdminButtonSetBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AdminButtonSetBreak.BackgroundImage = global::TinyVirtualQ.Resource1.icon_stats_tiny;
+            this.AdminButtonSetBreak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AdminButtonSetBreak.Enabled = false;
+            this.AdminButtonSetBreak.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminButtonSetBreak.Location = new System.Drawing.Point(216, 330);
+            this.AdminButtonSetBreak.Margin = new System.Windows.Forms.Padding(2);
+            this.AdminButtonSetBreak.Name = "AdminButtonSetBreak";
+            this.AdminButtonSetBreak.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.AdminButtonSetBreak.Size = new System.Drawing.Size(119, 38);
+            this.AdminButtonSetBreak.TabIndex = 1;
+            this.AdminButtonSetBreak.Tag = "";
+            this.AdminButtonSetBreak.Text = "Desempate";
+            this.AdminButtonSetBreak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminButtonSetBreak.UseVisualStyleBackColor = true;
+            this.AdminButtonSetBreak.Click += new System.EventHandler(this.GameActions);
+            // 
             // AdminButtonSetQuestion
             // 
             this.AdminButtonSetQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -647,30 +672,6 @@
             this.AdminButtonOptions.UseVisualStyleBackColor = true;
             this.AdminButtonOptions.Click += new System.EventHandler(this.OptionsInit);
             // 
-            // AdminButtonSetBreak
-            // 
-            this.AdminButtonSetBreak.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AdminButtonSetBreak.BackgroundImage = global::TinyVirtualQ.Resource1.icon_stats_tiny;
-            this.AdminButtonSetBreak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.AdminButtonSetBreak.Enabled = false;
-            this.AdminButtonSetBreak.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonSetBreak.Location = new System.Drawing.Point(216, 330);
-            this.AdminButtonSetBreak.Margin = new System.Windows.Forms.Padding(2);
-            this.AdminButtonSetBreak.Name = "AdminButtonSetBreak";
-            this.AdminButtonSetBreak.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonSetBreak.Size = new System.Drawing.Size(119, 38);
-            this.AdminButtonSetBreak.TabIndex = 1;
-            this.AdminButtonSetBreak.Tag = "";
-            this.AdminButtonSetBreak.Text = "Desempate";
-            this.AdminButtonSetBreak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonSetBreak.UseVisualStyleBackColor = true;
-            this.AdminButtonSetBreak.Click += new System.EventHandler(this.GameActions);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "D. aciertos";
-            this.columnHeader5.Width = 99;
-            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -683,6 +684,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AdminButtonOptions);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ControlPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

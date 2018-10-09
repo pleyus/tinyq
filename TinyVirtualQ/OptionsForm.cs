@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.IO;
 using System.Drawing;
-using System.Data.OleDb;
-using System.Text;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace TinyVirtualQ
@@ -139,7 +138,7 @@ namespace TinyVirtualQ
 
         private void OnClose(object sender, FormClosingEventArgs e)
         {
-            Main.onLoad();
+            Main.LoadData();
         }
 
         private void RoundSelection(object sender = null, EventArgs e = null)
@@ -323,6 +322,78 @@ namespace TinyVirtualQ
 
                 QuestionBank = DataBase.LoadQuestions();
                 FillQuestions();
+            }
+        }
+
+        private void UserSelection(object sender, EventArgs e)
+        {
+            //  Deshabilitamos y limpiamos la pregunta
+            TextPlayerFirstname.Text = TextPlayerLastname.Text = TextPlayerSelectedImage.Text = "";
+            ButtonPlayerSave.Enabled =
+                ButtonQuestionDelete.Enabled = false;
+
+            ButtonPlayerNew.Enabled = true;
+
+            //  Si se seleccionó algo
+            if (ListPlayers.SelectedItems.Count > 0)
+            {
+                //  Sacamos el objeto y lo parseamos a Contest
+                Player P = (Player)ListPlayers.SelectedItems[0].Tag;
+
+                //  Asignamos los campos
+                TextPlayerFirstname.Text = P.Firstname;
+                TextPlayerLastname.Text = P.Lastname;
+                TextPlayerSelectedImage.Text = "";
+
+                string filename = Application.StartupPath + "\\pics\\" + P.PictureFilename;
+                if (File.Exists(filename))
+                    PicturePlayersUserPic.BackgroundImage = Image.FromFile(filename);
+
+                ButtonPlayerSave.Enabled =
+                    ButtonQuestionDelete.Enabled = true;
+
+                ButtonPlayerNew.Enabled = false;
+
+                //  Mantenemos deshabilitados los botones de save y delete...
+            }
+        }
+
+        private void PlayersButtonsClick(object sender, EventArgs e)
+        {
+            if (sender == ButtonPlayerSelectFile)
+            {
+                OpenFileDialog OF = new OpenFileDialog();
+                OF.Title = "Imagen de jugador (1:1)";
+                OF.Filter = "Imagenes compatibles| *.jpg; *.jpeg; *.jpe; *.png";
+                OF.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                OF.Multiselect = false;
+
+                if (OF.ShowDialog() == DialogResult.OK && File.Exists(OF.FileName))
+                {
+                    TextPlayerSelectedImage.Text = OF.FileName;
+                    PicturePlayersUserPic.Image = Image.FromFile(OF.FileName);
+                }
+            }
+            else if (sender == ButtonPlayerSave)
+            {
+                //  TODO: Agregar el codigo para guardar
+                if (File.Exists(TextPlayerSelectedImage.Text))
+                {
+                    File.Copy(TextPlayerSelectedImage.Text,
+                        Application.StartupPath + "\\pics\\" +
+                        CalculateMD5(TextPlayerSelectedImage.Text), true);
+                }
+            }
+        }
+        string CalculateMD5(string filename)
+        {
+            using (var md5 = MD5.Create())
+            {
+                using (var stream = File.OpenRead(filename))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
             }
         }
     }

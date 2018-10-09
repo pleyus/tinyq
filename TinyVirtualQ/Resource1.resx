@@ -160,13 +160,16 @@
   <data name="questy_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\questy-on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="round_picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\round-picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="user_base_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\user-base-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="white_clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\white-clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\round-picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_picture_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\round-picture_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
