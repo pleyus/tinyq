@@ -43,3 +43,4 @@ C:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.OptionsForm.resources
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.MasterGameScreen.resources
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.OptionsForm.resources
 F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.SlaveGameScreen.resources
+F:\proj\tinyq\TinyVirtualQ\obj\x86\Debug\TinyVirtualQ.SelectPlayers.resources

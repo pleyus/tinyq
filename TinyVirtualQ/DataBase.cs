@@ -22,6 +22,19 @@ namespace TinyVirtualQ
                 C.Connection = conn;
                 if (Params != null)
                     C.Parameters.AddRange(Params);
+
+                //  Para hacer cosas en serie (Siempre devuelve true)
+                string[] sqls = sql_string.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                if(sqls.Length > 1)
+                {
+                    foreach (string s in sqls)
+                    {
+                        C.CommandText = s;
+                        C.ExecuteNonQuery();
+                    }
+                    return true;
+                }
+
                 C.CommandText = sql_string;
                 C.ExecuteNonQuery();
                 return true;
@@ -143,9 +156,46 @@ namespace TinyVirtualQ
             }
             return Q.ToArray();
         }
+
         public static Player[] LoadPlayers(int RoundId = 0)
         {
-            DataRowCollection D = Select("SELECT * FROM players");
+            string sql = "SELECT * FROM players";
+            if (RoundId > 0)
+                sql = "SELECT p.* FROM players p LEFT JOIN round_players r ON r.PlayerId = p.Id WHERE r.RoundId = " + RoundId;
+
+            DataRowCollection D = Select(sql);
+            List<Player> P = new List<Player>();
+
+            foreach (DataRow d in D)
+            {
+                Player p = new Player(
+                    d["Id"].ToString(),
+                    d["Firstname"].ToString(),
+                    d["Lastname"].ToString(),
+                    d["Picture"].ToString()
+                );
+                if (RoundId > 0)
+                    p.Questions.AddRange(LoadUsedQuestions(p.Id, RoundId));
+
+                P.Add(p);
+            }
+            return P.ToArray();
+        }
+        public static Player[] LoadPlayers(Player[] Exclude, int RoundId = 0)
+        {
+            //  Sacamos los id para excluir
+            string ids = "";
+            for (int i = 0; i < Exclude.Length; i++)
+                ids += (i == 0 ? "" : " AND") + " Id <> " + Exclude[i].Id;
+
+            //  Preparamos la consulta
+            string sql = "SELECT * FROM players" + (RoundId == 0 ? " WHERE " + ids : "");
+            if (RoundId > 0)
+                sql = "SELECT p.* FROM players p LEFT JOIN round_players r ON r.PlayerId = p.Id WHERE r.RoundId = " + RoundId + (RoundId > 0 ? " AND " + ids : "");
+
+
+
+            DataRowCollection D = Select(sql);
             List<Player> P = new List<Player>();
 
             foreach (DataRow d in D)
@@ -215,5 +265,33 @@ namespace TinyVirtualQ
             return Exec("DELETE FROM players WHERE Id = " + Player.Id);
         }
 
+
+        public static bool ResetRound(int Id)
+        {
+            //  Quitamos las preguntas contestadas
+            string sql = "DELETE FROM used_questions WHERE RoundId = " + Id;
+            if (Exec(sql))
+            {
+                //  Quitamos los jugadores
+                sql = "DELETE FROM round_players WHERE RoundId = " + Id;
+                return Exec(sql);
+            }
+            return false;
+        }
+        public static bool InsertPlayersInRound(Player[] Players, int RoundId)
+        {
+            if (Players.Length > 0)
+            {
+                string sql = "";
+                
+                foreach (Player P in Players)
+                    sql += "INSERT INTO round_players (RoundId, PlayerId) VALUES (" + RoundId + ", " + P.Id + ");";
+
+                return Exec(sql);
+
+            }
+            //  Si no viene ningun jugador, siempre es correcto
+            return true;
+        }
     }
 }

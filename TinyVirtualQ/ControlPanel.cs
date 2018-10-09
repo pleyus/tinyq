@@ -272,5 +272,16 @@ namespace TinyVirtualQ
             OptionsForm Op = new OptionsForm(this);
             Op.ShowDialog();
         }
+
+        private void SelectPlayersClick(object sender, EventArgs e)
+        {
+            int c = AdminComboContest.SelectedIndex - 1;
+            int r = AdminComboRounds.SelectedIndex - 1;
+
+            SelectPlayers sp = new SelectPlayers(ContestList[c].Rounds, r);
+            sp.ShowDialog();
+            AdminButtonRoundStart.Text = "Iniciar";
+            StartRound();
+        }
     }
 }

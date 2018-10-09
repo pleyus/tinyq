@@ -546,6 +546,7 @@
             this.AdminButtonPlayers.Tag = "";
             this.AdminButtonPlayers.Text = "Jugadores";
             this.AdminButtonPlayers.UseVisualStyleBackColor = true;
+            this.AdminButtonPlayers.Click += new System.EventHandler(this.SelectPlayersClick);
             // 
             // AdminButtonRoundStart
             // 
