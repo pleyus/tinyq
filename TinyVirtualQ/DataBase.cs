@@ -189,7 +189,7 @@ namespace TinyVirtualQ
                 ids += (i == 0 ? "" : " AND") + " Id <> " + Exclude[i].Id;
 
             //  Preparamos la consulta
-            string sql = "SELECT * FROM players" + (RoundId == 0 ? " WHERE " + ids : "");
+            string sql = "SELECT * FROM players" + (Exclude.Length > 0 && RoundId == 0 ? " WHERE " + ids : "");
             if (RoundId > 0)
                 sql = "SELECT p.* FROM players p LEFT JOIN round_players r ON r.PlayerId = p.Id WHERE r.RoundId = " + RoundId + (RoundId > 0 ? " AND " + ids : "");
 

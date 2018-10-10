@@ -39,9 +39,12 @@ namespace TinyVirtualQ
                 foreach (Round R in Rounds)
                     round_required_questions += R.RequiredPlayers * R.QuestionsByPlayer;
 
-                round_required_questions += (int)(round_required_questions * 0.5);
                 return round_required_questions;
             }
+        }
+        public int RecomendedQuestions
+        {
+            get { return RequiredQuestions + (int)(RequiredQuestions * 0.5); }
         }
     }
 }

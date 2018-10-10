@@ -69,5 +69,13 @@ namespace TinyVirtualQ
 
             return i;
         }
+        public Question GetCurrentQuestion()
+        {
+            foreach (Question q in Questions)
+                if (q.Result == Question.QuestionResult.None)
+                    return q;
+
+            return null;
+        }
     }
 }

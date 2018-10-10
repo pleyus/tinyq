@@ -71,11 +71,33 @@
             this.AdminComboRounds = new System.Windows.Forms.ComboBox();
             this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminButtonOptions = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AdminLabelQuestion = new System.Windows.Forms.Label();
+            this.AdminLabelAnswer = new System.Windows.Forms.Label();
+            this.AdminLabelPlayerName = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.AdminLabelQNCorrect = new System.Windows.Forms.Label();
+            this.AdminLabelQDCorrect = new System.Windows.Forms.Label();
+            this.AdminLabelQNWrong = new System.Windows.Forms.Label();
+            this.AdminLabelQDWrong = new System.Windows.Forms.Label();
+            this.AdminLabelQNTotal = new System.Windows.Forms.Label();
+            this.AdminLabelQDTotal = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.AdminLabelBankAvailable = new System.Windows.Forms.Label();
+            this.AdminLabelRoundUsed = new System.Windows.Forms.Label();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).BeginInit();
             this.GAdmin.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +130,7 @@
             this.GMaster.Margin = new System.Windows.Forms.Padding(2);
             this.GMaster.Name = "GMaster";
             this.GMaster.Padding = new System.Windows.Forms.Padding(2);
-            this.GMaster.Size = new System.Drawing.Size(201, 486);
+            this.GMaster.Size = new System.Drawing.Size(201, 591);
             this.GMaster.TabIndex = 2;
             this.GMaster.TabStop = false;
             this.GMaster.Text = "Master";
@@ -117,7 +139,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.label2.Location = new System.Drawing.Point(12, 287);
+            this.label2.Location = new System.Drawing.Point(12, 314);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 13);
@@ -127,7 +149,7 @@
             // MasterTextMessage
             // 
             this.MasterTextMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.MasterTextMessage.Location = new System.Drawing.Point(16, 302);
+            this.MasterTextMessage.Location = new System.Drawing.Point(16, 329);
             this.MasterTextMessage.Margin = new System.Windows.Forms.Padding(2);
             this.MasterTextMessage.Multiline = true;
             this.MasterTextMessage.Name = "MasterTextMessage";
@@ -140,7 +162,7 @@
             this.MasterPictureScreen.Location = new System.Drawing.Point(15, 30);
             this.MasterPictureScreen.Margin = new System.Windows.Forms.Padding(2);
             this.MasterPictureScreen.Name = "MasterPictureScreen";
-            this.MasterPictureScreen.Size = new System.Drawing.Size(167, 95);
+            this.MasterPictureScreen.Size = new System.Drawing.Size(167, 122);
             this.MasterPictureScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MasterPictureScreen.TabIndex = 2;
             this.MasterPictureScreen.TabStop = false;
@@ -151,7 +173,7 @@
             this.MasterButtonGame.BackgroundImage = global::TinyVirtualQ.Resource1.icon_game_tiny;
             this.MasterButtonGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MasterButtonGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MasterButtonGame.Location = new System.Drawing.Point(15, 241);
+            this.MasterButtonGame.Location = new System.Drawing.Point(15, 268);
             this.MasterButtonGame.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonGame.Name = "MasterButtonGame";
             this.MasterButtonGame.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -167,7 +189,7 @@
             this.MasterButtonLogo.BackgroundImage = global::TinyVirtualQ.Resource1.icon_home_tiny;
             this.MasterButtonLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MasterButtonLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MasterButtonLogo.Location = new System.Drawing.Point(15, 199);
+            this.MasterButtonLogo.Location = new System.Drawing.Point(15, 226);
             this.MasterButtonLogo.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonLogo.Name = "MasterButtonLogo";
             this.MasterButtonLogo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -183,7 +205,7 @@
             this.MasterButtonStatus.BackgroundImage = global::TinyVirtualQ.Resource1.icon_stats_tiny;
             this.MasterButtonStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.MasterButtonStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MasterButtonStatus.Location = new System.Drawing.Point(15, 157);
+            this.MasterButtonStatus.Location = new System.Drawing.Point(15, 184);
             this.MasterButtonStatus.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonStatus.Name = "MasterButtonStatus";
             this.MasterButtonStatus.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -198,7 +220,7 @@
             // 
             this.MasterButtonClear.BackgroundImage = global::TinyVirtualQ.Resource1.icon_trash;
             this.MasterButtonClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MasterButtonClear.Location = new System.Drawing.Point(50, 356);
+            this.MasterButtonClear.Location = new System.Drawing.Point(50, 383);
             this.MasterButtonClear.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonClear.Name = "MasterButtonClear";
             this.MasterButtonClear.Size = new System.Drawing.Size(30, 30);
@@ -210,7 +232,7 @@
             // 
             this.MasterButtonMessage.BackgroundImage = global::TinyVirtualQ.Resource1.icon_send;
             this.MasterButtonMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MasterButtonMessage.Location = new System.Drawing.Point(16, 356);
+            this.MasterButtonMessage.Location = new System.Drawing.Point(16, 383);
             this.MasterButtonMessage.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonMessage.Name = "MasterButtonMessage";
             this.MasterButtonMessage.Size = new System.Drawing.Size(30, 30);
@@ -222,7 +244,7 @@
             // 
             this.MasterButtonUpdate.BackgroundImage = global::TinyVirtualQ.Resource1.icon_update;
             this.MasterButtonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MasterButtonUpdate.Location = new System.Drawing.Point(159, 129);
+            this.MasterButtonUpdate.Location = new System.Drawing.Point(159, 156);
             this.MasterButtonUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.MasterButtonUpdate.Name = "MasterButtonUpdate";
             this.MasterButtonUpdate.Size = new System.Drawing.Size(25, 25);
@@ -235,7 +257,7 @@
             this.MasterComboScreens.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MasterComboScreens.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.MasterComboScreens.FormattingEnabled = true;
-            this.MasterComboScreens.Location = new System.Drawing.Point(15, 130);
+            this.MasterComboScreens.Location = new System.Drawing.Point(15, 157);
             this.MasterComboScreens.Margin = new System.Windows.Forms.Padding(2);
             this.MasterComboScreens.Name = "MasterComboScreens";
             this.MasterComboScreens.Size = new System.Drawing.Size(140, 23);
@@ -257,7 +279,7 @@
             this.GSlave.Margin = new System.Windows.Forms.Padding(2);
             this.GSlave.Name = "GSlave";
             this.GSlave.Padding = new System.Windows.Forms.Padding(2);
-            this.GSlave.Size = new System.Drawing.Size(201, 486);
+            this.GSlave.Size = new System.Drawing.Size(201, 591);
             this.GSlave.TabIndex = 2;
             this.GSlave.TabStop = false;
             this.GSlave.Text = "Slave";
@@ -268,7 +290,7 @@
             this.SlavePictureScreen.Location = new System.Drawing.Point(16, 30);
             this.SlavePictureScreen.Margin = new System.Windows.Forms.Padding(2);
             this.SlavePictureScreen.Name = "SlavePictureScreen";
-            this.SlavePictureScreen.Size = new System.Drawing.Size(167, 95);
+            this.SlavePictureScreen.Size = new System.Drawing.Size(167, 122);
             this.SlavePictureScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SlavePictureScreen.TabIndex = 2;
             this.SlavePictureScreen.TabStop = false;
@@ -279,7 +301,7 @@
             this.SlaveButtonGame.BackgroundImage = global::TinyVirtualQ.Resource1.icon_game_tiny;
             this.SlaveButtonGame.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SlaveButtonGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SlaveButtonGame.Location = new System.Drawing.Point(16, 245);
+            this.SlaveButtonGame.Location = new System.Drawing.Point(17, 266);
             this.SlaveButtonGame.Margin = new System.Windows.Forms.Padding(2);
             this.SlaveButtonGame.Name = "SlaveButtonGame";
             this.SlaveButtonGame.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -295,7 +317,7 @@
             this.SlaveButtonLogo.BackgroundImage = global::TinyVirtualQ.Resource1.icon_home_tiny;
             this.SlaveButtonLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SlaveButtonLogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SlaveButtonLogo.Location = new System.Drawing.Point(16, 204);
+            this.SlaveButtonLogo.Location = new System.Drawing.Point(17, 225);
             this.SlaveButtonLogo.Margin = new System.Windows.Forms.Padding(2);
             this.SlaveButtonLogo.Name = "SlaveButtonLogo";
             this.SlaveButtonLogo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -311,7 +333,7 @@
             this.SlaveButtonBlack.BackgroundImage = global::TinyVirtualQ.Resource1.icon_stats_tiny;
             this.SlaveButtonBlack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.SlaveButtonBlack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SlaveButtonBlack.Location = new System.Drawing.Point(16, 162);
+            this.SlaveButtonBlack.Location = new System.Drawing.Point(17, 183);
             this.SlaveButtonBlack.Margin = new System.Windows.Forms.Padding(2);
             this.SlaveButtonBlack.Name = "SlaveButtonBlack";
             this.SlaveButtonBlack.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -326,7 +348,7 @@
             // 
             this.SlaveButtonUpdate.BackgroundImage = global::TinyVirtualQ.Resource1.icon_update;
             this.SlaveButtonUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SlaveButtonUpdate.Location = new System.Drawing.Point(159, 129);
+            this.SlaveButtonUpdate.Location = new System.Drawing.Point(160, 155);
             this.SlaveButtonUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.SlaveButtonUpdate.Name = "SlaveButtonUpdate";
             this.SlaveButtonUpdate.Size = new System.Drawing.Size(25, 25);
@@ -337,12 +359,12 @@
             // SlaveComboScreens
             // 
             this.SlaveComboScreens.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SlaveComboScreens.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.SlaveComboScreens.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.SlaveComboScreens.FormattingEnabled = true;
-            this.SlaveComboScreens.Location = new System.Drawing.Point(16, 130);
+            this.SlaveComboScreens.Location = new System.Drawing.Point(16, 156);
             this.SlaveComboScreens.Margin = new System.Windows.Forms.Padding(2);
             this.SlaveComboScreens.Name = "SlaveComboScreens";
-            this.SlaveComboScreens.Size = new System.Drawing.Size(140, 28);
+            this.SlaveComboScreens.Size = new System.Drawing.Size(140, 23);
             this.SlaveComboScreens.TabIndex = 0;
             this.SlaveComboScreens.Tag = "";
             // 
@@ -351,6 +373,7 @@
             this.GAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.GAdmin.Controls.Add(this.groupBox1);
             this.GAdmin.Controls.Add(this.label4);
             this.GAdmin.Controls.Add(this.label3);
             this.GAdmin.Controls.Add(this.ListPlayers);
@@ -372,7 +395,7 @@
             this.GAdmin.Name = "GAdmin";
             this.GAdmin.Padding = new System.Windows.Forms.Padding(2);
             this.GAdmin.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.GAdmin.Size = new System.Drawing.Size(623, 486);
+            this.GAdmin.Size = new System.Drawing.Size(623, 591);
             this.GAdmin.TabIndex = 3;
             this.GAdmin.TabStop = false;
             this.GAdmin.Text = "Administrador";
@@ -414,7 +437,7 @@
             this.ListPlayers.FullRowSelect = true;
             this.ListPlayers.Location = new System.Drawing.Point(16, 111);
             this.ListPlayers.Name = "ListPlayers";
-            this.ListPlayers.Size = new System.Drawing.Size(590, 208);
+            this.ListPlayers.Size = new System.Drawing.Size(590, 152);
             this.ListPlayers.TabIndex = 2;
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
@@ -451,7 +474,7 @@
             this.AdminButtonWrong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AdminButtonWrong.Enabled = false;
             this.AdminButtonWrong.Image = global::TinyVirtualQ.Resource1.wrong;
-            this.AdminButtonWrong.Location = new System.Drawing.Point(178, 414);
+            this.AdminButtonWrong.Location = new System.Drawing.Point(178, 519);
             this.AdminButtonWrong.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonWrong.Name = "AdminButtonWrong";
             this.AdminButtonWrong.Size = new System.Drawing.Size(157, 54);
@@ -467,7 +490,7 @@
             this.AdminButtonCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.AdminButtonCorrect.Enabled = false;
             this.AdminButtonCorrect.Image = global::TinyVirtualQ.Resource1.correct;
-            this.AdminButtonCorrect.Location = new System.Drawing.Point(16, 415);
+            this.AdminButtonCorrect.Location = new System.Drawing.Point(16, 520);
             this.AdminButtonCorrect.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonCorrect.Name = "AdminButtonCorrect";
             this.AdminButtonCorrect.Size = new System.Drawing.Size(157, 54);
@@ -484,7 +507,7 @@
             this.AdminButtonWait.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AdminButtonWait.Enabled = false;
             this.AdminButtonWait.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonWait.Location = new System.Drawing.Point(178, 372);
+            this.AdminButtonWait.Location = new System.Drawing.Point(178, 477);
             this.AdminButtonWait.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonWait.Name = "AdminButtonWait";
             this.AdminButtonWait.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -503,7 +526,7 @@
             this.AdminButtonRun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AdminButtonRun.Enabled = false;
             this.AdminButtonRun.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonRun.Location = new System.Drawing.Point(16, 372);
+            this.AdminButtonRun.Location = new System.Drawing.Point(16, 477);
             this.AdminButtonRun.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonRun.Name = "AdminButtonRun";
             this.AdminButtonRun.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -522,7 +545,7 @@
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button6.Enabled = false;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(445, 372);
+            this.button6.Location = new System.Drawing.Point(445, 477);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
             this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -583,7 +606,7 @@
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button5.Enabled = false;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(445, 330);
+            this.button5.Location = new System.Drawing.Point(445, 435);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
@@ -601,17 +624,17 @@
             this.AdminButtonSetBreak.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AdminButtonSetBreak.Enabled = false;
             this.AdminButtonSetBreak.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonSetBreak.Location = new System.Drawing.Point(216, 330);
+            this.AdminButtonSetBreak.Location = new System.Drawing.Point(178, 435);
             this.AdminButtonSetBreak.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonSetBreak.Name = "AdminButtonSetBreak";
             this.AdminButtonSetBreak.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonSetBreak.Size = new System.Drawing.Size(119, 38);
+            this.AdminButtonSetBreak.Size = new System.Drawing.Size(157, 38);
             this.AdminButtonSetBreak.TabIndex = 1;
             this.AdminButtonSetBreak.Tag = "";
             this.AdminButtonSetBreak.Text = "Desempate";
             this.AdminButtonSetBreak.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AdminButtonSetBreak.UseVisualStyleBackColor = true;
-            this.AdminButtonSetBreak.Click += new System.EventHandler(this.GameActions);
+            this.AdminButtonSetBreak.Click += new System.EventHandler(this.SetQuestion);
             // 
             // AdminButtonSetQuestion
             // 
@@ -620,17 +643,17 @@
             this.AdminButtonSetQuestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.AdminButtonSetQuestion.Enabled = false;
             this.AdminButtonSetQuestion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AdminButtonSetQuestion.Location = new System.Drawing.Point(16, 330);
+            this.AdminButtonSetQuestion.Location = new System.Drawing.Point(16, 435);
             this.AdminButtonSetQuestion.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButtonSetQuestion.Name = "AdminButtonSetQuestion";
             this.AdminButtonSetQuestion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.AdminButtonSetQuestion.Size = new System.Drawing.Size(196, 38);
+            this.AdminButtonSetQuestion.Size = new System.Drawing.Size(157, 38);
             this.AdminButtonSetQuestion.TabIndex = 1;
             this.AdminButtonSetQuestion.Tag = "";
-            this.AdminButtonSetQuestion.Text = "Asignar siguiente pregunta";
+            this.AdminButtonSetQuestion.Text = "Siguiente pregunta";
             this.AdminButtonSetQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AdminButtonSetQuestion.UseVisualStyleBackColor = true;
-            this.AdminButtonSetQuestion.Click += new System.EventHandler(this.GameActions);
+            this.AdminButtonSetQuestion.Click += new System.EventHandler(this.SetQuestion);
             // 
             // AdminComboRounds
             // 
@@ -673,12 +696,303 @@
             this.AdminButtonOptions.UseVisualStyleBackColor = true;
             this.AdminButtonOptions.Click += new System.EventHandler(this.OptionsInit);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.AdminLabelQDTotal);
+            this.groupBox1.Controls.Add(this.AdminLabelQDWrong);
+            this.groupBox1.Controls.Add(this.AdminLabelRoundUsed);
+            this.groupBox1.Controls.Add(this.AdminLabelQDCorrect);
+            this.groupBox1.Controls.Add(this.AdminLabelQNTotal);
+            this.groupBox1.Controls.Add(this.AdminLabelQNWrong);
+            this.groupBox1.Controls.Add(this.AdminLabelBankAvailable);
+            this.groupBox1.Controls.Add(this.AdminLabelQNCorrect);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.AdminLabelPlayerName);
+            this.groupBox1.Controls.Add(this.AdminLabelAnswer);
+            this.groupBox1.Controls.Add(this.AdminLabelQuestion);
+            this.groupBox1.Location = new System.Drawing.Point(16, 268);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(590, 158);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado actual";
+            // 
+            // AdminLabelQuestion
+            // 
+            this.AdminLabelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQuestion.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQuestion.Location = new System.Drawing.Point(22, 82);
+            this.AdminLabelQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQuestion.Name = "AdminLabelQuestion";
+            this.AdminLabelQuestion.Size = new System.Drawing.Size(247, 42);
+            this.AdminLabelQuestion.TabIndex = 4;
+            this.AdminLabelQuestion.Text = "«Sin pregunta asignada»";
+            // 
+            // AdminLabelAnswer
+            // 
+            this.AdminLabelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.AdminLabelAnswer.Location = new System.Drawing.Point(25, 124);
+            this.AdminLabelAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelAnswer.Name = "AdminLabelAnswer";
+            this.AdminLabelAnswer.Size = new System.Drawing.Size(244, 23);
+            this.AdminLabelAnswer.TabIndex = 4;
+            this.AdminLabelAnswer.Text = "R:";
+            // 
+            // AdminLabelPlayerName
+            // 
+            this.AdminLabelPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelPlayerName.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelPlayerName.Location = new System.Drawing.Point(299, 23);
+            this.AdminLabelPlayerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelPlayerName.Name = "AdminLabelPlayerName";
+            this.AdminLabelPlayerName.Size = new System.Drawing.Size(276, 13);
+            this.AdminLabelPlayerName.TabIndex = 4;
+            this.AdminLabelPlayerName.Text = "«Seleccione un jugador»";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(299, 48);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Preguntas";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(299, 71);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Normales";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(299, 93);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Desempate";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(380, 48);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Aciertos";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(451, 48);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Fallos";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(516, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(36, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Total";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQNCorrect
+            // 
+            this.AdminLabelQNCorrect.AutoSize = true;
+            this.AdminLabelQNCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNCorrect.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNCorrect.Location = new System.Drawing.Point(400, 71);
+            this.AdminLabelQNCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNCorrect.Name = "AdminLabelQNCorrect";
+            this.AdminLabelQNCorrect.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNCorrect.TabIndex = 4;
+            this.AdminLabelQNCorrect.Text = "0";
+            this.AdminLabelQNCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQDCorrect
+            // 
+            this.AdminLabelQDCorrect.AutoSize = true;
+            this.AdminLabelQDCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDCorrect.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDCorrect.Location = new System.Drawing.Point(400, 93);
+            this.AdminLabelQDCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDCorrect.Name = "AdminLabelQDCorrect";
+            this.AdminLabelQDCorrect.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDCorrect.TabIndex = 4;
+            this.AdminLabelQDCorrect.Text = "0";
+            this.AdminLabelQDCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQNWrong
+            // 
+            this.AdminLabelQNWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQNWrong.AutoSize = true;
+            this.AdminLabelQNWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNWrong.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNWrong.Location = new System.Drawing.Point(461, 71);
+            this.AdminLabelQNWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNWrong.Name = "AdminLabelQNWrong";
+            this.AdminLabelQNWrong.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNWrong.TabIndex = 4;
+            this.AdminLabelQNWrong.Text = "0";
+            this.AdminLabelQNWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQDWrong
+            // 
+            this.AdminLabelQDWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQDWrong.AutoSize = true;
+            this.AdminLabelQDWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDWrong.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDWrong.Location = new System.Drawing.Point(461, 93);
+            this.AdminLabelQDWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDWrong.Name = "AdminLabelQDWrong";
+            this.AdminLabelQDWrong.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDWrong.TabIndex = 4;
+            this.AdminLabelQDWrong.Text = "0";
+            this.AdminLabelQDWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQNTotal
+            // 
+            this.AdminLabelQNTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQNTotal.AutoSize = true;
+            this.AdminLabelQNTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNTotal.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNTotal.Location = new System.Drawing.Point(527, 71);
+            this.AdminLabelQNTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNTotal.Name = "AdminLabelQNTotal";
+            this.AdminLabelQNTotal.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNTotal.TabIndex = 4;
+            this.AdminLabelQNTotal.Text = "0";
+            this.AdminLabelQNTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQDTotal
+            // 
+            this.AdminLabelQDTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQDTotal.AutoSize = true;
+            this.AdminLabelQDTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDTotal.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDTotal.Location = new System.Drawing.Point(527, 93);
+            this.AdminLabelQDTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDTotal.Name = "AdminLabelQDTotal";
+            this.AdminLabelQDTotal.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDTotal.TabIndex = 4;
+            this.AdminLabelQDTotal.Text = "0";
+            this.AdminLabelQDTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(22, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Banco de preguntas";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(41, 45);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Disponibles";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(41, 64);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(99, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Usadas en la ronda";
+            // 
+            // AdminLabelBankAvailable
+            // 
+            this.AdminLabelBankAvailable.AutoSize = true;
+            this.AdminLabelBankAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelBankAvailable.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelBankAvailable.Location = new System.Drawing.Point(141, 45);
+            this.AdminLabelBankAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelBankAvailable.Name = "AdminLabelBankAvailable";
+            this.AdminLabelBankAvailable.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelBankAvailable.TabIndex = 4;
+            this.AdminLabelBankAvailable.Text = "0";
+            this.AdminLabelBankAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AdminLabelRoundUsed
+            // 
+            this.AdminLabelRoundUsed.AutoSize = true;
+            this.AdminLabelRoundUsed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelRoundUsed.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelRoundUsed.Location = new System.Drawing.Point(141, 64);
+            this.AdminLabelRoundUsed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelRoundUsed.Name = "AdminLabelRoundUsed";
+            this.AdminLabelRoundUsed.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelRoundUsed.TabIndex = 4;
+            this.AdminLabelRoundUsed.Text = "0";
+            this.AdminLabelRoundUsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1056, 541);
+            this.ClientSize = new System.Drawing.Size(1056, 646);
             this.Controls.Add(this.GAdmin);
             this.Controls.Add(this.GSlave);
             this.Controls.Add(this.GMaster);
@@ -698,6 +1012,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).EndInit();
             this.GAdmin.ResumeLayout(false);
             this.GAdmin.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,5 +1063,26 @@
         private System.Windows.Forms.ComboBox AdminComboRounds;
         private System.Windows.Forms.Button AdminButtonSetBreak;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label AdminLabelAnswer;
+        private System.Windows.Forms.Label AdminLabelQuestion;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label AdminLabelQDTotal;
+        private System.Windows.Forms.Label AdminLabelQDWrong;
+        private System.Windows.Forms.Label AdminLabelQDCorrect;
+        private System.Windows.Forms.Label AdminLabelQNTotal;
+        private System.Windows.Forms.Label AdminLabelQNWrong;
+        private System.Windows.Forms.Label AdminLabelQNCorrect;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label AdminLabelPlayerName;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label AdminLabelRoundUsed;
+        private System.Windows.Forms.Label AdminLabelBankAvailable;
+        private System.Windows.Forms.Label label5;
     }
 }

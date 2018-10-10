@@ -21,6 +21,10 @@ namespace TinyVirtualQ
 
         Contest[] ContestList;
         Question[] QuestionBank;
+
+        int CC = 0;
+        int CR = 0;
+        int CP = 0;
         
         public void LoadData()
         {
@@ -158,7 +162,8 @@ namespace TinyVirtualQ
                 }
                 AdminComboRounds.SelectedIndex = 0;
 
-                ActiveContest(AdminComboRounds.Items.Count > 0);
+                //  Si tiene un elemento mas que el de Seleccione.
+                ActiveContest(AdminComboRounds.Items.Count > 1);
             }
             
         }
@@ -175,6 +180,8 @@ namespace TinyVirtualQ
                 !active;
 
             AdminButtonContestStart.Text = active ? "Finalizar" : "Cargar";
+
+            CC = active ? AdminComboContest.SelectedIndex - 1 : -1;
         }
 
         void StartRound(object sender = null, EventArgs e = null)
@@ -183,7 +190,7 @@ namespace TinyVirtualQ
             if(AdminButtonRoundStart.Text == "Terminar")
             {
                 ListPlayers.Items.Clear();
-                SwitchEnableGameButtons(false);
+                InitRound(false);
                 return;
             }
 
@@ -228,43 +235,117 @@ namespace TinyVirtualQ
                 //  Cargamos las Preguntas usadas en esta ronda.
                 ContestList[i].Rounds[j].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
 
-                SwitchEnableGameButtons(true);
+                int players = ContestList[i].Rounds[j].Players.Count;
+                int required = ContestList[i].Rounds[j].RequiredPlayers;
 
+                InitRound(true);
+                ActiveRound(players == required);
+
+                if (players > required)
+                    MessageBox.Show(this, "Algo anda mal, hay mas jugadores de los que pide la ronda", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (players < required)
+                    MessageBox.Show(this, "Faltan jugadores para jugar (" + players + "/" + required + ")", "Información",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        void SwitchEnableGameButtons(bool status)
+        void ActiveRound(bool status)
         {
             //  Habilitamos los botones necesarios
-            AdminButtonPlayers.Enabled =
-                ListPlayers.Enabled =
-                AdminButtonSetQuestion.Enabled =
+            AdminButtonSetQuestion.Enabled =
                 AdminButtonSetBreak.Enabled =
                 AdminButtonRun.Enabled =
                 AdminButtonWait.Enabled =
                 AdminButtonCorrect.Enabled =
                 AdminButtonWrong.Enabled =
                 status;
+            CR = status ? AdminComboRounds.SelectedIndex - 1 : -1;
+        }
+        void InitRound(bool status)
+        {
+            AdminButtonPlayers.Enabled =
+                ListPlayers.Enabled = status;
 
             AdminComboRounds.Enabled = !status;
             AdminButtonRoundStart.Text = status ? "Terminar" : "Iniciar";
 
             AdminButtonContestStart.Enabled = !status;
+
+            if(status)
+            {
+                AdminLabelAnswer.Text = "R:";
+                AdminLabelQuestion.Text = "«Sin pregunta asignada»";
+
+                AdminLabelBankAvailable.Text = QuestionBank.Length.ToString();
+                AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.Count.ToString();
+
+                AdminLabelQNCorrect.Text =
+                    AdminLabelQNWrong.Text = 
+                    AdminLabelQNTotal.Text =
+                AdminLabelQDCorrect.Text = 
+                    AdminLabelQDWrong.Text =
+                    AdminLabelQDTotal.Text = "0";
+            }
         }
-        
+
+        Player CurrentPlayer;
+        void SetAdminStatus()
+        {
+            AdminLabelBankAvailable.Text = QuestionBank.Length.ToString();
+            AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.Count.ToString();
+
+            if (CurrentPlayer == null)
+            {
+                AdminLabelPlayerName.Text = "«Seleccione un jugador»";
+                AdminLabelAnswer.Text = "R:";
+                AdminLabelQuestion.Text = "«Sin pregunta asignada»";
+
+
+                AdminLabelQNCorrect.Text =
+                    AdminLabelQNWrong.Text =
+                    AdminLabelQNTotal.Text =
+                AdminLabelQDCorrect.Text =
+                    AdminLabelQDWrong.Text =
+                    AdminLabelQDTotal.Text = "0";
+            }
+            else
+            {
+                Question q = CurrentPlayer.GetCurrentQuestion();
+
+                AdminLabelPlayerName.Text = CurrentPlayer.Firstname + " " + CurrentPlayer.Lastname;
+                AdminLabelAnswer.Text = q != null ? q.Answer : "R:";
+                AdminLabelQuestion.Text = q != null ? q.Text : "«Seleccione un usuario»";
+
+                int ncount = CurrentPlayer.CountQuestions(Player.CounterParams.Normal);
+                int ncorrect = CurrentPlayer.CountQuestions(Player.CounterParams.NormalCorrects);
+                int tcount = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreak);
+                int tcorrect = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreakCorrect);
+
+                AdminLabelQNCorrect.Text = ncorrect.ToString();
+                AdminLabelQNWrong.Text = (ncount - ncorrect).ToString();
+                AdminLabelQNTotal.Text = ncount.ToString();
+
+                AdminLabelQDCorrect.Text = tcorrect.ToString();
+                AdminLabelQDWrong.Text = (tcount - tcorrect).ToString();
+                AdminLabelQDTotal.Text = tcount.ToString();
+            }
+        }
         
         void PlayerClicked(object sender, EventArgs e)
         {
             if( ListPlayers.SelectedItems.Count > 0 )
             {
-                int c = AdminComboContest.SelectedIndex - 1;
-                int r = AdminComboRounds.SelectedIndex - 1;
-
-                Player P = (Player)ListPlayers.SelectedItems[0].Tag;
-                Round R = ContestList[c].Rounds[r];
+                CurrentPlayer = (Player)ListPlayers.SelectedItems[0].Tag;
+                Round R = ContestList[CC].Rounds[CR];
+                CP = R.Players.IndexOf(CurrentPlayer);
 
                 //  Vemos si pondemos seguir aplicandole preguntas al men...
-                AdminButtonSetQuestion.Enabled = P.CountQuestions(Player.CounterParams.Normal) < R.QuestionsByPlayer;
+                AdminButtonSetQuestion.Enabled = CurrentPlayer.CountQuestions(Player.CounterParams.Normal) < R.QuestionsByPlayer;
+
+                SetAdminStatus();
             }
+            CurrentPlayer = null;
         }
 
         void OptionsInit(object sender, EventArgs e)
@@ -275,13 +356,18 @@ namespace TinyVirtualQ
 
         private void SelectPlayersClick(object sender, EventArgs e)
         {
-            int c = AdminComboContest.SelectedIndex - 1;
-            int r = AdminComboRounds.SelectedIndex - 1;
-
-            SelectPlayers sp = new SelectPlayers(ContestList[c].Rounds, r);
+            SelectPlayers sp = new SelectPlayers(ContestList[CC].Rounds, CR);
             sp.ShowDialog();
             AdminButtonRoundStart.Text = "Iniciar";
             StartRound();
+        }
+
+        private void SetQuestion(object sender, EventArgs e)
+        {
+            if(sender == AdminButtonSetQuestion)
+            {
+
+            }
         }
     }
 }
