@@ -49,6 +49,27 @@
             this.SlaveButtonUpdate = new System.Windows.Forms.Button();
             this.SlaveComboScreens = new System.Windows.Forms.ComboBox();
             this.GAdmin = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.AdminLabelQDTotal = new System.Windows.Forms.Label();
+            this.AdminLabelQDWrong = new System.Windows.Forms.Label();
+            this.AdminLabelRoundUsed = new System.Windows.Forms.Label();
+            this.AdminLabelQDCorrect = new System.Windows.Forms.Label();
+            this.AdminLabelQNTotal = new System.Windows.Forms.Label();
+            this.AdminLabelQNWrong = new System.Windows.Forms.Label();
+            this.AdminLabelBankAvailable = new System.Windows.Forms.Label();
+            this.AdminLabelQNCorrect = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AdminLabelPlayerName = new System.Windows.Forms.Label();
+            this.AdminLabelAnswer = new System.Windows.Forms.Label();
+            this.AdminLabelQuestion = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ListPlayers = new System.Windows.Forms.ListView();
@@ -71,27 +92,6 @@
             this.AdminComboRounds = new System.Windows.Forms.ComboBox();
             this.AdminComboContest = new System.Windows.Forms.ComboBox();
             this.AdminButtonOptions = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AdminLabelQuestion = new System.Windows.Forms.Label();
-            this.AdminLabelAnswer = new System.Windows.Forms.Label();
-            this.AdminLabelPlayerName = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.AdminLabelQNCorrect = new System.Windows.Forms.Label();
-            this.AdminLabelQDCorrect = new System.Windows.Forms.Label();
-            this.AdminLabelQNWrong = new System.Windows.Forms.Label();
-            this.AdminLabelQDWrong = new System.Windows.Forms.Label();
-            this.AdminLabelQNTotal = new System.Windows.Forms.Label();
-            this.AdminLabelQDTotal = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.AdminLabelBankAvailable = new System.Windows.Forms.Label();
-            this.AdminLabelRoundUsed = new System.Windows.Forms.Label();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
@@ -400,6 +400,297 @@
             this.GAdmin.TabStop = false;
             this.GAdmin.Text = "Administrador";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.AdminLabelQDTotal);
+            this.groupBox1.Controls.Add(this.AdminLabelQDWrong);
+            this.groupBox1.Controls.Add(this.AdminLabelRoundUsed);
+            this.groupBox1.Controls.Add(this.AdminLabelQDCorrect);
+            this.groupBox1.Controls.Add(this.AdminLabelQNTotal);
+            this.groupBox1.Controls.Add(this.AdminLabelQNWrong);
+            this.groupBox1.Controls.Add(this.AdminLabelBankAvailable);
+            this.groupBox1.Controls.Add(this.AdminLabelQNCorrect);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.AdminLabelPlayerName);
+            this.groupBox1.Controls.Add(this.AdminLabelAnswer);
+            this.groupBox1.Controls.Add(this.AdminLabelQuestion);
+            this.groupBox1.Location = new System.Drawing.Point(16, 268);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(590, 158);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estado actual";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(299, 93);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Desempate";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(34, 61);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(99, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Usadas en la ronda";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label6.Location = new System.Drawing.Point(34, 42);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Disponibles / requeridas";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(299, 71);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Normales";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(516, 48);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(36, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Total";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(451, 48);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Fallos";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQDTotal
+            // 
+            this.AdminLabelQDTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQDTotal.AutoSize = true;
+            this.AdminLabelQDTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDTotal.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDTotal.Location = new System.Drawing.Point(527, 93);
+            this.AdminLabelQDTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDTotal.Name = "AdminLabelQDTotal";
+            this.AdminLabelQDTotal.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDTotal.TabIndex = 4;
+            this.AdminLabelQDTotal.Text = "0";
+            this.AdminLabelQDTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQDWrong
+            // 
+            this.AdminLabelQDWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQDWrong.AutoSize = true;
+            this.AdminLabelQDWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDWrong.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDWrong.Location = new System.Drawing.Point(461, 93);
+            this.AdminLabelQDWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDWrong.Name = "AdminLabelQDWrong";
+            this.AdminLabelQDWrong.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDWrong.TabIndex = 4;
+            this.AdminLabelQDWrong.Text = "0";
+            this.AdminLabelQDWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelRoundUsed
+            // 
+            this.AdminLabelRoundUsed.AutoSize = true;
+            this.AdminLabelRoundUsed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelRoundUsed.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelRoundUsed.Location = new System.Drawing.Point(170, 61);
+            this.AdminLabelRoundUsed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelRoundUsed.Name = "AdminLabelRoundUsed";
+            this.AdminLabelRoundUsed.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelRoundUsed.TabIndex = 4;
+            this.AdminLabelRoundUsed.Text = "0";
+            this.AdminLabelRoundUsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AdminLabelQDCorrect
+            // 
+            this.AdminLabelQDCorrect.AutoSize = true;
+            this.AdminLabelQDCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQDCorrect.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQDCorrect.Location = new System.Drawing.Point(400, 93);
+            this.AdminLabelQDCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQDCorrect.Name = "AdminLabelQDCorrect";
+            this.AdminLabelQDCorrect.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQDCorrect.TabIndex = 4;
+            this.AdminLabelQDCorrect.Text = "0";
+            this.AdminLabelQDCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQNTotal
+            // 
+            this.AdminLabelQNTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQNTotal.AutoSize = true;
+            this.AdminLabelQNTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNTotal.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNTotal.Location = new System.Drawing.Point(527, 71);
+            this.AdminLabelQNTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNTotal.Name = "AdminLabelQNTotal";
+            this.AdminLabelQNTotal.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNTotal.TabIndex = 4;
+            this.AdminLabelQNTotal.Text = "0";
+            this.AdminLabelQNTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelQNWrong
+            // 
+            this.AdminLabelQNWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelQNWrong.AutoSize = true;
+            this.AdminLabelQNWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNWrong.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNWrong.Location = new System.Drawing.Point(461, 71);
+            this.AdminLabelQNWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNWrong.Name = "AdminLabelQNWrong";
+            this.AdminLabelQNWrong.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNWrong.TabIndex = 4;
+            this.AdminLabelQNWrong.Text = "0";
+            this.AdminLabelQNWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelBankAvailable
+            // 
+            this.AdminLabelBankAvailable.AutoSize = true;
+            this.AdminLabelBankAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelBankAvailable.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelBankAvailable.Location = new System.Drawing.Point(170, 42);
+            this.AdminLabelBankAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelBankAvailable.Name = "AdminLabelBankAvailable";
+            this.AdminLabelBankAvailable.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelBankAvailable.TabIndex = 4;
+            this.AdminLabelBankAvailable.Text = "0";
+            this.AdminLabelBankAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // AdminLabelQNCorrect
+            // 
+            this.AdminLabelQNCorrect.AutoSize = true;
+            this.AdminLabelQNCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQNCorrect.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQNCorrect.Location = new System.Drawing.Point(400, 71);
+            this.AdminLabelQNCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQNCorrect.Name = "AdminLabelQNCorrect";
+            this.AdminLabelQNCorrect.Size = new System.Drawing.Size(14, 13);
+            this.AdminLabelQNCorrect.TabIndex = 4;
+            this.AdminLabelQNCorrect.Text = "0";
+            this.AdminLabelQNCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label11.Location = new System.Drawing.Point(380, 48);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Aciertos";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(22, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Banco de preguntas";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(299, 48);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Preguntas";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AdminLabelPlayerName
+            // 
+            this.AdminLabelPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AdminLabelPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelPlayerName.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelPlayerName.Location = new System.Drawing.Point(299, 23);
+            this.AdminLabelPlayerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelPlayerName.Name = "AdminLabelPlayerName";
+            this.AdminLabelPlayerName.Size = new System.Drawing.Size(276, 13);
+            this.AdminLabelPlayerName.TabIndex = 4;
+            this.AdminLabelPlayerName.Text = "«Seleccione un jugador»";
+            // 
+            // AdminLabelAnswer
+            // 
+            this.AdminLabelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.AdminLabelAnswer.Location = new System.Drawing.Point(25, 124);
+            this.AdminLabelAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelAnswer.Name = "AdminLabelAnswer";
+            this.AdminLabelAnswer.Size = new System.Drawing.Size(244, 23);
+            this.AdminLabelAnswer.TabIndex = 4;
+            this.AdminLabelAnswer.Text = "R:";
+            // 
+            // AdminLabelQuestion
+            // 
+            this.AdminLabelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.AdminLabelQuestion.ForeColor = System.Drawing.Color.Teal;
+            this.AdminLabelQuestion.Location = new System.Drawing.Point(22, 82);
+            this.AdminLabelQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AdminLabelQuestion.Name = "AdminLabelQuestion";
+            this.AdminLabelQuestion.Size = new System.Drawing.Size(247, 42);
+            this.AdminLabelQuestion.TabIndex = 4;
+            this.AdminLabelQuestion.Text = "«Sin pregunta asignada»";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -695,297 +986,6 @@
             this.AdminButtonOptions.Text = "Opciones";
             this.AdminButtonOptions.UseVisualStyleBackColor = true;
             this.AdminButtonOptions.Click += new System.EventHandler(this.OptionsInit);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.AdminLabelQDTotal);
-            this.groupBox1.Controls.Add(this.AdminLabelQDWrong);
-            this.groupBox1.Controls.Add(this.AdminLabelRoundUsed);
-            this.groupBox1.Controls.Add(this.AdminLabelQDCorrect);
-            this.groupBox1.Controls.Add(this.AdminLabelQNTotal);
-            this.groupBox1.Controls.Add(this.AdminLabelQNWrong);
-            this.groupBox1.Controls.Add(this.AdminLabelBankAvailable);
-            this.groupBox1.Controls.Add(this.AdminLabelQNCorrect);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.AdminLabelPlayerName);
-            this.groupBox1.Controls.Add(this.AdminLabelAnswer);
-            this.groupBox1.Controls.Add(this.AdminLabelQuestion);
-            this.groupBox1.Location = new System.Drawing.Point(16, 268);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(590, 158);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado actual";
-            // 
-            // AdminLabelQuestion
-            // 
-            this.AdminLabelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQuestion.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQuestion.Location = new System.Drawing.Point(22, 82);
-            this.AdminLabelQuestion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQuestion.Name = "AdminLabelQuestion";
-            this.AdminLabelQuestion.Size = new System.Drawing.Size(247, 42);
-            this.AdminLabelQuestion.TabIndex = 4;
-            this.AdminLabelQuestion.Text = "«Sin pregunta asignada»";
-            // 
-            // AdminLabelAnswer
-            // 
-            this.AdminLabelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.AdminLabelAnswer.Location = new System.Drawing.Point(25, 124);
-            this.AdminLabelAnswer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelAnswer.Name = "AdminLabelAnswer";
-            this.AdminLabelAnswer.Size = new System.Drawing.Size(244, 23);
-            this.AdminLabelAnswer.TabIndex = 4;
-            this.AdminLabelAnswer.Text = "R:";
-            // 
-            // AdminLabelPlayerName
-            // 
-            this.AdminLabelPlayerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminLabelPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelPlayerName.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelPlayerName.Location = new System.Drawing.Point(299, 23);
-            this.AdminLabelPlayerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelPlayerName.Name = "AdminLabelPlayerName";
-            this.AdminLabelPlayerName.Size = new System.Drawing.Size(276, 13);
-            this.AdminLabelPlayerName.TabIndex = 4;
-            this.AdminLabelPlayerName.Text = "«Seleccione un jugador»";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(299, 48);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Preguntas";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(299, 71);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Normales";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(299, 93);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 13);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Desempate";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(380, 48);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Aciertos";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(451, 48);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Fallos";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(516, 48);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Total";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQNCorrect
-            // 
-            this.AdminLabelQNCorrect.AutoSize = true;
-            this.AdminLabelQNCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQNCorrect.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQNCorrect.Location = new System.Drawing.Point(400, 71);
-            this.AdminLabelQNCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQNCorrect.Name = "AdminLabelQNCorrect";
-            this.AdminLabelQNCorrect.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQNCorrect.TabIndex = 4;
-            this.AdminLabelQNCorrect.Text = "0";
-            this.AdminLabelQNCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQDCorrect
-            // 
-            this.AdminLabelQDCorrect.AutoSize = true;
-            this.AdminLabelQDCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQDCorrect.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQDCorrect.Location = new System.Drawing.Point(400, 93);
-            this.AdminLabelQDCorrect.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQDCorrect.Name = "AdminLabelQDCorrect";
-            this.AdminLabelQDCorrect.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQDCorrect.TabIndex = 4;
-            this.AdminLabelQDCorrect.Text = "0";
-            this.AdminLabelQDCorrect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQNWrong
-            // 
-            this.AdminLabelQNWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminLabelQNWrong.AutoSize = true;
-            this.AdminLabelQNWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQNWrong.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQNWrong.Location = new System.Drawing.Point(461, 71);
-            this.AdminLabelQNWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQNWrong.Name = "AdminLabelQNWrong";
-            this.AdminLabelQNWrong.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQNWrong.TabIndex = 4;
-            this.AdminLabelQNWrong.Text = "0";
-            this.AdminLabelQNWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQDWrong
-            // 
-            this.AdminLabelQDWrong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminLabelQDWrong.AutoSize = true;
-            this.AdminLabelQDWrong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQDWrong.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQDWrong.Location = new System.Drawing.Point(461, 93);
-            this.AdminLabelQDWrong.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQDWrong.Name = "AdminLabelQDWrong";
-            this.AdminLabelQDWrong.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQDWrong.TabIndex = 4;
-            this.AdminLabelQDWrong.Text = "0";
-            this.AdminLabelQDWrong.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQNTotal
-            // 
-            this.AdminLabelQNTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminLabelQNTotal.AutoSize = true;
-            this.AdminLabelQNTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQNTotal.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQNTotal.Location = new System.Drawing.Point(527, 71);
-            this.AdminLabelQNTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQNTotal.Name = "AdminLabelQNTotal";
-            this.AdminLabelQNTotal.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQNTotal.TabIndex = 4;
-            this.AdminLabelQNTotal.Text = "0";
-            this.AdminLabelQNTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminLabelQDTotal
-            // 
-            this.AdminLabelQDTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AdminLabelQDTotal.AutoSize = true;
-            this.AdminLabelQDTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelQDTotal.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelQDTotal.Location = new System.Drawing.Point(527, 93);
-            this.AdminLabelQDTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelQDTotal.Name = "AdminLabelQDTotal";
-            this.AdminLabelQDTotal.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelQDTotal.TabIndex = 4;
-            this.AdminLabelQDTotal.Text = "0";
-            this.AdminLabelQDTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(22, 23);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Banco de preguntas";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(41, 45);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Disponibles";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(41, 64);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(99, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Usadas en la ronda";
-            // 
-            // AdminLabelBankAvailable
-            // 
-            this.AdminLabelBankAvailable.AutoSize = true;
-            this.AdminLabelBankAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelBankAvailable.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelBankAvailable.Location = new System.Drawing.Point(141, 45);
-            this.AdminLabelBankAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelBankAvailable.Name = "AdminLabelBankAvailable";
-            this.AdminLabelBankAvailable.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelBankAvailable.TabIndex = 4;
-            this.AdminLabelBankAvailable.Text = "0";
-            this.AdminLabelBankAvailable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // AdminLabelRoundUsed
-            // 
-            this.AdminLabelRoundUsed.AutoSize = true;
-            this.AdminLabelRoundUsed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.AdminLabelRoundUsed.ForeColor = System.Drawing.Color.Teal;
-            this.AdminLabelRoundUsed.Location = new System.Drawing.Point(141, 64);
-            this.AdminLabelRoundUsed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AdminLabelRoundUsed.Name = "AdminLabelRoundUsed";
-            this.AdminLabelRoundUsed.Size = new System.Drawing.Size(14, 13);
-            this.AdminLabelRoundUsed.TabIndex = 4;
-            this.AdminLabelRoundUsed.Text = "0";
-            this.AdminLabelRoundUsed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ControlPanel
             // 

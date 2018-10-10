@@ -170,7 +170,7 @@ namespace TinyVirtualQ
         {
 
             if (current_miliseconds > miliseconds)
-                Wrong();
+                Wait();
             else
             {
                 PictureProgressBar.Width += pix;

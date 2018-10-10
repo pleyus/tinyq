@@ -25,7 +25,7 @@ namespace TinyVirtualQ
 
                 //  Para hacer cosas en serie (Siempre devuelve true)
                 string[] sqls = sql_string.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                if(sqls.Length > 1)
+                if (sqls.Length > 1)
                 {
                     foreach (string s in sqls)
                     {
@@ -105,7 +105,7 @@ namespace TinyVirtualQ
         public static Round[] LoadRounds(int ContestId = 0)
         {
             DataRowCollection D = Select("SELECT * FROM rounds " +
-                (ContestId > 0 ? "WHERE ContestId = " + ContestId : "") + 
+                (ContestId > 0 ? "WHERE ContestId = " + ContestId : "") +
                 " ORDER BY Id ASC");
             List<Round> R = new List<Round>();
             foreach (DataRow d in D)
@@ -125,15 +125,15 @@ namespace TinyVirtualQ
         }
         public static Question[] LoadUsedQuestions(int PlayerId, int RoundId)
         {
-            return GetQuestions("SELECT q.*, u.Result " +
+            return GetQuestions("SELECT q.*, u.Result, u.Type " +
                 "FROM used_questions u " +
                 "LEFT JOIN questions q ON q.Id = u.QuestionId " +
-                "WHERE u.PlayerId = " + PlayerId + 
+                "WHERE u.PlayerId = " + PlayerId +
                 " AND u.RoundId = " + RoundId);
         }
         public static Question[] LoadUsedQuestions(int RoundId)
         {
-            return GetQuestions("SELECT q.*, u.Result " +
+            return GetQuestions("SELECT q.*, u.Result, u.Type " +
                 "FROM used_questions u " +
                 "LEFT JOIN questions q ON q.Id = u.QuestionId " +
                 "WHERE u.RoundId = " + RoundId);
@@ -225,7 +225,7 @@ namespace TinyVirtualQ
         }
         public static bool Update(Round Round)
         {
-            return Exec("UPDATE rounds SET RequiredPlayers = " + Round.RequiredPlayers + 
+            return Exec("UPDATE rounds SET RequiredPlayers = " + Round.RequiredPlayers +
                 ", QuestionsByPlayer = " + Round.QuestionsByPlayer + " WHERE Id = " + Round.Id);
         }
         public static bool Delete(Round Round)
@@ -236,12 +236,12 @@ namespace TinyVirtualQ
         public static bool CreateNew(Question Question)
         {
             return Exec("INSERT INTO questions (Category, Question, Answer) VALUES ('" + Question.Category.Replace('\'', ' ') +
-                "', '"  + Question.Text.Replace('\'', ' ') + "', '" + Question.Answer.Replace('\'', ' ') + "')");
+                "', '" + Question.Text.Replace('\'', ' ') + "', '" + Question.Answer.Replace('\'', ' ') + "')");
         }
         public static bool Update(Question Question)
         {
-            return Exec("UPDATE questions SET Category = '" + Question.Category.Replace('\'', ' ') + 
-                "', Question = '" + Question.Text.Replace('\'', ' ') + "', Answer = '" + 
+            return Exec("UPDATE questions SET Category = '" + Question.Category.Replace('\'', ' ') +
+                "', Question = '" + Question.Text.Replace('\'', ' ') + "', Answer = '" +
                 Question.Answer.Replace('\'', ' ') + "' WHERE Id = " + Question.Id);
         }
         public static bool Delete(Question Question)
@@ -283,7 +283,7 @@ namespace TinyVirtualQ
             if (Players.Length > 0)
             {
                 string sql = "";
-                
+
                 foreach (Player P in Players)
                     sql += "INSERT INTO round_players (RoundId, PlayerId) VALUES (" + RoundId + ", " + P.Id + ");";
 
@@ -292,6 +292,17 @@ namespace TinyVirtualQ
             }
             //  Si no viene ningun jugador, siempre es correcto
             return true;
+        }
+        public static bool AddQuestionToPlayer(int RoundId, int PlayerId, int QuestionId, Question.QuestionType Type)
+        {
+            string sql = "INSERT INTO used_questions (PlayerId, QuestionId, RoundId, Type, Result) VALUES" +
+                "(" + PlayerId + "," + QuestionId + ", " + RoundId + "," + (int)Type + ", 0)";
+            return Exec(sql);
+        }
+        public static bool SetQuestionResult(int RoundId, int PlayerId, int QuestionId, Question.QuestionResult Result)
+        {
+            string sql = "UPDATE used_questions SET Result = " + (int)Result + " WHERE PlayerId = " + PlayerId + " AND QuestionId = " + QuestionId + " AND RoundId = " + RoundId;
+            return Exec(sql);
         }
     }
 }

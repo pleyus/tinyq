@@ -273,7 +273,17 @@ namespace TinyVirtualQ
         public void Wait()
         {
             MASTER_GAME.Wait();
-            MASTER_GAME.Wait();
+            SLAVE_GAME.Wait();
+        }
+        public void Correct()
+        {
+            MASTER_GAME.Correct();
+            SLAVE_GAME.Correct();
+        }
+        public void Wrong()
+        {
+            MASTER_GAME.Wrong();
+            SLAVE_GAME.Wrong();
         }
     }
 }

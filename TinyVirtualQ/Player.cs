@@ -33,7 +33,7 @@ namespace TinyVirtualQ
             Questions = new List<Question>();
         }
 
-        public enum CounterParams { Correct, Normal, NormalCorrects, TieBreak, TieBreakCorrect }
+        public enum CounterParams { Correct, Normal, NormalCorrects, TieBreak, TieBreakCorrect, NormalWrong, TieBreakWrong }
         public int CountQuestions(CounterParams Condition)
         {
             int i = 0;
@@ -63,6 +63,16 @@ namespace TinyVirtualQ
                 if (Condition == CounterParams.TieBreakCorrect)
                 {
                     if (Q.Type == Question.QuestionType.TieBreak && Q.Result == Question.QuestionResult.Correct)
+                        i++;
+                }
+                if (Condition == CounterParams.TieBreakWrong)
+                {
+                    if (Q.Type == Question.QuestionType.TieBreak && Q.Result == Question.QuestionResult.Wrong)
+                        i++;
+                }
+                if (Condition == CounterParams.NormalWrong)
+                {
+                    if (Q.Type == Question.QuestionType.Normal && Q.Result == Question.QuestionResult.Wrong)
                         i++;
                 }
             }
