@@ -89,7 +89,7 @@
             // 
             this.PictureUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureUser.BackgroundImage = global::TinyVirtualQ.Resource1.user_base_icon;
-            this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PictureUser.Image = global::TinyVirtualQ.Resource1.round_picture;
             this.PictureUser.Location = new System.Drawing.Point(162, 13);
             this.PictureUser.Name = "PictureUser";
@@ -105,7 +105,7 @@
             this.LabelName.ForeColor = System.Drawing.Color.White;
             this.LabelName.Location = new System.Drawing.Point(282, 45);
             this.LabelName.Name = "LabelName";
-            this.LabelName.Size = new System.Drawing.Size(289, 35);
+            this.LabelName.Size = new System.Drawing.Size(410, 35);
             this.LabelName.TabIndex = 0;
             this.LabelName.Text = "Nombre";
             this.LabelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

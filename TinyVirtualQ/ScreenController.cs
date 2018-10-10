@@ -256,7 +256,7 @@ namespace TinyVirtualQ
                 Thumbnail.Image = img;
             }
         }
-
+        public bool IS_READY { get { return MASTER_GAME.IsReady | SLAVE_GAME.IsReady; } }
 
         public void Run()
         {

@@ -32,9 +32,11 @@ namespace TinyVirtualQ
             {
                 LabelName.Visible = PictureUser.Visible = true;
 
-                LabelName.Text = Jugador.Firstname;
-                PictureUser.BackgroundImage = File.Exists(Jugador.PictureFilename)
-                    ? Image.FromFile(Jugador.PictureFilename)
+                LabelName.Text = Jugador.Firstname + " " + Jugador.Lastname;
+
+                string filename = Application.StartupPath + "\\pics\\" + Jugador.PictureFilename;
+                PictureUser.BackgroundImage = File.Exists(filename)
+                    ? Image.FromFile(filename)
                     : Resource1.user_base_icon;
             }
             else
@@ -76,6 +78,7 @@ namespace TinyVirtualQ
                 {
                     LabelQuestion.Text = P.Text;
                     LabelCategory.Text = P.Category;
+                    LabelAnswer.Text = P.Answer;
                 }
 
                 ListQuestions.Items.Add(It);
@@ -169,7 +172,7 @@ namespace TinyVirtualQ
         void Animate(object s, EventArgs e)
         {
 
-            if (current_miliseconds > miliseconds)
+            if (PictureProgressBar.Width > 590)
                 Wait();
             else
             {

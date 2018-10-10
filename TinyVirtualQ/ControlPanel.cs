@@ -68,51 +68,68 @@ namespace TinyVirtualQ
 
         void GameActions(object sender, EventArgs e)
         {
-            if( sender == AdminButtonRun )
-            {
-                MONITOR.Run();
-                PROYECTOR.Run();
-            }
-            else if(sender == AdminButtonWait)
-            {
-                MONITOR.Wait();
-                PROYECTOR.Wait();
-            }
-            else if(sender == AdminButtonCorrect || sender == AdminButtonWrong)
-            {
-                int Rid = ContestList[CC].Rounds[CR].Id;
-                int Pid = ContestList[CC].Rounds[CR].Players[CP].Id;
+            if (CurrentPlayer == null)
+                return;
 
-                if (DataBase.SetQuestionResult(Rid, Pid, QuestionBank[CQ].Id,
-                    sender == AdminButtonCorrect
-                    ? Question.QuestionResult.Correct
-                    : Question.QuestionResult.Wrong))
+            // Para revisar de que se este realizando una accion sobre un mismo jugador
+            bool sameplayer = false;
+            foreach(ListViewItem IT in ListPlayers.Items)
+                if(CurrentPlayer.Id == ((Player)IT.Tag).Id)
                 {
-                    if (sender == AdminButtonCorrect)
+                    sameplayer = true;
+                    break;
+                }
+            if (sameplayer)
+            {
+                if (sender == AdminButtonRun)
+                {
+                    MONITOR.Run();
+                    PROYECTOR.Run();
+                }
+                else if (sender == AdminButtonWait)
+                {
+                    MONITOR.Wait();
+                    PROYECTOR.Wait();
+                }
+                else if (sender == AdminButtonCorrect || sender == AdminButtonWrong)
+                {
+
+                    int Rid = ContestList[CC].Rounds[CR].Id;
+                    int Pid = ContestList[CC].Rounds[CR].Players[CP].Id;
+
+                    if (DataBase.SetQuestionResult(Rid, Pid, QuestionBank[CQ].Id,
+                        sender == AdminButtonCorrect
+                        ? Question.QuestionResult.Correct
+                        : Question.QuestionResult.Wrong))
                     {
-                        MONITOR.Correct();
-                        PROYECTOR.Correct();
+                        if (sender == AdminButtonCorrect)
+                        {
+                            MONITOR.Correct();
+                            PROYECTOR.Correct();
+                        }
+                        else
+                        {
+                            MONITOR.Wrong();
+                            PROYECTOR.Wrong();
+                        }
+
+                        //  Volvemos a cargar las preguntas del jugador
+                        CurrentPlayer.Questions = new List<Question>(DataBase.LoadUsedQuestions(CurrentPlayer.Id, Rid));
+
+                        //  Reasignamos el player...
+                        ContestList[CC].Rounds[CR].Players[CP] = CurrentPlayer;
+
+                        //  Estado...
+                        SetAdminStatus();
+                        ListPlayers.Enabled = true;
+
                     }
                     else
-                    {
-                        MONITOR.Wrong();
-                        PROYECTOR.Wrong();
-                    }
-
-                    //  Volvemos a cargar las preguntas del jugador
-                    CurrentPlayer.Questions = new List<Question>(DataBase.LoadUsedQuestions(CurrentPlayer.Id, Rid));
-
-                    //  Reasignamos el player...
-                    ContestList[CC].Rounds[CR].Players[CP] = CurrentPlayer;
-
-                    //  Estado...
-                    SetAdminStatus();
-
+                        MessageBox.Show("Joder! Algo salio mal, intenta de nuevo o debugea", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("Joder! Algo salio mal, intenta de nuevo o debugea", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            else
+                MessageBox.Show("Solo se puede interactuar con el jugador actual", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         void Put()
@@ -274,15 +291,17 @@ namespace TinyVirtualQ
         }
         void ActiveRound(bool status)
         {
+            CR = AdminComboRounds.SelectedIndex - 1;
+
+            AdminButtonSetBreak.Enabled = QuestionBank.Length > ContestList[CC].RequiredQuestions;
             //  Habilitamos los botones necesarios
-            AdminButtonSetQuestion.Enabled =
-                AdminButtonSetBreak.Enabled =
+            AdminButtonSetQuestion.Enabled = 
                 AdminButtonRun.Enabled =
                 AdminButtonWait.Enabled =
                 AdminButtonCorrect.Enabled =
                 AdminButtonWrong.Enabled =
                 status;
-            CR = status ? AdminComboRounds.SelectedIndex - 1 : -1;
+            
         }
         void InitRound(bool status)
         {
@@ -380,7 +399,6 @@ namespace TinyVirtualQ
 
                 SetAdminStatus();
             }
-            CurrentPlayer = null;
         }
         void OptionsInit(object sender, EventArgs e)
         {
@@ -397,28 +415,49 @@ namespace TinyVirtualQ
 
         private void SetQuestion(object sender, EventArgs e)
         {
-            CQ++;   // Incrementamos la pregunta actual
-
-            int Rid = ContestList[CC].Rounds[CR].Id;
-            int Pid = ContestList[CC].Rounds[CR].Players[CP].Id;
-            Question.QuestionType type = sender == AdminButtonSetQuestion
-                ? Question.QuestionType.Normal
-                : Question.QuestionType.TieBreak;
-
-            if (DataBase.AddQuestionToPlayer(Rid, Pid, QuestionBank[CQ].Id, type))
+            if (!MONITOR.IS_READY && !MONITOR.IS_READY)
             {
-                ContestList[CC].Rounds[CR].Players[CP].Questions.Clear();
-                ContestList[CC].Rounds[CR].Players[CP].Questions.AddRange(DataBase.LoadUsedQuestions(Pid, Rid));
+                CQ++;   // Incrementamos la pregunta actual
 
-                CurrentPlayer = ContestList[CC].Rounds[CR].Players[CP];
+                if (CQ >= QuestionBank.Length)
+                {
+                    MessageBox.Show("Ya no hay preguntas");
+                    CQ--;
+                    return;
+                }
 
-                MONITOR.Put(CurrentPlayer);
-                PROYECTOR.Put(CurrentPlayer);
+                int Rid = ContestList[CC].Rounds[CR].Id;
+                int Pid = ContestList[CC].Rounds[CR].Players[CP].Id;
+                Question.QuestionType type = sender == AdminButtonSetQuestion
+                    ? Question.QuestionType.Normal
+                    : Question.QuestionType.TieBreak;
 
-                SetAdminStatus();
+                if (DataBase.AddQuestionToPlayer(Rid, Pid, QuestionBank[CQ].Id, type))
+                {
+                    ContestList[CC].Rounds[CR].Players[CP].Questions.Clear();
+                    ContestList[CC].Rounds[CR].Players[CP].Questions.AddRange(DataBase.LoadUsedQuestions(Pid, Rid));
+
+                    CurrentPlayer = ContestList[CC].Rounds[CR].Players[CP];
+                    for (int i = 0; i < ListPlayers.Items.Count; i++)
+                    {
+                        if (((Player)ListPlayers.Items[i].Tag).Id == CurrentPlayer.Id)
+                            ListPlayers.Items[i].ForeColor = Color.DodgerBlue;
+                        else
+                            ListPlayers.Items[i].ForeColor = Color.Black;
+                    }
+
+                    MONITOR.Put(CurrentPlayer);
+                    PROYECTOR.Put(CurrentPlayer);
+
+                    SetAdminStatus();
+                    ListPlayers.Enabled = false;
+                }
+                else
+                    CQ--;
             }
+
             else
-                CQ--;
+                MessageBox.Show("Ya se ha asignado una pregunta para un jugador, primero asigne una respuesta.", "No se puede lanzar otra pregunta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

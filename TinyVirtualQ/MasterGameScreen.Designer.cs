@@ -43,6 +43,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.LabelMessage = new System.Windows.Forms.Label();
+            this.LabelAnswer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureProgressBar)).BeginInit();
@@ -54,7 +55,7 @@
             this.PictureState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.PictureState.Image = global::TinyVirtualQ.Resource1.white_clock;
-            this.PictureState.Location = new System.Drawing.Point(62, 510);
+            this.PictureState.Location = new System.Drawing.Point(121, 526);
             this.PictureState.Name = "PictureState";
             this.PictureState.Size = new System.Drawing.Size(50, 50);
             this.PictureState.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,9 +66,9 @@
             // 
             this.PictureUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureUser.BackgroundImage = global::TinyVirtualQ.Resource1.user_base_icon;
-            this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PictureUser.Image = global::TinyVirtualQ.Resource1.round_picture;
-            this.PictureUser.Location = new System.Drawing.Point(195, 47);
+            this.PictureUser.Location = new System.Drawing.Point(252, 26);
             this.PictureUser.Name = "PictureUser";
             this.PictureUser.Size = new System.Drawing.Size(100, 100);
             this.PictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +79,7 @@
             // 
             this.PictureProgressBar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureProgressBar.BackColor = System.Drawing.Color.White;
-            this.PictureProgressBar.Location = new System.Drawing.Point(125, 520);
+            this.PictureProgressBar.Location = new System.Drawing.Point(184, 536);
             this.PictureProgressBar.Name = "PictureProgressBar";
             this.PictureProgressBar.Size = new System.Drawing.Size(590, 30);
             this.PictureProgressBar.TabIndex = 6;
@@ -88,7 +89,7 @@
             // 
             this.PictureProgressContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureProgressContainer.BackColor = System.Drawing.Color.DarkGray;
-            this.PictureProgressContainer.Location = new System.Drawing.Point(120, 515);
+            this.PictureProgressContainer.Location = new System.Drawing.Point(179, 531);
             this.PictureProgressContainer.Name = "PictureProgressContainer";
             this.PictureProgressContainer.Size = new System.Drawing.Size(600, 40);
             this.PictureProgressContainer.TabIndex = 7;
@@ -99,7 +100,7 @@
             this.LabelName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.LabelName.ForeColor = System.Drawing.Color.White;
-            this.LabelName.Location = new System.Drawing.Point(315, 47);
+            this.LabelName.Location = new System.Drawing.Point(372, 26);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(346, 35);
             this.LabelName.TabIndex = 3;
@@ -111,9 +112,9 @@
             this.LabelCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.LabelCategory.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.LabelCategory.Location = new System.Drawing.Point(59, 165);
+            this.LabelCategory.Location = new System.Drawing.Point(68, 129);
             this.LabelCategory.Name = "LabelCategory";
-            this.LabelCategory.Size = new System.Drawing.Size(331, 35);
+            this.LabelCategory.Size = new System.Drawing.Size(737, 35);
             this.LabelCategory.TabIndex = 4;
             this.LabelCategory.Text = "CATEGORÍA";
             this.LabelCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,9 +124,9 @@
             this.LabelQuestion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.LabelQuestion.ForeColor = System.Drawing.Color.White;
-            this.LabelQuestion.Location = new System.Drawing.Point(60, 200);
+            this.LabelQuestion.Location = new System.Drawing.Point(66, 164);
             this.LabelQuestion.Name = "LabelQuestion";
-            this.LabelQuestion.Size = new System.Drawing.Size(667, 132);
+            this.LabelQuestion.Size = new System.Drawing.Size(758, 126);
             this.LabelQuestion.TabIndex = 5;
             this.LabelQuestion.Text = "¿Es una pregunta lo que se esta haciendo aqui? De no ser asi, que puede ser:";
             // 
@@ -134,7 +135,7 @@
             this.LabelQuestionsNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelQuestionsNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LabelQuestionsNum.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.LabelQuestionsNum.Location = new System.Drawing.Point(315, 82);
+            this.LabelQuestionsNum.Location = new System.Drawing.Point(372, 61);
             this.LabelQuestionsNum.Name = "LabelQuestionsNum";
             this.LabelQuestionsNum.Size = new System.Drawing.Size(289, 35);
             this.LabelQuestionsNum.TabIndex = 3;
@@ -146,7 +147,7 @@
             this.LabelCorrectNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelCorrectNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LabelCorrectNum.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.LabelCorrectNum.Location = new System.Drawing.Point(315, 112);
+            this.LabelCorrectNum.Location = new System.Drawing.Point(372, 91);
             this.LabelCorrectNum.Name = "LabelCorrectNum";
             this.LabelCorrectNum.Size = new System.Drawing.Size(289, 35);
             this.LabelCorrectNum.TabIndex = 3;
@@ -164,9 +165,9 @@
             this.columnHeader2});
             this.ListQuestions.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListQuestions.ForeColor = System.Drawing.Color.White;
-            this.ListQuestions.Location = new System.Drawing.Point(61, 353);
+            this.ListQuestions.Location = new System.Drawing.Point(73, 369);
             this.ListQuestions.Name = "ListQuestions";
-            this.ListQuestions.Size = new System.Drawing.Size(666, 151);
+            this.ListQuestions.Size = new System.Drawing.Size(751, 151);
             this.ListQuestions.TabIndex = 10;
             this.ListQuestions.UseCompatibleStateImageBehavior = false;
             this.ListQuestions.View = System.Windows.Forms.View.Details;
@@ -191,9 +192,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label3.Location = new System.Drawing.Point(57, 324);
+            this.label3.Location = new System.Drawing.Point(70, 348);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(331, 27);
+            this.label3.Size = new System.Drawing.Size(331, 18);
             this.label3.TabIndex = 4;
             this.label3.Text = "Preguntas realizadas";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -204,19 +205,30 @@
             this.LabelMessage.BackColor = System.Drawing.Color.Navy;
             this.LabelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.LabelMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.LabelMessage.Location = new System.Drawing.Point(77, 370);
+            this.LabelMessage.Location = new System.Drawing.Point(91, 381);
             this.LabelMessage.Name = "LabelMessage";
-            this.LabelMessage.Size = new System.Drawing.Size(638, 122);
+            this.LabelMessage.Size = new System.Drawing.Size(714, 125);
             this.LabelMessage.TabIndex = 5;
             this.LabelMessage.Text = "Este es un mensaje que se podrá mostrar en esta pantalla...";
             this.LabelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelAnswer
+            // 
+            this.LabelAnswer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.LabelAnswer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.LabelAnswer.Location = new System.Drawing.Point(68, 296);
+            this.LabelAnswer.Name = "LabelAnswer";
+            this.LabelAnswer.Size = new System.Drawing.Size(737, 52);
+            this.LabelAnswer.TabIndex = 4;
+            this.LabelAnswer.Text = "Respuesta";
             // 
             // MasterGameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(777, 597);
+            this.ClientSize = new System.Drawing.Size(895, 629);
             this.Controls.Add(this.LabelMessage);
             this.Controls.Add(this.ListQuestions);
             this.Controls.Add(this.PictureState);
@@ -227,6 +239,7 @@
             this.Controls.Add(this.LabelQuestionsNum);
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.LabelAnswer);
             this.Controls.Add(this.LabelCategory);
             this.Controls.Add(this.LabelQuestion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -260,5 +273,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label LabelMessage;
+        private System.Windows.Forms.Label LabelAnswer;
     }
 }
