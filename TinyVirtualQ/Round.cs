@@ -14,9 +14,11 @@ namespace TinyVirtualQ
         public int RequiredPlayers { get; set; }
         public int QuestionsByPlayer { get; set; }
 
-        // CQNEN: public RoundStatus Status { get; set; }
-
-        public List<Question> UsedQuestions { get; set; }
+        public int UsedQuestions { get
+            {
+                return DataBase.LoadUsedQuestions(Id).Length;
+            }
+        }
         public List<Player> Players { get; set; }
 
         public Round(string Id, string RequiredPlayers, string QuestionsByPlayer)
@@ -45,16 +47,10 @@ namespace TinyVirtualQ
             this.RequiredPlayers = RequiredPlayers;
             this.QuestionsByPlayer = QuestionsByPlayer;
 
-            UsedQuestions = new List<Question>();
+            //UsedQuestions = new List<Question>();
             Players = new List<Player>();
 
-            // CQNEN: this.Status = RoundStatus.
-        }
-
-        public void AddQuestion(Question UsedQuestion, string UserId)
-        {
-            UsedQuestions.Add(UsedQuestion);
-        }
+         }
 
     }
 }

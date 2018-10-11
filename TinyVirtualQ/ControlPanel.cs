@@ -22,8 +22,6 @@ namespace TinyVirtualQ
         Contest[] ContestList;
         Question[] QuestionBank;
 
-        Timer T;
-
         int CC = 0;
         int CR = 0;
         int CP = 0;
@@ -295,7 +293,7 @@ namespace TinyVirtualQ
                 }
 
                 //  Cargamos las Preguntas usadas en esta ronda.
-                ContestList[i].Rounds[j].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
+                //ContestList[i].Rounds[j].UsedQuestions.AddRange(DataBase.LoadUsedQuestions(RId));
 
                 int players = ContestList[i].Rounds[j].Players.Count;
                 int required = ContestList[i].Rounds[j].RequiredPlayers;
@@ -312,19 +310,31 @@ namespace TinyVirtualQ
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        /// <summary>
+        /// Se activa o desactiva solo cuando se inicia/termina una ronda (Al pulsar iniciar/terminar)
+        /// </summary>
+        /// <param name="status">Define el estado de la ronda</param>
         void ActiveRound(bool status)
         {
             CR = AdminComboRounds.SelectedIndex - 1;
 
-            AdminButtonSetBreak.Enabled = QuestionBank.Length > ContestList[CC].RequiredQuestions;
-            //  Habilitamos los botones necesarios
-            AdminButtonSetQuestion.Enabled = 
-                AdminButtonRun.Enabled =
+            AdminButtonSetBreak.Enabled = 
+                QuestionBank.Length > (ContestList[CC].Rounds[CR].RequiredPlayers + ContestList[CC].RequiredQuestions);
+            
+            //  Siempre que cargue la ronda debe estar apagado
+            AdminButtonSetQuestion.Enabled = false;
+
+            AdminButtonRun.Enabled =
                 AdminButtonWait.Enabled =
                 AdminButtonCorrect.Enabled =
                 AdminButtonWrong.Enabled =
-                status;
-            
+                GStatus.Enabled = 
+            status;
+
+            if(CR >= 0)
+                AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.ToString();
+
         }
         void InitRound(bool status)
         {
@@ -343,8 +353,9 @@ namespace TinyVirtualQ
         Player CurrentPlayer;
         void SetAdminStatus()
         {
+            
             AdminLabelBankAvailable.Text = "(" + QuestionBank.Length.ToString() + " / " + ContestList[CC].RequiredQuestions + ")";
-            AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.Count.ToString();
+            AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.ToString();
 
             if (CurrentPlayer == null)
             {
@@ -366,12 +377,24 @@ namespace TinyVirtualQ
                 {
                     if (((Player)ListPlayers.Items[i].Tag).Id == CurrentPlayer.Id)
                     {
-                        // Esto hace que se cambie el numero de preguntas al momento de cargar la lista de jugadores
+                        Question.QuestionResult todo = Question.QuestionResult.None;
+                        Question.QuestionResult ok = Question.QuestionResult.Correct;
+
                         ListPlayers.Items[i].SubItems[0].Text = CurrentPlayer.Firstname + " " + CurrentPlayer.Lastname;
-                        ListPlayers.Items[i].SubItems[1].Text = CurrentPlayer.CountQuestions(Player.CounterParams.Normal).ToString();
-                        ListPlayers.Items[i].SubItems[2].Text = CurrentPlayer.CountQuestions(Player.CounterParams.NormalCorrects).ToString();
-                        ListPlayers.Items[i].SubItems[3].Text = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreak).ToString();
-                        ListPlayers.Items[i].SubItems[4].Text = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreakCorrect).ToString();
+                        ListPlayers.Items[i].SubItems[1].Text = CurrentPlayer.CountQuestions(
+                            todo, Question.QuestionType.Normal, ContestList[CC].Rounds[CR].Id ).ToString();
+
+                        ListPlayers.Items[i].SubItems[2].Text = CurrentPlayer.CountQuestions(
+                            ok, Question.QuestionType.Normal, ContestList[CC].Rounds[CR].Id
+                        ).ToString();
+
+                        ListPlayers.Items[i].SubItems[3].Text = CurrentPlayer.CountQuestions(
+                            todo, Question.QuestionType.TieBreak, ContestList[CC].Rounds[CR].Id ).ToString();
+
+                        ListPlayers.Items[i].SubItems[4].Text = CurrentPlayer.CountQuestions(
+                            ok, Question.QuestionType.TieBreak, ContestList[CC].Rounds[CR].Id ).ToString();
+                        // Esto hace que se cambie el numero de preguntas al momento de cargar la lista de jugadores
+
                         ListPlayers.Items[i].Tag = CurrentPlayer;
                     }
                 }
@@ -382,10 +405,10 @@ namespace TinyVirtualQ
                 AdminLabelAnswer.Text = q != null ? q.Answer : "R:";
                 AdminLabelQuestion.Text = q != null ? q.Text : "«Sin pregunta asignada»";
 
-                int ncount = CurrentPlayer.CountQuestions(Player.CounterParams.Normal);
-                int ncorrect = CurrentPlayer.CountQuestions(Player.CounterParams.NormalCorrects);
-                int tcount = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreak);
-                int tcorrect = CurrentPlayer.CountQuestions(Player.CounterParams.TieBreakCorrect);
+                int ncount = CurrentPlayer.CountQuestions(Question.QuestionResult.None, Question.QuestionType.Normal);
+                int ncorrect = CurrentPlayer.CountQuestions(Question.QuestionResult.Correct, Question.QuestionType.Normal);
+                int tcount = CurrentPlayer.CountQuestions(Question.QuestionResult.None, Question.QuestionType.TieBreak);
+                int tcorrect = CurrentPlayer.CountQuestions(Question.QuestionResult.Correct, Question.QuestionType.TieBreak);
 
                 AdminLabelQNCorrect.Text = ncorrect.ToString();
                 AdminLabelQNWrong.Text = (ncount - ncorrect).ToString();
@@ -405,7 +428,9 @@ namespace TinyVirtualQ
                 CP = R.Players.IndexOf(CurrentPlayer);
 
                 //  Vemos si pondemos seguir aplicandole preguntas al men...
-                AdminButtonSetQuestion.Enabled = CurrentPlayer.CountQuestions(Player.CounterParams.Normal) < R.QuestionsByPlayer;
+                AdminButtonSetQuestion.Enabled = 
+                    CurrentPlayer.CountQuestions(Question.QuestionResult.None, Question.QuestionType.Normal, R.Id) < R.QuestionsByPlayer;
+                
 
                 SetAdminStatus();
             }

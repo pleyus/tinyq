@@ -49,7 +49,7 @@
             this.SlaveButtonUpdate = new System.Windows.Forms.Button();
             this.SlaveComboScreens = new System.Windows.Forms.ComboBox();
             this.GAdmin = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GStatus = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@
             this.GSlave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).BeginInit();
             this.GAdmin.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GStatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -373,7 +373,7 @@
             this.GAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GAdmin.Controls.Add(this.groupBox1);
+            this.GAdmin.Controls.Add(this.GStatus);
             this.GAdmin.Controls.Add(this.label4);
             this.GAdmin.Controls.Add(this.label3);
             this.GAdmin.Controls.Add(this.ListPlayers);
@@ -400,36 +400,37 @@
             this.GAdmin.TabStop = false;
             this.GAdmin.Text = "Administrador";
             // 
-            // groupBox1
+            // GStatus
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.GStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.AdminLabelQDTotal);
-            this.groupBox1.Controls.Add(this.AdminLabelQDWrong);
-            this.groupBox1.Controls.Add(this.AdminLabelRoundUsed);
-            this.groupBox1.Controls.Add(this.AdminLabelQDCorrect);
-            this.groupBox1.Controls.Add(this.AdminLabelQNTotal);
-            this.groupBox1.Controls.Add(this.AdminLabelQNWrong);
-            this.groupBox1.Controls.Add(this.AdminLabelBankAvailable);
-            this.groupBox1.Controls.Add(this.AdminLabelQNCorrect);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.AdminLabelPlayerName);
-            this.groupBox1.Controls.Add(this.AdminLabelAnswer);
-            this.groupBox1.Controls.Add(this.AdminLabelQuestion);
-            this.groupBox1.Location = new System.Drawing.Point(16, 268);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(590, 158);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estado actual";
+            this.GStatus.Controls.Add(this.label10);
+            this.GStatus.Controls.Add(this.label14);
+            this.GStatus.Controls.Add(this.label6);
+            this.GStatus.Controls.Add(this.label9);
+            this.GStatus.Controls.Add(this.label13);
+            this.GStatus.Controls.Add(this.label12);
+            this.GStatus.Controls.Add(this.AdminLabelQDTotal);
+            this.GStatus.Controls.Add(this.AdminLabelQDWrong);
+            this.GStatus.Controls.Add(this.AdminLabelRoundUsed);
+            this.GStatus.Controls.Add(this.AdminLabelQDCorrect);
+            this.GStatus.Controls.Add(this.AdminLabelQNTotal);
+            this.GStatus.Controls.Add(this.AdminLabelQNWrong);
+            this.GStatus.Controls.Add(this.AdminLabelBankAvailable);
+            this.GStatus.Controls.Add(this.AdminLabelQNCorrect);
+            this.GStatus.Controls.Add(this.label11);
+            this.GStatus.Controls.Add(this.label5);
+            this.GStatus.Controls.Add(this.label8);
+            this.GStatus.Controls.Add(this.AdminLabelPlayerName);
+            this.GStatus.Controls.Add(this.AdminLabelAnswer);
+            this.GStatus.Controls.Add(this.AdminLabelQuestion);
+            this.GStatus.Enabled = false;
+            this.GStatus.Location = new System.Drawing.Point(16, 268);
+            this.GStatus.Name = "GStatus";
+            this.GStatus.Size = new System.Drawing.Size(590, 158);
+            this.GStatus.TabIndex = 5;
+            this.GStatus.TabStop = false;
+            this.GStatus.Text = "Estado actual";
             // 
             // label10
             // 
@@ -1012,8 +1013,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).EndInit();
             this.GAdmin.ResumeLayout(false);
             this.GAdmin.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GStatus.ResumeLayout(false);
+            this.GStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1063,7 +1064,7 @@
         private System.Windows.Forms.ComboBox AdminComboRounds;
         private System.Windows.Forms.Button AdminButtonSetBreak;
         private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GStatus;
         private System.Windows.Forms.Label AdminLabelAnswer;
         private System.Windows.Forms.Label AdminLabelQuestion;
         private System.Windows.Forms.Label label10;
