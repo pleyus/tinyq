@@ -36,6 +36,7 @@
             this.LabelName = new System.Windows.Forms.Label();
             this.PictureState = new System.Windows.Forms.PictureBox();
             this.LabelQuestionN = new System.Windows.Forms.Label();
+            this.LabelRoundName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureProgressContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureProgressBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
@@ -47,7 +48,7 @@
             this.LabelQuestion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             this.LabelQuestion.ForeColor = System.Drawing.Color.White;
-            this.LabelQuestion.Location = new System.Drawing.Point(48, 246);
+            this.LabelQuestion.Location = new System.Drawing.Point(48, 266);
             this.LabelQuestion.Name = "LabelQuestion";
             this.LabelQuestion.Size = new System.Drawing.Size(758, 185);
             this.LabelQuestion.TabIndex = 0;
@@ -92,7 +93,7 @@
             this.PictureUser.BackgroundImage = global::TinyVirtualQ.Resource1.user_base_icon;
             this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PictureUser.Image = global::TinyVirtualQ.Resource1.round_picture;
-            this.PictureUser.Location = new System.Drawing.Point(222, 13);
+            this.PictureUser.Location = new System.Drawing.Point(222, 94);
             this.PictureUser.Name = "PictureUser";
             this.PictureUser.Size = new System.Drawing.Size(100, 100);
             this.PictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,7 +105,7 @@
             this.LabelName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.LabelName.ForeColor = System.Drawing.Color.White;
-            this.LabelName.Location = new System.Drawing.Point(342, 28);
+            this.LabelName.Location = new System.Drawing.Point(342, 109);
             this.LabelName.Name = "LabelName";
             this.LabelName.Size = new System.Drawing.Size(410, 35);
             this.LabelName.TabIndex = 0;
@@ -128,12 +129,24 @@
             this.LabelQuestionN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelQuestionN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.LabelQuestionN.ForeColor = System.Drawing.Color.Silver;
-            this.LabelQuestionN.Location = new System.Drawing.Point(347, 63);
+            this.LabelQuestionN.Location = new System.Drawing.Point(347, 144);
             this.LabelQuestionN.Name = "LabelQuestionN";
             this.LabelQuestionN.Size = new System.Drawing.Size(410, 35);
             this.LabelQuestionN.TabIndex = 0;
             this.LabelQuestionN.Text = "Nº pregunta";
             this.LabelQuestionN.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LabelRoundName
+            // 
+            this.LabelRoundName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelRoundName.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
+            this.LabelRoundName.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.LabelRoundName.Location = new System.Drawing.Point(48, 17);
+            this.LabelRoundName.Name = "LabelRoundName";
+            this.LabelRoundName.Size = new System.Drawing.Size(758, 62);
+            this.LabelRoundName.TabIndex = 0;
+            this.LabelRoundName.Text = "Ronda #N";
+            this.LabelRoundName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // SlaveGameScreen
             // 
@@ -148,6 +161,7 @@
             this.Controls.Add(this.LabelQuestionN);
             this.Controls.Add(this.LabelName);
             this.Controls.Add(this.LabelCategory);
+            this.Controls.Add(this.LabelRoundName);
             this.Controls.Add(this.LabelQuestion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SlaveGameScreen";
@@ -173,5 +187,6 @@
         private System.Windows.Forms.Label LabelName;
         private System.Windows.Forms.PictureBox PictureState;
         private System.Windows.Forms.Label LabelQuestionN;
+        private System.Windows.Forms.Label LabelRoundName;
     }
 }

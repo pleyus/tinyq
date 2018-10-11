@@ -79,7 +79,7 @@ namespace TinyVirtualQ
                 if(P.Result == Question.QuestionResult.None)
                 {
                     LabelQuestion.Text = P.Text;
-                    LabelCategory.Text = P.Category;
+                    LabelCategory.Text = P.Category.ToUpper();
                     LabelAnswer.Text = P.Answer;
                 }
 

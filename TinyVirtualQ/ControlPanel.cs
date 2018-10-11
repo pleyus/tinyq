@@ -188,20 +188,23 @@ namespace TinyVirtualQ
                 AdminComboRounds.Items.Add(ContestList[index].Rounds.Length > 0 ? "(Seleccione)"  : "(No hay rondas)");
 
                 for (int i = 0; i < ContestList[index].Rounds.Length; i++)
-                {
-                    string name = "Ronda #" + (i+1);
-                    if (i == ContestList[index].Rounds.Length - 1 && ContestList[index].Rounds.Length > 2)
-                        name = "Final";
-                    if (i == ContestList[index].Rounds.Length - 2 && ContestList[index].Rounds.Length > 2)
-                        name = "Semifinal";
-                    AdminComboRounds.Items.Add(name);
-                }
+                    AdminComboRounds.Items.Add( RoundName(i, ContestList[index].Rounds.Length));
+                
                 AdminComboRounds.SelectedIndex = 0;
 
                 //  Si tiene un elemento mas que el de Seleccione.
                 ActiveContest(AdminComboRounds.Items.Count > 1);
             }
             
+        }
+        string RoundName(int current, int length)
+        {
+            string name = "Ronda #" + (current + 1);
+            if (current == length - 1 && length > 2)
+                name = "Final";
+            if (current == length - 2 && length > 2)
+                name = "Semifinal";
+            return name;
         }
         void ActiveContest(bool active)
         {
@@ -481,8 +484,8 @@ namespace TinyVirtualQ
                             ListPlayers.Items[i].ForeColor = Color.Black;
                     }
 
-                    MONITOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR]);
-                    PROYECTOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR]);
+                    MONITOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR], RoundName(CR, ContestList[CC].Rounds.Length));
+                    PROYECTOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR], RoundName(CR, ContestList[CC].Rounds.Length));
 
                     SetAdminStatus();
                     ListPlayers.Enabled = false;

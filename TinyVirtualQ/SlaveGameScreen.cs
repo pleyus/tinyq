@@ -25,12 +25,14 @@ namespace TinyVirtualQ
         int BancoPreguntas = 0;
         public bool IsReady { get; set; }
 
-        public void Put(Player Jugador, Round Round)
+        public void Put(Player Jugador, Round Round, string roundName)
         {
             CurrentRound = Round;
             //  Asignamos la pregunta y su categoría
-            LabelCategory.Text = Question.Current(Jugador.Questions).Category;
+            LabelCategory.Text = Question.Current(Jugador.Questions).Category.ToUpper();
             LabelQuestion.Text = Question.Current(Jugador.Questions).Text;
+
+            LabelRoundName.Text = roundName;
 
             //  Si Viene el nombre de la persona lo ponemos
             if(Jugador.Firstname != "")
