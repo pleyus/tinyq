@@ -265,10 +265,10 @@ namespace TinyVirtualQ
             if (SLAVE_GAME.IsReady)
                 SLAVE_GAME.Run();
         }
-        public void Put(Player ThePlayer)
+        public void Put(Player ThePlayer, Round Round)
         {
-            MASTER_GAME.Put(ThePlayer);
-            SLAVE_GAME.Put(ThePlayer);
+            MASTER_GAME.Put(ThePlayer, Round);
+            SLAVE_GAME.Put(ThePlayer, Round);
         }
         public void Wait()
         {

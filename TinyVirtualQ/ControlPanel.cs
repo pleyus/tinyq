@@ -258,12 +258,35 @@ namespace TinyVirtualQ
                     P.Questions.Clear();
                     P.Questions.AddRange(DataBase.LoadUsedQuestions(P.Id, RId));
 
+                    Question.QuestionResult todo = Question.QuestionResult.None;
+                    Question.QuestionResult ok = Question.QuestionResult.Correct;
+
                     ListViewItem IT = new ListViewItem();
                     IT.Text = P.Firstname + " " + P.Lastname;
-                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.Normal).ToString());
-                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.NormalCorrects).ToString());
-                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreak).ToString());
-                    IT.SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreakCorrect).ToString());
+                    IT.SubItems.Add(P.CountQuestions(
+                        todo,
+                        Question.QuestionType.Normal,
+                        ContestList[i].Rounds[j].Id
+                    ).ToString());
+
+                    IT.SubItems.Add(P.CountQuestions(
+                        ok,
+                        Question.QuestionType.Normal,
+                        ContestList[i].Rounds[j].Id
+                    ).ToString());
+
+                    IT.SubItems.Add(P.CountQuestions(
+                        todo,
+                        Question.QuestionType.TieBreak,
+                        ContestList[i].Rounds[j].Id
+                    ).ToString());
+
+                    IT.SubItems.Add(P.CountQuestions(
+                        ok,
+                        Question.QuestionType.TieBreak,
+                        ContestList[i].Rounds[j].Id
+                    ).ToString());
+
                     IT.Tag = P;
 
                     ListPlayers.Items.Add(IT);
@@ -315,20 +338,6 @@ namespace TinyVirtualQ
 
             if (status)
                 SetAdminStatus();
-            /*{
-                AdminLabelAnswer.Text = "R:";
-                AdminLabelQuestion.Text = "«Sin pregunta asignada»";
-
-                AdminLabelBankAvailable.Text = "(" + QuestionBank.Length.ToString() + " / " + ContestList[CC].RequiredQuestions + ")";
-                AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.Count.ToString();
-
-                AdminLabelQNCorrect.Text =
-                    AdminLabelQNWrong.Text = 
-                    AdminLabelQNTotal.Text =
-                AdminLabelQDCorrect.Text = 
-                    AdminLabelQDWrong.Text =
-                    AdminLabelQDTotal.Text = "0";
-            }*/
         }
 
         Player CurrentPlayer;
@@ -357,6 +366,7 @@ namespace TinyVirtualQ
                 {
                     if (((Player)ListPlayers.Items[i].Tag).Id == CurrentPlayer.Id)
                     {
+                        // Esto hace que se cambie el numero de preguntas al momento de cargar la lista de jugadores
                         ListPlayers.Items[i].SubItems[0].Text = CurrentPlayer.Firstname + " " + CurrentPlayer.Lastname;
                         ListPlayers.Items[i].SubItems[1].Text = CurrentPlayer.CountQuestions(Player.CounterParams.Normal).ToString();
                         ListPlayers.Items[i].SubItems[2].Text = CurrentPlayer.CountQuestions(Player.CounterParams.NormalCorrects).ToString();
@@ -446,8 +456,8 @@ namespace TinyVirtualQ
                             ListPlayers.Items[i].ForeColor = Color.Black;
                     }
 
-                    MONITOR.Put(CurrentPlayer);
-                    PROYECTOR.Put(CurrentPlayer);
+                    MONITOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR]);
+                    PROYECTOR.Put(CurrentPlayer, ContestList[CC].Rounds[CR]);
 
                     SetAdminStatus();
                     ListPlayers.Enabled = false;

@@ -17,6 +17,7 @@ namespace TinyVirtualQ
             banco_preguntas = BancoPreguntas;
             IsReady = false;
         }
+        Round CurrentRound;
         Timer T;
         int miliseconds = 0;
         int current_miliseconds = 0;
@@ -25,8 +26,9 @@ namespace TinyVirtualQ
 
         public bool IsReady { get; set; }
 
-        public void Put(Player Jugador)
+        public void Put(Player Jugador, Round Round)
         {
+            CurrentRound = Round;
             //  Si Viene el nombre de la persona lo ponemos
             if (Jugador.Firstname != "")
             {
@@ -84,7 +86,7 @@ namespace TinyVirtualQ
                 ListQuestions.Items.Add(It);
             }
 
-            LabelQuestionsNum.Text = "Preguntas: " + Preguntas.Count;
+            LabelQuestionsNum.Text = "Preguntas: " + Preguntas.Count + " / " + CurrentRound.QuestionsByPlayer;
             LabelCorrectNum.Text = "Aciertos: " + corrects;
         }
         public void Run(int Seconds = 5)

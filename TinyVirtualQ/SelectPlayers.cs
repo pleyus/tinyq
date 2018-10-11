@@ -34,7 +34,7 @@ namespace TinyVirtualQ
             else
             {
                 //  Sacamos los jugadores de la ronda anterior
-                Players = DataBase.LoadPlayers(Rounds[Index-1].Id);
+                Players = DataBase.LoadPlayers(Rounds[Index].Players.ToArray(), Rounds[Index-1].Id);
                 FillList(ListPlayers, Players);
             }
 

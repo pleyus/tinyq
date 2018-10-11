@@ -79,6 +79,23 @@ namespace TinyVirtualQ
 
             return i;
         }
+
+        /// <summary>
+        /// Devuelve el numero de preguntas del jugador, filtrando segun los resultado y el tipo
+        /// </summary>
+        /// <param name="ResultIs">Si es None, se interpreta como todas</param>
+        /// <param name="TypeIs">Tipo de pregunta</param>
+        /// <param name="RoundId">Id de la ronda, si no se pone, se obtiene de todas las tondas</param>
+        /// <returns></returns>
+        public int CountQuestions(Question.QuestionResult ResultIs, Question.QuestionType TypeIs, int RoundId = 0)
+        {
+            string sql = "SELECT PlayerId FROM used_questions WHERE PlayerID = " + Id +
+                (RoundId > 0 ? " AND RoundId = " + RoundId : "") +
+                (ResultIs == Question.QuestionResult.None ? "" : " AND Result = " + (int)ResultIs) + 
+                " AND Type = " + (int)TypeIs;
+
+            return DataBase.Select(sql).Count;
+        }
         public Question GetCurrentQuestion()
         {
             foreach (Question q in Questions)

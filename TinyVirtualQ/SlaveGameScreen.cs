@@ -18,14 +18,16 @@ namespace TinyVirtualQ
         }
 
         Timer T;
+        Round CurrentRound;
         int miliseconds = 0;
         int current_miliseconds = 0;
         int pix = 1;
         int BancoPreguntas = 0;
         public bool IsReady { get; set; }
 
-        public void Put(Player Jugador)
+        public void Put(Player Jugador, Round Round)
         {
+            CurrentRound = Round;
             //  Asignamos la pregunta y su categoría
             LabelCategory.Text = Question.Current(Jugador.Questions).Category;
             LabelQuestion.Text = Question.Current(Jugador.Questions).Text;
@@ -50,6 +52,8 @@ namespace TinyVirtualQ
 
             //  Ocultamos el estado
             PictureProgressContainer.Visible = PictureProgressBar.Visible = PictureState.Visible = T.Enabled = false;
+
+            LabelQuestionN.Text = Round.QuestionsByPlayer + "º pregunta";
 
             IsReady = true;
         }
