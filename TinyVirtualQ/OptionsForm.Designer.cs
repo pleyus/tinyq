@@ -499,7 +499,7 @@
             this.ButtonPlayerNew.Name = "ButtonPlayerNew";
             this.ButtonPlayerNew.Size = new System.Drawing.Size(66, 26);
             this.ButtonPlayerNew.TabIndex = 15;
-            this.ButtonPlayerNew.Text = "Nueva...";
+            this.ButtonPlayerNew.Text = "Nuevo...";
             this.ButtonPlayerNew.UseVisualStyleBackColor = true;
             this.ButtonPlayerNew.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
