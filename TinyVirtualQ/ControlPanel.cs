@@ -145,17 +145,17 @@ namespace TinyVirtualQ
             AdminComboContest.SelectedIndex = 0;
 
             if (ContestList.Length > 0)
-                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = true;
+                AdminComboContest.Enabled = true;
             else
-                AdminComboContest.Enabled = AdminButtonContestStart.Enabled = false;
+                AdminComboContest.Enabled = false;
         }
         void LoadRoundsInfo(object sender, EventArgs e)
         {
-            if(AdminButtonContestStart.Text == "Finalizar")
+           /* if(AdminButtonContestStart.Text == "Finalizar")
             {
                 ActiveContest(false);
                 return;
-            }
+            }*/
 
             // Si no continuamos...
             //  Sacamos el Index tal cual
@@ -214,11 +214,8 @@ namespace TinyVirtualQ
                 active;
 
             //  Deshabilita la Lista de concursos y su boton
-            AdminComboContest.Enabled =
-                AdminButtonOptions.Enabled =
-                !active;
+            AdminComboContest.Enabled = !active;
 
-            AdminButtonContestStart.Text = active ? "Finalizar" : "Cargar";
 
             CC = active ? AdminComboContest.SelectedIndex - 1 : -1;
         }
@@ -346,8 +343,6 @@ namespace TinyVirtualQ
 
             AdminComboRounds.Enabled = !status;
             AdminButtonRoundStart.Text = status ? "Terminar" : "Iniciar";
-
-            AdminButtonContestStart.Enabled = !status;
 
             if (status)
                 SetAdminStatus();
@@ -496,6 +491,13 @@ namespace TinyVirtualQ
 
             else
                 MessageBox.Show("Ya se ha asignado una pregunta para un jugador, primero asigne una respuesta.", "No se puede lanzar otra pregunta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+
+        int CI = 0; //  Contest Index
+        private void Contestchanged(object sender, EventArgs e)
+        {
+            CI = AdminComboContest.SelectedIndex - 1;
         }
     }
 }
