@@ -123,6 +123,10 @@ namespace TinyVirtualQ
         {
             return GetQuestions("SELECT *, 0 AS Result, 0 AS Type FROM questions");
         }
+        public static Question[] LoadQuestions(int ContestId)
+        {
+            return GetQuestions("SELECT * FROM used_questions WHERE ContestId = " + ContestId);
+        }
         public static Question[] LoadUsedQuestions(int PlayerId, int RoundId)
         {
             return GetQuestions("SELECT q.*, u.Result, u.Type " +

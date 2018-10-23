@@ -19,41 +19,40 @@ namespace TinyVirtualQ
         ScreenController PROYECTOR;
         ScreenController MONITOR;
 
-        Contest[] ContestList;
-        Question[] QuestionBank;
+        Main M;
+
+        
 
         int CC = 0;
         int CR = 0;
         int CP = 0;
         int CQ = 0;
         
-        public void LoadData()
-        {
-            QuestionBank = DataBase.LoadQuestions();
-            ShuffleQuestions(); // Mezclamos las preguntas
-
-            ContestList = DataBase.LoadContests();
-            LoadContestInfo();  // Cargamos la info de los concursos en el modulo
-        }
+        
         public void onLoad(object sender = null, EventArgs e = null)
         {
-            LoadData();
-
             if(!Directory.Exists(Application.StartupPath + "\\pics\\"))
                 Directory.CreateDirectory(Application.StartupPath + "\\pics\\");
 
-            MONITOR = new ScreenController(QuestionBank);
+            M = new Main();
+            tabContest.Controls.Add(M);
+            M.Parent = tabContest;
+            M.Location = new Point(0, 0);
+            M.Show();
+
+
+            /*MONITOR = new ScreenController(ContestList[CI].Questions);
             MONITOR.SetComponent(MasterPictureScreen, MasterComboScreens, MasterButtonUpdate);
             MONITOR.SetComponent(MasterTextMessage, MasterButtonMessage, MasterButtonClear);
             MONITOR.SetMasterSwitches(MasterButtonStatus, MasterButtonLogo, MasterButtonGame);
 
-            PROYECTOR = new ScreenController(QuestionBank);
+            PROYECTOR = new ScreenController(ContestList[CI].Questions);
             PROYECTOR.SetComponent(SlavePictureScreen, SlaveComboScreens, SlaveButtonUpdate);
-            PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);
+            PROYECTOR.SetSlaveSwitches(SlaveButtonBlack, SlaveButtonLogo, SlaveButtonGame);*/
         }
         
 
-        void ShuffleQuestions()
+        /*void ShuffleQuestions()
         {
             for (int t = 0; t < QuestionBank.Length; t++)
             {
@@ -62,9 +61,9 @@ namespace TinyVirtualQ
                 QuestionBank[t] = QuestionBank[r];
                 QuestionBank[r] = tmp;
             }
-        }
+        }*/
 
-        void GameActions(object sender, EventArgs e)
+        /*void GameActions(object sender, EventArgs e)
         {
             if (CurrentPlayer == null)
                 return;
@@ -95,7 +94,7 @@ namespace TinyVirtualQ
                     int Rid = ContestList[CC].Rounds[CR].Id;
                     int Pid = ContestList[CC].Rounds[CR].Players[CP].Id;
 
-                    if (DataBase.SetQuestionResult(Rid, Pid, QuestionBank[CQ].Id,
+                    if (DataBase.SetQuestionResult(Rid, Pid, ContestList[CI].Questions[CQ].Id,
                         sender == AdminButtonCorrect
                         ? Question.QuestionResult.Correct
                         : Question.QuestionResult.Wrong))
@@ -133,23 +132,10 @@ namespace TinyVirtualQ
         void Put()
         {
         }
-
-        void LoadContestInfo()
-        {
-            // Limpiamos y Agregamos un elemento al combo, dependiendo de si hay o no Concursos
-            AdminComboContest.Items.Clear();
-            AdminComboContest.Items.Add(ContestList.Length > 0 ? "(Selecciona un concurso)" : "No hay concursos");
-
-            foreach (Contest C in ContestList)
-                AdminComboContest.Items.Add(C.Name);
-            AdminComboContest.SelectedIndex = 0;
-
-            if (ContestList.Length > 0)
-                AdminComboContest.Enabled = true;
-            else
-                AdminComboContest.Enabled = false;
-        }
-        void LoadRoundsInfo(object sender, EventArgs e)
+        */
+ 
+        
+        /*void LoadRoundsInfo(object sender, EventArgs e)
         {
            /* if(AdminButtonContestStart.Text == "Finalizar")
             {
@@ -159,7 +145,7 @@ namespace TinyVirtualQ
 
             // Si no continuamos...
             //  Sacamos el Index tal cual
-            int index = AdminComboContest.SelectedIndex;
+            /*int index = AdminComboContest.SelectedIndex;
 
             // Y si es mayor que 0...
             if (index > 0)
@@ -176,9 +162,9 @@ namespace TinyVirtualQ
                 }
 
                 //  Verificamos si es jugable
-                if (ContestList[index].RequiredQuestions > QuestionBank.Length)
+                if (ContestList[index].RequiredQuestions > ContestList[CI].Questions.Length)
                 {
-                    MessageBox.Show("No se podrá jugar ya que se requiere de " + ContestList[index].RequiredQuestions + " preguntas y solo se cuenta con " + QuestionBank.Length + " en el banco.",
+                    MessageBox.Show("No se podrá jugar ya que se requiere de " + ContestList[index].RequiredQuestions + " preguntas y solo se cuenta con " + ContestList[CI].Questions.Length + " en el banco.",
                         "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -197,15 +183,7 @@ namespace TinyVirtualQ
             }
             
         }
-        string RoundName(int current, int length)
-        {
-            string name = "Ronda #" + (current + 1);
-            if (current == length - 1 && length > 2)
-                name = "Final";
-            if (current == length - 2 && length > 2)
-                name = "Semifinal";
-            return name;
-        }
+        
         void ActiveContest(bool active)
         {
             //  Habilita los botones de la ronda y la lista de usuarios
@@ -319,8 +297,8 @@ namespace TinyVirtualQ
         {
             CR = AdminComboRounds.SelectedIndex - 1;
 
-            AdminButtonSetBreak.Enabled = 
-                QuestionBank.Length > (ContestList[CC].Rounds[CR].RequiredPlayers + ContestList[CC].RequiredQuestions);
+            AdminButtonSetBreak.Enabled =
+                ContestList[CI].Questions.Length > (ContestList[CC].Rounds[CR].RequiredPlayers + ContestList[CC].RequiredQuestions);
             
             //  Siempre que cargue la ronda debe estar apagado
             AdminButtonSetQuestion.Enabled = false;
@@ -352,7 +330,7 @@ namespace TinyVirtualQ
         void SetAdminStatus()
         {
             
-            AdminLabelBankAvailable.Text = "(" + QuestionBank.Length.ToString() + " / " + ContestList[CC].RequiredQuestions + ")";
+            AdminLabelBankAvailable.Text = "(" + ContestList[CI].Questions.Length.ToString() + " / " + ContestList[CC].RequiredQuestions + ")";
             AdminLabelRoundUsed.Text = ContestList[CC].Rounds[CR].UsedQuestions.ToString();
 
             if (CurrentPlayer == null)
@@ -452,7 +430,7 @@ namespace TinyVirtualQ
             {
                 CQ++;   // Incrementamos la pregunta actual
 
-                if (CQ >= QuestionBank.Length)
+                if (CQ >= ContestList[CI].Questions.Length)
                 {
                     MessageBox.Show("Ya no hay preguntas");
                     CQ--;
@@ -465,7 +443,7 @@ namespace TinyVirtualQ
                     ? Question.QuestionType.Normal
                     : Question.QuestionType.TieBreak;
 
-                if (DataBase.AddQuestionToPlayer(Rid, Pid, QuestionBank[CQ].Id, type))
+                if (DataBase.AddQuestionToPlayer(Rid, Pid, ContestList[CI].Questions[CQ].Id, type))
                 {
                     ContestList[CC].Rounds[CR].Players[CP].Questions.Clear();
                     ContestList[CC].Rounds[CR].Players[CP].Questions.AddRange(DataBase.LoadUsedQuestions(Pid, Rid));
@@ -494,10 +472,6 @@ namespace TinyVirtualQ
         }
 
 
-        int CI = 0; //  Contest Index
-        private void Contestchanged(object sender, EventArgs e)
-        {
-            CI = AdminComboContest.SelectedIndex - 1;
-        }
+*/        
     }
 }

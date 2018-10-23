@@ -234,7 +234,7 @@
             // 
             // ButtonRoundDelete
             // 
-            this.ButtonRoundDelete.BackgroundImage = global::TinyVirtualQ.Resource1.icon_trash;
+            this.ButtonRoundDelete.BackgroundImage = global::TinyVirtualQ.Res.icon_trash;
             this.ButtonRoundDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonRoundDelete.Location = new System.Drawing.Point(358, 310);
             this.ButtonRoundDelete.Name = "ButtonRoundDelete";
@@ -484,7 +484,7 @@
             // 
             // ButtonPlayerDelete
             // 
-            this.ButtonPlayerDelete.BackgroundImage = global::TinyVirtualQ.Resource1.icon_trash;
+            this.ButtonPlayerDelete.BackgroundImage = global::TinyVirtualQ.Res.icon_trash;
             this.ButtonPlayerDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonPlayerDelete.Location = new System.Drawing.Point(202, 314);
             this.ButtonPlayerDelete.Name = "ButtonPlayerDelete";
@@ -526,7 +526,7 @@
             // 
             this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
             this.PicturePlayersUserPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PicturePlayersUserPic.Image = global::TinyVirtualQ.Resource1.round_picture_white;
+            this.PicturePlayersUserPic.Image = global::TinyVirtualQ.Res.round_picture_white;
             this.PicturePlayersUserPic.Location = new System.Drawing.Point(84, 42);
             this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
             this.PicturePlayersUserPic.Size = new System.Drawing.Size(120, 120);

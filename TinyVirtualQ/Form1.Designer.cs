@@ -139,7 +139,7 @@
             // 
             // butMarco
             // 
-            this.butMarco.BackgroundImage = global::TinyVirtualQ.Resource1.square;
+            this.butMarco.BackgroundImage = global::TinyVirtualQ.Res.square;
             this.butMarco.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.butMarco.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butMarco.Location = new System.Drawing.Point(455, 17);

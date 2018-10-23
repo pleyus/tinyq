@@ -44,7 +44,7 @@ namespace TinyVirtualQ
                 string filename = Application.StartupPath + "\\pics\\" + Jugador.PictureFilename;
                 PictureUser.BackgroundImage = File.Exists(filename) 
                     ? Image.FromFile(filename) 
-                    : Resource1.user_base_icon;
+                    : Res.user_base_icon;
             }
             else
             {
@@ -66,7 +66,7 @@ namespace TinyVirtualQ
             pix = 590 / (miliseconds / 100);
 
             //  Reseteamos
-            PictureState.Image = Resource1.white_clock;
+            PictureState.Image = Res.white_clock;
             PictureProgressBar.Width = 0;
 
             //  Mostramos el tiempo y empezamos...
@@ -79,20 +79,20 @@ namespace TinyVirtualQ
         public void Wait()
         {
             T.Enabled = false;
-            PictureState.Image = Resource1.loading;
+            PictureState.Image = Res.loading;
             IsReady = false;
         }
         public void Wrong()
         {
             T.Enabled = false;
             IsReady = false;
-            PictureState.Image = Resource1.wrong;
+            PictureState.Image = Res.wrong;
         }
         public void Correct()
         {
             T.Enabled = false;
             IsReady = false;
-            PictureState.Image = Resource1.correct;
+            PictureState.Image = Res.correct;
         }
 
         void Init(object sender, EventArgs e)

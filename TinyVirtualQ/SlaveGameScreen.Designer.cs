@@ -90,9 +90,9 @@
             // PictureUser
             // 
             this.PictureUser.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PictureUser.BackgroundImage = global::TinyVirtualQ.Resource1.user_base_icon;
+            this.PictureUser.BackgroundImage = global::TinyVirtualQ.Res.user_base_icon;
             this.PictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PictureUser.Image = global::TinyVirtualQ.Resource1.round_picture;
+            this.PictureUser.Image = global::TinyVirtualQ.Res.round_picture;
             this.PictureUser.Location = new System.Drawing.Point(222, 94);
             this.PictureUser.Name = "PictureUser";
             this.PictureUser.Size = new System.Drawing.Size(100, 100);
@@ -116,7 +116,7 @@
             // 
             this.PictureState.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PictureState.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PictureState.Image = global::TinyVirtualQ.Resource1.white_clock;
+            this.PictureState.Image = global::TinyVirtualQ.Res.white_clock;
             this.PictureState.Location = new System.Drawing.Point(101, 469);
             this.PictureState.Name = "PictureState";
             this.PictureState.Size = new System.Drawing.Size(50, 50);

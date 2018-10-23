@@ -10,6 +10,7 @@ namespace TinyVirtualQ
         public int Id { get; set; }
         public Round[] Rounds { get; set; }
         public string Name { get; set; }
+        public Question[] Questions { get; set; }
 
         public Contest(int Id, string Name)
         {

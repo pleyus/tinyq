@@ -167,7 +167,7 @@ namespace TinyVirtualQ
         //Boton Nuevo
         private void button4_Click(object sender, EventArgs e)
         {
-            f2.picActionImage.Image = Resource1.questy_on;
+            f2.picActionImage.Image = Res.questy_on;
             f2.progressBar1.Visible = false;
             f2.picClock.Visible = false;
             f2.picActionImage.Visible = true;
@@ -224,7 +224,7 @@ namespace TinyVirtualQ
             f2.picActionImage.Visible = true;
             f2.picClock.Visible = false;
             f2.progressBar1.Visible = false;
-            SoundPlayer sp = new SoundPlayer(Resource1.Ok);
+            SoundPlayer sp = new SoundPlayer(Res.Ok);
             sp.Play();
         }
         //Boton Error
@@ -237,7 +237,7 @@ namespace TinyVirtualQ
             butError.Enabled = false;
             f2.picClock.Visible = false;
             f2.progressBar1.Visible = false;
-            SoundPlayer sp = new SoundPlayer(Resource1.Error);
+            SoundPlayer sp = new SoundPlayer(Res.Error);
             sp.Play();
             butStart.Text = "Iniciar";
             progressBar.Value = 0;

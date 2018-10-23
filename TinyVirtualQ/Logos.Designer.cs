@@ -35,7 +35,7 @@
             // logo
             // 
             this.logo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.logo.Image = global::TinyVirtualQ.Resource1.questy_on;
+            this.logo.Image = global::TinyVirtualQ.Res.questy_on;
             this.logo.Location = new System.Drawing.Point(66, 135);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(496, 255);

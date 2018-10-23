@@ -19,7 +19,7 @@ namespace TinyVirtualQ
                 return DataBase.LoadUsedQuestions(Id).Length;
             }
         }
-        public List<Player> Players { get; set; }
+        public Player[] Players { get; set; }
 
         public Round(string Id, string RequiredPlayers, string QuestionsByPlayer)
         {
@@ -48,9 +48,17 @@ namespace TinyVirtualQ
             this.QuestionsByPlayer = QuestionsByPlayer;
 
             //UsedQuestions = new List<Question>();
-            Players = new List<Player>();
+            Players = new Player[]{ };
 
          }
-
+        public static string RoundName(int Index, int Length)
+        {
+            string name = "Ronda #" + (Index + 1);
+            if (Index == Length - 1 && Length > 2)
+                name = "Final";
+            if (Index == Length - 2 && Length > 2)
+                name = "Semifinal";
+            return name;
+        }
     }
 }
