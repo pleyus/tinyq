@@ -12,6 +12,13 @@ namespace TinyVirtualQ
 
         public int Id { get; set; }
         public int RequiredPlayers { get; set; }
+        public int RequiredQuestions
+        {
+            get
+            {
+                return RequiredPlayers * QuestionsByPlayer - UsedQuestions;
+            }
+        }
         public int QuestionsByPlayer { get; set; }
 
         public int UsedQuestions { get

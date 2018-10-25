@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -15,6 +15,7 @@ namespace TinyVirtualQ
         {
             InitializeComponent();
         }
+        readonly string PATH = Application.StartupPath + "\\pics\\";
 
         Contest[] ContestList;
         int CI = -1; // Contest Index
@@ -23,6 +24,7 @@ namespace TinyVirtualQ
         Contest C = null;  //  Current Contest
         Round R = null;    //  Current Round
         Player P = null;   //  Current Player
+        ImageList PlayerImages;
 
         public void OnLoad(object s, EventArgs e)
         {
@@ -30,9 +32,6 @@ namespace TinyVirtualQ
             FillContestList();  // Cargamos la info de los concursos en el modulo
         }
 
-        /// <summary>
-        /// Carga la información del concurso en su combobox
-        /// </summary>
         void FillContestList()
         {
             // Limpiamos y Agregamos un elemento al combo, dependiendo de si hay o no Concursos
@@ -47,14 +46,19 @@ namespace TinyVirtualQ
             //  Si hay contests habilitamos todo
             ComboContest.Enabled = ContestList.Length > 0;
         }
-
-        private void ContestChanged(object sender, EventArgs e)
+        void ContestChanged(object sender, EventArgs e)
         {
-            CI = ComboContest.SelectedIndex - 1;
-            ComboRounds.Items.Clear();
+            //  Limpiamos el dashboard
+            ClearDashboard();
 
+            //  Sacamos el indice del contest
+            CI = ComboContest.SelectedIndex - 1;
+            ComboRounds.Items.Clear();  //  Clear combo
+
+            //  Si el Indice esta en el rando aceptado de contest.length
             if (CI >= 0 && CI < ContestList.Length)
             {
+                //  Procedemos al llenado de rondas
                 C = ContestList[CI];
                 C.Questions = DataBase.LoadQuestions(C.Id);
                 C.Rounds = DataBase.LoadRounds(C.Id);
@@ -80,63 +84,27 @@ namespace TinyVirtualQ
                     " en el banco.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
+            //  Si no esta en el rando de contest.length
             else
             {
+                //  Quitamos todos los comodines
                 C = null;
+                R = null;
+                //P = null; esto no es necesario, porque se quita al momento de terminar la ronda (dos niveles adentro)
+
+                //  Marcamos el combo de rondas
                 ComboRounds.Items.Add("(No hay rondas)");
             }
 
-            ComboRounds.Enabled = false;
-            ButtonRoundStart.Enabled = false;
+            ComboRounds.Enabled = 
+                ButtonRoundStart.Enabled = 
+                ButtonConfig.Enabled = false;
 
             ButtonRoundStart.Text = "Iniciar";
 
             //  Marcamos el primer elemento...
             End:
                 ComboRounds.SelectedIndex = 0;
-        }
-
-        private void RoundStart(object sender, EventArgs e)
-        {
-            //  Si el boton esta en Terminar, Terminamos 
-            if (ButtonRoundStart.Text == "Terminar")
-            {
-                ButtonRoundStart.Text = "Iniciar";
-                return;
-            }
-
-            //  Cambiamos el indice de la Ronda
-            RI = ComboContest.SelectedIndex - 1;
-
-            //  Y checamos que sea un index valido
-            if (RI >= 0 && RI < C.Rounds.Length)
-            {
-                R = C.Rounds[RI];
-
-                //  Cargamos los jugadores
-                R.Players = DataBase.LoadPlayers(R.Id);
-
-
-                DashBoard.Enabled = true;
-                ButtonRoundStart.Text = "Terminar";
-            }
-            //  Si no, no arranca la ronda
-            else
-            {
-                R = null;
-                DashBoard.Enabled = false;
-                ButtonRoundStart.Text = "Iniciar";
-            }
-        }
-        void FillPlayerList()
-        {
-            ListPlayers.Items.Clear();
-            foreach(Player P in R.Players)
-            {
-                ListViewItem IT = new ListViewItem();
-                IT.Text = P.Firstname + " " + P.Lastname;
-                //  Aqui te quedaste
-            }
         }
 
         private void onDrawItem(object sender, DrawItemEventArgs e)
@@ -149,6 +117,128 @@ namespace TinyVirtualQ
             Font ft = ((ComboBox)sender).Font;
             e.Graphics.DrawString(((ComboBox)sender).Items[e.Index].ToString(), ft, myBrush, e.Bounds.X, e.Bounds.Y + 5, StringFormat.GenericDefault);
             e.DrawFocusRectangle();
+        }
+
+        void RoundChanged(object sender, EventArgs e)
+        {
+            //  Limpiamos el dashboard
+            ClearDashboard();
+
+            //  Sacamos el indice de las rondas
+            RI = ComboRounds.SelectedIndex - 1;
+
+            //  Si esta en el randgo de C.Rounds.Lenght
+            if (RI >= 0 && RI < C.Rounds.Length)
+            {
+                //  Cargamos el comodin de ronda
+                R = C.Rounds[RI];
+
+                //  Cargamos los players de la ronda
+                R.Players = DataBase.LoadPlayers(R.Id);
+
+                //  Habilitamos el boton de Config
+                ButtonConfig.Enabled = true;
+
+
+                //  Habilitamos el boton de round start: 
+                //  Si tenemos los jugadores requeridos
+                //  Y si hay suficientes preguntas para la ronda
+
+                ButtonRoundStart.Enabled =
+                    R.Players.Length == R.RequiredPlayers &&
+                    R.RequiredQuestions > C.AvailableQuestions();
+
+                //  Si no se puede jugar, mostramos un mensaje detallado
+                if (!ButtonRoundStart.Enabled)
+                    MessageBox.Show("No se puede jugar la ronda " + ComboRounds.Text + ":" +
+
+                        (R.Players.Length != R.RequiredPlayers ? Environment.NewLine : "") + 
+                            (R.Players.Length > R.RequiredPlayers
+                                ? " – Hay mas jugadores de los que se requieren" : 
+                                (R.Players.Length < R.RequiredPlayers 
+                                    ? " – Faltan jugadores en la ronda" 
+                                    : "")) +
+
+                       (R.RequiredQuestions > C.AvailableQuestions() ? Environment.NewLine + " – Faltan preguntas en el banco" : ""), 
+                       "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            //  Si no esta en el rango...
+            else
+            {
+                //  Quitamos el comodin de ronda
+                R = null;
+                ButtonRoundStart.Text = "Iniciar";
+                ButtonRoundStart.Enabled = false;
+                ButtonConfig.Enabled = false;
+            }
+        }
+        void RoundStart(object sender, EventArgs e)
+        {
+            //  Si el boton esta en Terminar, Terminamos 
+            if (ButtonRoundStart.Text == "Terminar")
+            {
+                //  Habilitamos de seleccion
+                ComboContest.Enabled =
+                    ComboRounds.Enabled =
+                    ButtonConfig.Enabled =
+                    true;
+
+                //  Reseteamos el boton de inicio y el dashboard
+                ButtonRoundStart.Text = "Iniciar";
+                ClearDashboard();
+            }
+
+            //  Si no, empezamos la ronda
+            else
+            {
+                //  Deshabilitamos la seleccion de ronda
+                ComboContest.Enabled =
+                    ComboRounds.Enabled =
+                    ButtonConfig.Enabled =
+                    false;
+                //  Llenamos con los usuarios
+                FillPlayerList();
+
+                //  Habilitamos el dashboard (solo habilitar)
+                DashBoard.Enabled = true;
+
+                //Fin
+            }
+        }
+
+        Image GetPlayerImage(Player P)
+        {
+            if (File.Exists(PATH + P.PictureFilename))
+                return Image.FromFile(PATH + P.PictureFilename);
+            else
+                return Res.user_base_icon;
+        }
+        void FillPlayerList()
+        {
+            ListPlayers.Items.Clear();
+
+            ListViewItem[] Its = new ListViewItem[R.Players.Length];
+            PlayerImages = new ImageList();
+            
+            //  Llenamos la lista de jugadores
+            for(int i = 0; i < R.Players.Length; i++)
+            {
+                //  Cargamos la imagen del jugador
+                PlayerImages.Images.Add(GetPlayerImage(R.Players[i]) );
+                Its[i] = new ListViewItem();
+                Its[i].SubItems.Add(P.Firstname + " " + P.Lastname);
+                Its[i].SubItems.Add(P.CountQuestions(Player.CounterParams.Normal).ToString());
+                Its[i].SubItems.Add(P.CountQuestions(Player.CounterParams.NormalCorrects).ToString());
+                Its[i].SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreak).ToString());
+                Its[i].SubItems.Add(P.CountQuestions(Player.CounterParams.TieBreakCorrect).ToString());
+                ListPlayers.Items.Add(Its[i]);
+            }
+        }
+
+        void ClearDashboard()
+        {
+            DashBoard.Enabled = false;
         }
     }
 }

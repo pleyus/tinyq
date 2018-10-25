@@ -240,6 +240,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QuestyON.ico" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\left.png" />
     <None Include="Resources\gear.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

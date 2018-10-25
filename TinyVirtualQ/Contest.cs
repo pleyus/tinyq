@@ -11,7 +11,13 @@ namespace TinyVirtualQ
         public Round[] Rounds { get; set; }
         public string Name { get; set; }
         public Question[] Questions { get; set; }
-
+        public int AvailableQuestions()
+        {
+            int i = 0;
+            foreach (Question q in Questions)
+                i = i + (q.Result == Question.QuestionResult.None ? 1 : 0);
+            return i;
+        }
         public Contest(int Id, string Name)
         {
             Set(Id, Name);
