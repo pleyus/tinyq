@@ -20,6 +20,7 @@ namespace TinyVirtualQ
         ScreenController MONITOR;
 
         Main M;
+        
 
         
 
@@ -35,10 +36,11 @@ namespace TinyVirtualQ
                 Directory.CreateDirectory(Application.StartupPath + "\\pics\\");
 
             M = new Main();
-            tabContest.Controls.Add(M);
-            M.Parent = tabContest;
-            M.Location = new Point(0, 0);
+            M.TopLevel = false;
+            M.Dock = DockStyle.Fill;
+            PanelContest.Controls.Add(M);
             M.Show();
+            M.BringToFront();
 
 
             /*MONITOR = new ScreenController(ContestList[CI].Questions);

@@ -50,6 +50,12 @@
             this.AdminLabelPlayerName = new System.Windows.Forms.Label();
             this.AdminLabelAnswer = new System.Windows.Forms.Label();
             this.AdminLabelQuestion = new System.Windows.Forms.Label();
+            this.ListPlayers = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AdminButtonWrong = new System.Windows.Forms.Button();
             this.AdminButtonCorrect = new System.Windows.Forms.Button();
             this.AdminButtonWait = new System.Windows.Forms.Button();
@@ -59,12 +65,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.AdminButtonSetBreak = new System.Windows.Forms.Button();
             this.AdminButtonSetQuestion = new System.Windows.Forms.Button();
-            this.ListPlayers = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ComboContest = new System.Windows.Forms.ComboBox();
@@ -77,6 +77,9 @@
             // 
             // DashBoard
             // 
+            this.DashBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DashBoard.Controls.Add(this.GStatus);
             this.DashBoard.Controls.Add(this.ListPlayers);
             this.DashBoard.Controls.Add(this.AdminButtonWrong);
@@ -389,6 +392,54 @@
             this.AdminLabelQuestion.TabIndex = 4;
             this.AdminLabelQuestion.Text = "«Sin pregunta asignada»";
             // 
+            // ListPlayers
+            // 
+            this.ListPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ListPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.ListPlayers.Enabled = false;
+            this.ListPlayers.FullRowSelect = true;
+            this.ListPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.ListPlayers.Location = new System.Drawing.Point(0, 9);
+            this.ListPlayers.Margin = new System.Windows.Forms.Padding(6);
+            this.ListPlayers.Name = "ListPlayers";
+            this.ListPlayers.Size = new System.Drawing.Size(774, 250);
+            this.ListPlayers.TabIndex = 2;
+            this.ListPlayers.UseCompatibleStateImageBehavior = false;
+            this.ListPlayers.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Jugador";
+            this.columnHeader1.Width = 227;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Preguntas";
+            this.columnHeader2.Width = 88;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Aciertos";
+            this.columnHeader3.Width = 87;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Desempate";
+            this.columnHeader4.Width = 92;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "D. aciertos";
+            this.columnHeader5.Width = 99;
+            // 
             // AdminButtonWrong
             // 
             this.AdminButtonWrong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -532,51 +583,6 @@
             this.AdminButtonSetQuestion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AdminButtonSetQuestion.UseVisualStyleBackColor = true;
             // 
-            // ListPlayers
-            // 
-            this.ListPlayers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ListPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
-            this.ListPlayers.Enabled = false;
-            this.ListPlayers.FullRowSelect = true;
-            this.ListPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.ListPlayers.Location = new System.Drawing.Point(0, 9);
-            this.ListPlayers.Margin = new System.Windows.Forms.Padding(6);
-            this.ListPlayers.Name = "ListPlayers";
-            this.ListPlayers.Size = new System.Drawing.Size(774, 250);
-            this.ListPlayers.TabIndex = 2;
-            this.ListPlayers.UseCompatibleStateImageBehavior = false;
-            this.ListPlayers.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Jugador";
-            this.columnHeader1.Width = 227;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Preguntas";
-            this.columnHeader2.Width = 88;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Aciertos";
-            this.columnHeader3.Width = 87;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Desempate";
-            this.columnHeader4.Width = 92;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "D. aciertos";
-            this.columnHeader5.Width = 99;
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -617,6 +623,8 @@
             this.ComboContest.Size = new System.Drawing.Size(279, 34);
             this.ComboContest.TabIndex = 5;
             this.ComboContest.Tag = "";
+            this.ComboContest.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.onDrawItem);
+            this.ComboContest.SelectedIndexChanged += new System.EventHandler(this.ContestChanged);
             // 
             // ComboRounds
             // 
@@ -633,6 +641,7 @@
             this.ComboRounds.Size = new System.Drawing.Size(184, 34);
             this.ComboRounds.TabIndex = 6;
             this.ComboRounds.Tag = "";
+            this.ComboRounds.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.onDrawItem);
             // 
             // ButtonConfig
             // 
@@ -684,6 +693,7 @@
             this.Name = "Main";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Main";
             this.Load += new System.EventHandler(this.OnLoad);
             this.DashBoard.ResumeLayout(false);

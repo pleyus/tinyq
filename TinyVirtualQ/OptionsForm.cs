@@ -146,7 +146,7 @@ namespace TinyVirtualQ
 
         private void OnClose(object sender, FormClosingEventArgs e)
         {
-            Main.LoadData();
+//            Main.LoadData();
         }
 
         private void RoundSelection(object sender = null, EventArgs e = null)

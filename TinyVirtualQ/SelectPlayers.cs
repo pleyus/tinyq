@@ -68,7 +68,7 @@ namespace TinyVirtualQ
         void UpdateInfoLabels()
         {
             LabelAvailable.Text = "Disponibles " + Players.Length;
-            LabelInRound.Text = "En la " + roundName() + " (" + Rounds[Index].Players.Count + " / " + Rounds[Index].RequiredPlayers + ")";
+            //LabelInRound.Text = "En la " + roundName() + " (" + Rounds[Index].Players.Count + " / " + Rounds[Index].RequiredPlayers + ")";
         }
         void MovePlayers(object s, EventArgs e)
         {
@@ -100,7 +100,7 @@ namespace TinyVirtualQ
                 Players = PO.ToArray();
 
                 ListInRound = LD;
-                Rounds[Index].Players = PD;
+                //Rounds[Index].Players = PD;
             }
             else
             {
@@ -108,7 +108,7 @@ namespace TinyVirtualQ
                 Players = PD.ToArray();
 
                 ListInRound = LO;
-                Rounds[Index].Players = PO;
+                //Rounds[Index].Players = PO;
             }
             UpdateInfoLabels();
         }

@@ -75,9 +75,9 @@ namespace TinyVirtualQ
                 }
 
                 //  Si no hay suficientes preguntas, mandamos el mensaje.
-                MessageBox.Show("No se podrá jugar ya que se requiere de " + C.RequiredQuestions
-                        + " preguntas y solo se cuenta con " + C.Questions.Length + " en el banco.",
-                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se podrá jugar «" + C.Name + "» ya que requiere de " + C.RequiredQuestions + " preguntas y" +
+                    (C.Questions.Length > 0 ? " solo se cuenta con " + C.Questions.Length : " no hay preguntas") +
+                    " en el banco.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else
@@ -137,6 +137,18 @@ namespace TinyVirtualQ
                 IT.Text = P.Firstname + " " + P.Lastname;
                 //  Aqui te quedaste
             }
+        }
+
+        private void onDrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index > ((ComboBox)sender).Items.Count || e.Index < 0)
+                return;
+
+            e.DrawBackground();
+            Brush myBrush = Brushes.Black;
+            Font ft = ((ComboBox)sender).Font;
+            e.Graphics.DrawString(((ComboBox)sender).Items[e.Index].ToString(), ft, myBrush, e.Bounds.X, e.Bounds.Y + 5, StringFormat.GenericDefault);
+            e.DrawFocusRectangle();
         }
     }
 }
