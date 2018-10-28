@@ -317,23 +317,29 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
             this.tabControl1.Controls.Add(this.tabContest);
             this.tabControl1.Controls.Add(this.tabScreens);
             this.tabControl1.Controls.Add(this.tabSettings);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tabControl1.ItemSize = new System.Drawing.Size(100, 50);
+            this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(30, 5);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(808, 708);
+            this.tabControl1.ShowToolTips = true;
+            this.tabControl1.Size = new System.Drawing.Size(848, 658);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 4;
             // 
             // tabContest
             // 
-            this.tabContest.Location = new System.Drawing.Point(4, 54);
+            this.tabContest.ImageIndex = 0;
+            this.tabContest.Location = new System.Drawing.Point(44, 4);
             this.tabContest.Margin = new System.Windows.Forms.Padding(0);
             this.tabContest.Name = "tabContest";
             this.tabContest.Size = new System.Drawing.Size(800, 650);
@@ -345,7 +351,7 @@
             // 
             this.tabScreens.Controls.Add(this.GMaster);
             this.tabScreens.Controls.Add(this.GSlave);
-            this.tabScreens.Location = new System.Drawing.Point(4, 54);
+            this.tabScreens.Location = new System.Drawing.Point(44, 4);
             this.tabScreens.Margin = new System.Windows.Forms.Padding(4);
             this.tabScreens.Name = "tabScreens";
             this.tabScreens.Padding = new System.Windows.Forms.Padding(4);
@@ -356,10 +362,8 @@
             // 
             // tabSettings
             // 
-            this.tabSettings.AutoScroll = true;
-            this.tabSettings.AutoScrollMinSize = new System.Drawing.Size(800, 900);
             this.tabSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabSettings.Location = new System.Drawing.Point(4, 54);
+            this.tabSettings.Location = new System.Drawing.Point(44, 4);
             this.tabSettings.Margin = new System.Windows.Forms.Padding(4);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Size = new System.Drawing.Size(800, 650);
@@ -372,7 +376,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(808, 708);
+            this.ClientSize = new System.Drawing.Size(848, 658);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
