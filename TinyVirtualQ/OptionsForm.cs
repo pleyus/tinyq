@@ -118,8 +118,7 @@ namespace TinyVirtualQ
         {
             //  Deshabilitamos y limpiamos la ronda
             ListRounds.Items.Clear();
-            GRounds.Enabled =
-                ButtonRoundDelete.Enabled =
+            ButtonRoundDelete.Enabled =
                 ButtonRoundSave.Enabled = false;
 
             //  Si se seleccionó algo
@@ -136,10 +135,7 @@ namespace TinyVirtualQ
 
                 //  Llenamos la lista de Rondas
                 FillRounds(C);
-
-                //  Habilitamos
-                GRounds.Enabled = true;
-
+                
                 //  Mantenemos deshabilitados los botones de save y delete...
             }
         }

@@ -346,6 +346,7 @@
             this.tabContest.TabIndex = 0;
             this.tabContest.Text = "Concurso";
             this.tabContest.UseVisualStyleBackColor = true;
+            this.tabContest.Click += new System.EventHandler(this.tabContest_Click);
             // 
             // tabScreens
             // 
@@ -375,7 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(848, 658);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Arial", 12F);
