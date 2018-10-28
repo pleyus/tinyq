@@ -20,15 +20,7 @@ namespace TinyVirtualQ
         ScreenController MONITOR;
 
         Main M;
-        
-
-        
-
-        int CC = 0;
-        int CR = 0;
-        int CP = 0;
-        int CQ = 0;
-        
+        OptionsForm O;
         
         public void onLoad(object sender = null, EventArgs e = null)
         {
@@ -38,9 +30,16 @@ namespace TinyVirtualQ
             M = new Main();
             M.TopLevel = false;
             M.Dock = DockStyle.Fill;
-            PanelContest.Controls.Add(M);
+            tabContest.Controls.Add(M);
             M.Show();
             M.BringToFront();
+
+            O = new OptionsForm(M);
+            O.TopLevel = false;
+            O.Dock = DockStyle.Fill;
+            tabSettings.Controls.Add(O);
+            O.Show();
+            O.BringToFront();
 
 
             /*MONITOR = new ScreenController(ContestList[CI].Questions);

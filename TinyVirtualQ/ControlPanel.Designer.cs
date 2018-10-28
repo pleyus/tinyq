@@ -51,16 +51,12 @@
             this.tabContest = new System.Windows.Forms.TabPage();
             this.tabScreens = new System.Windows.Forms.TabPage();
             this.tabSettings = new System.Windows.Forms.TabPage();
-            this.PanelContest = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.GMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabContest.SuspendLayout();
             this.tabScreens.SuspendLayout();
-            this.PanelContest.SuspendLayout();
             this.SuspendLayout();
             // 
             // GMaster
@@ -337,7 +333,6 @@
             // 
             // tabContest
             // 
-            this.tabContest.Controls.Add(this.PanelContest);
             this.tabContest.Location = new System.Drawing.Point(4, 54);
             this.tabContest.Margin = new System.Windows.Forms.Padding(0);
             this.tabContest.Name = "tabContest";
@@ -361,6 +356,8 @@
             // 
             // tabSettings
             // 
+            this.tabSettings.AutoScroll = true;
+            this.tabSettings.AutoScrollMinSize = new System.Drawing.Size(800, 900);
             this.tabSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabSettings.Location = new System.Drawing.Point(4, 54);
             this.tabSettings.Margin = new System.Windows.Forms.Padding(4);
@@ -369,25 +366,6 @@
             this.tabSettings.TabIndex = 2;
             this.tabSettings.Text = "Configuración";
             this.tabSettings.UseVisualStyleBackColor = true;
-            // 
-            // PanelContest
-            // 
-            this.PanelContest.Controls.Add(this.button1);
-            this.PanelContest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContest.Location = new System.Drawing.Point(0, 0);
-            this.PanelContest.Margin = new System.Windows.Forms.Padding(0);
-            this.PanelContest.Name = "PanelContest";
-            this.PanelContest.Size = new System.Drawing.Size(800, 650);
-            this.PanelContest.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(206, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ControlPanel
             // 
@@ -410,9 +388,7 @@
             this.GSlave.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabContest.ResumeLayout(false);
             this.tabScreens.ResumeLayout(false);
-            this.PanelContest.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -440,7 +416,5 @@
         private System.Windows.Forms.TabPage tabContest;
         private System.Windows.Forms.TabPage tabScreens;
         private System.Windows.Forms.TabPage tabSettings;
-        private System.Windows.Forms.Panel PanelContest;
-        private System.Windows.Forms.Button button1;
     }
 }

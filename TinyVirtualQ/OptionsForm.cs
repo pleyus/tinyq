@@ -14,9 +14,9 @@ namespace TinyVirtualQ
         Question[] QuestionBank { get; set; }       // Todas las preguntas
         Player[] RegistredPlayers { get; set; }     // Todos los vatos
 
-        ControlPanel Main;
+        Main Main;
 
-        public OptionsForm(ControlPanel Main)
+        public OptionsForm(Main Main)
         {
             InitializeComponent();
 
