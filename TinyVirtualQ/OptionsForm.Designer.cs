@@ -386,6 +386,7 @@
             this.ButtonQuestionDelete.Size = new System.Drawing.Size(39, 36);
             this.ButtonQuestionDelete.TabIndex = 6;
             this.ButtonQuestionDelete.UseVisualStyleBackColor = true;
+            this.ButtonQuestionDelete.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // TextQuestionsCategory
             // 
@@ -408,6 +409,7 @@
             this.ButtonQuestionNew.TabIndex = 4;
             this.ButtonQuestionNew.Text = "Nueva";
             this.ButtonQuestionNew.UseVisualStyleBackColor = true;
+            this.ButtonQuestionNew.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // label4
             // 
@@ -433,6 +435,7 @@
             this.ButtonQuestionSave.TabIndex = 4;
             this.ButtonQuestionSave.Text = "Guardar";
             this.ButtonQuestionSave.UseVisualStyleBackColor = true;
+            this.ButtonQuestionSave.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
             // label5
             // 
@@ -465,6 +468,7 @@
             this.ListQuestions.TabIndex = 5;
             this.ListQuestions.UseCompatibleStateImageBehavior = false;
             this.ListQuestions.View = System.Windows.Forms.View.Details;
+            this.ListQuestions.SelectedIndexChanged += new System.EventHandler(this.QuestionSelection);
             // 
             // columnHeader5
             // 

@@ -60,8 +60,6 @@ namespace TinyVirtualQ
                 IT.Text = Q.Category;
                 IT.SubItems.Add(Q.Text);
                 IT.SubItems.Add(Q.Answer);
-
-                IT.Tag = Q;
                 ListQuestions.Items.Add( IT );
             }
         }
@@ -243,7 +241,7 @@ namespace TinyVirtualQ
             if (ListQuestions.SelectedItems.Count > 0)
             {
                 //  Sacamos el objeto y lo parseamos a Contest
-                Question Q = (Question)ListQuestions.SelectedItems[0].Tag;
+                Question Q = QuestionBank[ListQuestions.SelectedIndices[0]];
 
                 //  Asignamos los campos
                 TextQuestionsQuestion.Text = Q.Text;
@@ -259,7 +257,6 @@ namespace TinyVirtualQ
                 //  Mantenemos deshabilitados los botones de save y delete...
             }
         }
-
         private void QuestionsButtonsClick(object sender, EventArgs e)
         {
             bool isOK = (
@@ -278,7 +275,8 @@ namespace TinyVirtualQ
                     {
                         MessageBox.Show("Se creó correctamente la pregunta", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        QuestionBank = DataBase.LoadQuestions();
+                        // Cargamos las preguntas con lo que se estuviera buscando
+                        QuestionBank = DataBase.LoadQuestions(SearchBox.Text.Trim());
                         FillQuestions();
 
                         return;
@@ -287,10 +285,10 @@ namespace TinyVirtualQ
                 MessageBox.Show("No se ha podido agregar la pregunta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //  Si no, es el boton de Save o Delete
-            else if (TextQuestionsQuestion.Tag != null)
+            else if (ListQuestions.SelectedItems.Count > 0)
             {
                 //  Preparamos la ronda a modificar
-                Question Q = (Question)TextQuestionsQuestion.Tag;
+                Question Q = QuestionBank[ListQuestions.SelectedIndices[0]];
 
                 Q.Text = TextQuestionsQuestion.Text;
                 Q.Answer = TextQuestionsAnswer.Text;
@@ -324,7 +322,8 @@ namespace TinyVirtualQ
                 //  Si no hubo pedo, continuamos
                 MessageBox.Show("Se aplicaron los cambios correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                QuestionBank = DataBase.LoadQuestions();
+                // Cargamos las preguntas con lo que se estuviera buscando
+                QuestionBank = DataBase.LoadQuestions(SearchBox.Text.Trim());
                 FillQuestions();
             }
         }
