@@ -78,6 +78,8 @@
             this.TextPlayerLastname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -347,9 +349,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ButtonQuestionDelete);
+            this.groupBox2.Controls.Add(this.SearchBox);
             this.groupBox2.Controls.Add(this.TextQuestionsCategory);
             this.groupBox2.Controls.Add(this.ButtonQuestionNew);
             this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.ButtonQuestionSave);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.ListQuestions);
@@ -359,18 +363,19 @@
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox2.Location = new System.Drawing.Point(8, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(770, 394);
+            this.groupBox2.Size = new System.Drawing.Size(770, 593);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Preguntas";
             // 
             // ButtonQuestionDelete
             // 
+            this.ButtonQuestionDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonQuestionDelete.BackgroundImage = global::TinyVirtualQ.Res.icon_trash;
             this.ButtonQuestionDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonQuestionDelete.Enabled = false;
             this.ButtonQuestionDelete.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonQuestionDelete.Location = new System.Drawing.Point(717, 340);
+            this.ButtonQuestionDelete.Location = new System.Drawing.Point(717, 545);
             this.ButtonQuestionDelete.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonQuestionDelete.Name = "ButtonQuestionDelete";
             this.ButtonQuestionDelete.Size = new System.Drawing.Size(39, 36);
@@ -379,8 +384,9 @@
             // 
             // TextQuestionsCategory
             // 
+            this.TextQuestionsCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TextQuestionsCategory.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextQuestionsCategory.Location = new System.Drawing.Point(96, 346);
+            this.TextQuestionsCategory.Location = new System.Drawing.Point(96, 551);
             this.TextQuestionsCategory.Margin = new System.Windows.Forms.Padding(4);
             this.TextQuestionsCategory.Name = "TextQuestionsCategory";
             this.TextQuestionsCategory.Size = new System.Drawing.Size(298, 26);
@@ -388,8 +394,9 @@
             // 
             // ButtonQuestionNew
             // 
+            this.ButtonQuestionNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonQuestionNew.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonQuestionNew.Location = new System.Drawing.Point(609, 340);
+            this.ButtonQuestionNew.Location = new System.Drawing.Point(609, 545);
             this.ButtonQuestionNew.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonQuestionNew.Name = "ButtonQuestionNew";
             this.ButtonQuestionNew.Size = new System.Drawing.Size(109, 36);
@@ -399,9 +406,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F);
-            this.label4.Location = new System.Drawing.Point(7, 252);
+            this.label4.Location = new System.Drawing.Point(4, 457);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 18);
@@ -410,9 +418,10 @@
             // 
             // ButtonQuestionSave
             // 
+            this.ButtonQuestionSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonQuestionSave.Enabled = false;
             this.ButtonQuestionSave.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonQuestionSave.Location = new System.Drawing.Point(501, 340);
+            this.ButtonQuestionSave.Location = new System.Drawing.Point(501, 545);
             this.ButtonQuestionSave.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonQuestionSave.Name = "ButtonQuestionSave";
             this.ButtonQuestionSave.Size = new System.Drawing.Size(109, 36);
@@ -422,9 +431,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F);
-            this.label5.Location = new System.Drawing.Point(10, 349);
+            this.label5.Location = new System.Drawing.Point(5, 554);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 18);
@@ -433,17 +443,20 @@
             // 
             // ListQuestions
             // 
+            this.ListQuestions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader1,
             this.columnHeader6});
             this.ListQuestions.Font = new System.Drawing.Font("Arial", 12F);
             this.ListQuestions.FullRowSelect = true;
-            this.ListQuestions.Location = new System.Drawing.Point(7, 26);
+            this.ListQuestions.Location = new System.Drawing.Point(7, 64);
             this.ListQuestions.Margin = new System.Windows.Forms.Padding(4);
             this.ListQuestions.MultiSelect = false;
             this.ListQuestions.Name = "ListQuestions";
-            this.ListQuestions.Size = new System.Drawing.Size(756, 222);
+            this.ListQuestions.Size = new System.Drawing.Size(756, 380);
             this.ListQuestions.TabIndex = 5;
             this.ListQuestions.UseCompatibleStateImageBehavior = false;
             this.ListQuestions.View = System.Windows.Forms.View.Details;
@@ -465,9 +478,10 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F);
-            this.label6.Location = new System.Drawing.Point(397, 252);
+            this.label6.Location = new System.Drawing.Point(397, 457);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 18);
@@ -476,8 +490,10 @@
             // 
             // TextQuestionsQuestion
             // 
+            this.TextQuestionsQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TextQuestionsQuestion.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextQuestionsQuestion.Location = new System.Drawing.Point(12, 277);
+            this.TextQuestionsQuestion.Location = new System.Drawing.Point(12, 482);
             this.TextQuestionsQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.TextQuestionsQuestion.Multiline = true;
             this.TextQuestionsQuestion.Name = "TextQuestionsQuestion";
@@ -486,8 +502,9 @@
             // 
             // TextQuestionsAnswer
             // 
+            this.TextQuestionsAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TextQuestionsAnswer.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextQuestionsAnswer.Location = new System.Drawing.Point(402, 277);
+            this.TextQuestionsAnswer.Location = new System.Drawing.Point(402, 482);
             this.TextQuestionsAnswer.Margin = new System.Windows.Forms.Padding(4);
             this.TextQuestionsAnswer.Multiline = true;
             this.TextQuestionsAnswer.Name = "TextQuestionsAnswer";
@@ -667,6 +684,28 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "Apellido";
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F);
+            this.label1.Location = new System.Drawing.Point(397, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Buscar";
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.SearchBox.Location = new System.Drawing.Point(465, 26);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(298, 26);
+            this.SearchBox.TabIndex = 3;
+            // 
             // OptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -752,5 +791,7 @@
         private System.Windows.Forms.TextBox TextPlayerLastname;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox SearchBox;
+        private System.Windows.Forms.Label label1;
     }
 }

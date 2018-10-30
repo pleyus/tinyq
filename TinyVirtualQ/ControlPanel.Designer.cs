@@ -318,11 +318,11 @@
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabContest);
             this.tabControl1.Controls.Add(this.tabScreens);
             this.tabControl1.Controls.Add(this.tabSettings);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
