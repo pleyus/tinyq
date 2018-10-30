@@ -46,7 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.NumberRoundQuestions = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.OptionsFormTab = new System.Windows.Forms.TabControl();
             this.config_contest = new System.Windows.Forms.TabPage();
             this.config_questions = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -82,7 +82,7 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.OptionsFormTab.SuspendLayout();
             this.config_contest.SuspendLayout();
             this.config_questions.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -300,18 +300,20 @@
             0,
             0});
             // 
-            // tabControl1
+            // OptionsFormTab
             // 
-            this.tabControl1.Controls.Add(this.config_contest);
-            this.tabControl1.Controls.Add(this.config_questions);
-            this.tabControl1.Controls.Add(this.config_players);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ItemSize = new System.Drawing.Size(79, 35);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 650);
-            this.tabControl1.TabIndex = 16;
+            this.OptionsFormTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OptionsFormTab.Controls.Add(this.config_contest);
+            this.OptionsFormTab.Controls.Add(this.config_questions);
+            this.OptionsFormTab.Controls.Add(this.config_players);
+            this.OptionsFormTab.ItemSize = new System.Drawing.Size(79, 35);
+            this.OptionsFormTab.Location = new System.Drawing.Point(0, 0);
+            this.OptionsFormTab.Name = "OptionsFormTab";
+            this.OptionsFormTab.SelectedIndex = 0;
+            this.OptionsFormTab.Size = new System.Drawing.Size(800, 650);
+            this.OptionsFormTab.TabIndex = 16;
             // 
             // config_contest
             // 
@@ -348,6 +350,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.ButtonQuestionDelete);
             this.groupBox2.Controls.Add(this.SearchBox);
             this.groupBox2.Controls.Add(this.TextQuestionsCategory);
@@ -714,7 +719,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 650);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.OptionsFormTab);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -728,7 +733,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClose);
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.OptionsFormTab.ResumeLayout(false);
             this.config_contest.ResumeLayout(false);
             this.config_contest.PerformLayout();
             this.config_questions.ResumeLayout(false);
@@ -760,7 +765,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button ButtonRoundAdd;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl OptionsFormTab;
         private System.Windows.Forms.TabPage config_contest;
         private System.Windows.Forms.TabPage config_questions;
         private System.Windows.Forms.GroupBox groupBox2;
