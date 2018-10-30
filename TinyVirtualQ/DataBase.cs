@@ -51,6 +51,7 @@ namespace TinyVirtualQ
         }
         public static DataRowCollection Select(string sql_string, OleDbParameter[] Params = null)
         {
+            Params = Params == null ? new OleDbParameter[] {} : Params;
             string strAccessConn = CNN;
 
             // Create the dataset and add the Categories table to it:
@@ -76,6 +77,8 @@ namespace TinyVirtualQ
                     if (s.Trim() != "")
                     {
                         myAccessCommand = new OleDbCommand(s.Trim(), myAccessConn);
+                        foreach (OleDbParameter P in Params)
+                            myAccessCommand.Parameters.AddWithValue(P.ParameterName, P.Value);
                         myDataAdapter = new OleDbDataAdapter(myAccessCommand);
                         myDataAdapter.Fill(myDataSet);
                     }
@@ -130,11 +133,21 @@ namespace TinyVirtualQ
         /// <summary>
         /// Carga solo las preguntas de un concurso especifico
         /// </summary>
-        /// <param name="ContestId"></param>
+        /// <param name="ContestId">El id del concurso</param>
         /// <returns></returns>
         public static Question[] LoadQuestions(int ContestId)
         {
             return GetQuestions("SELECT * FROM used_questions WHERE ContestId = " + ContestId);
+        }
+        /// <summary>
+        /// Carga todas las preguntas que concuerden con la busqueda solicitada
+        /// </summary>
+        /// <param name="Search">Palabra clave o frase a buscar</param>
+        /// <returns></returns>
+        public static Question[] LoadQuestions(string Search)
+        {
+            return GetQuestions("SELECT *, 0 AS Result, 0 AS Type FROM questions WHERE question LIKE @SEARCH OR answer LIKE @SEARCH", 
+                new OleDbParameter[] { new OleDbParameter("@SEARCH", "%" + Search + "%") });
         }
         public static Question[] LoadUsedQuestions(int PlayerId, int RoundId)
         {
@@ -151,9 +164,9 @@ namespace TinyVirtualQ
                 "LEFT JOIN questions q ON q.Id = u.QuestionId " +
                 "WHERE u.RoundId = " + RoundId);
         }
-        static Question[] GetQuestions(string sql)
+        static Question[] GetQuestions(string sql, OleDbParameter[] param = null)
         {
-            DataRowCollection D = Select(sql);
+            DataRowCollection D = Select(sql, param);
             List<Question> Q = new List<Question>();
             foreach (DataRow d in D)
             {

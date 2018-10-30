@@ -462,7 +462,8 @@ namespace TinyVirtualQ
 
         private void SearchQuestion(object sender, EventArgs e)
         {
-            QuestionBank = DataBase.LoadQuestions();
+            QuestionBank = DataBase.LoadQuestions(SearchBox.Text.Trim());
+            FillQuestions();
         }
     }
 }
