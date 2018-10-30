@@ -119,10 +119,19 @@ namespace TinyVirtualQ
 
             return R.ToArray();
         }
+        /// <summary>
+        /// Carga todas las preguntas de la base de datos
+        /// </summary>
+        /// <returns></returns>
         public static Question[] LoadQuestions()
         {
             return GetQuestions("SELECT *, 0 AS Result, 0 AS Type FROM questions");
         }
+        /// <summary>
+        /// Carga solo las preguntas de un concurso especifico
+        /// </summary>
+        /// <param name="ContestId"></param>
+        /// <returns></returns>
         public static Question[] LoadQuestions(int ContestId)
         {
             return GetQuestions("SELECT * FROM used_questions WHERE ContestId = " + ContestId);

@@ -705,6 +705,7 @@
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(298, 26);
             this.SearchBox.TabIndex = 3;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchQuestion);
             // 
             // OptionsForm
             // 
