@@ -47,7 +47,7 @@
             this.SlaveButtonBlack = new System.Windows.Forms.Button();
             this.SlaveButtonUpdate = new System.Windows.Forms.Button();
             this.SlaveComboScreens = new System.Windows.Forms.ComboBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.MainPanel = new System.Windows.Forms.TabControl();
             this.tabContest = new System.Windows.Forms.TabPage();
             this.tabScreens = new System.Windows.Forms.TabPage();
             this.tabSettings = new System.Windows.Forms.TabPage();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).BeginInit();
             this.GSlave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.tabScreens.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -315,26 +315,28 @@
             this.SlaveComboScreens.TabIndex = 0;
             this.SlaveComboScreens.Tag = "";
             // 
-            // tabControl1
+            // MainPanel
             // 
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabContest);
-            this.tabControl1.Controls.Add(this.tabScreens);
-            this.tabControl1.Controls.Add(this.tabSettings);
-            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.Padding = new System.Drawing.Point(30, 5);
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.ShowToolTips = true;
-            this.tabControl1.Size = new System.Drawing.Size(848, 658);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabControl1.TabIndex = 4;
+            this.MainPanel.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.MainPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MainPanel.Controls.Add(this.tabContest);
+            this.MainPanel.Controls.Add(this.tabScreens);
+            this.MainPanel.Controls.Add(this.tabSettings);
+            this.MainPanel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.MainPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.MainPanel.ItemSize = new System.Drawing.Size(100, 40);
+            this.MainPanel.Location = new System.Drawing.Point(0, 0);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.MainPanel.Multiline = true;
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Padding = new System.Drawing.Point(30, 5);
+            this.MainPanel.SelectedIndex = 0;
+            this.MainPanel.ShowToolTips = true;
+            this.MainPanel.Size = new System.Drawing.Size(848, 658);
+            this.MainPanel.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.MainPanel.TabIndex = 4;
             // 
             // tabContest
             // 
@@ -378,7 +380,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(848, 658);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.MainPanel);
             this.Font = new System.Drawing.Font("Arial", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -392,7 +394,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.MasterPictureScreen)).EndInit();
             this.GSlave.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SlavePictureScreen)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.MainPanel.ResumeLayout(false);
             this.tabScreens.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -417,7 +419,7 @@
         private System.Windows.Forms.Button SlaveButtonBlack;
         private System.Windows.Forms.Button SlaveButtonUpdate;
         private System.Windows.Forms.ComboBox SlaveComboScreens;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl MainPanel;
         private System.Windows.Forms.TabPage tabContest;
         private System.Windows.Forms.TabPage tabScreens;
         private System.Windows.Forms.TabPage tabSettings;
