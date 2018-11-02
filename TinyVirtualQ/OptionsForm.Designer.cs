@@ -51,9 +51,11 @@
             this.config_questions = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ButtonQuestionDelete = new System.Windows.Forms.Button();
+            this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextQuestionsCategory = new System.Windows.Forms.TextBox();
             this.ButtonQuestionNew = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.ButtonQuestionSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.ListQuestions = new System.Windows.Forms.ListView();
@@ -65,6 +67,8 @@
             this.TextQuestionsAnswer = new System.Windows.Forms.TextBox();
             this.config_players = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PlayerSearch = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.ButtonPlayerDelete = new System.Windows.Forms.Button();
             this.ListPlayers = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -78,8 +82,6 @@
             this.TextPlayerLastname = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SearchBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundPlayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumberRoundQuestions)).BeginInit();
             this.OptionsFormTab.SuspendLayout();
@@ -388,6 +390,17 @@
             this.ButtonQuestionDelete.UseVisualStyleBackColor = true;
             this.ButtonQuestionDelete.Click += new System.EventHandler(this.QuestionsButtonsClick);
             // 
+            // SearchBox
+            // 
+            this.SearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchBox.Font = new System.Drawing.Font("Arial", 12F);
+            this.SearchBox.Location = new System.Drawing.Point(465, 26);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(4);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(298, 26);
+            this.SearchBox.TabIndex = 3;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchQuestion);
+            // 
             // TextQuestionsCategory
             // 
             this.TextQuestionsCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -422,6 +435,18 @@
             this.label4.Size = new System.Drawing.Size(71, 18);
             this.label4.TabIndex = 5;
             this.label4.Text = "Pregunta";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F);
+            this.label1.Location = new System.Drawing.Point(397, 29);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Buscar";
             // 
             // ButtonQuestionSave
             // 
@@ -532,6 +557,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.PlayerSearch);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.ButtonPlayerDelete);
             this.groupBox1.Controls.Add(this.ListPlayers);
             this.groupBox1.Controls.Add(this.ButtonPlayerNew);
@@ -545,96 +575,134 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(11, 142);
+            this.groupBox1.Location = new System.Drawing.Point(9, 4);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(770, 335);
+            this.groupBox1.Size = new System.Drawing.Size(770, 594);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jugadores registrados";
             // 
+            // PlayerSearch
+            // 
+            this.PlayerSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlayerSearch.Font = new System.Drawing.Font("Arial", 12F);
+            this.PlayerSearch.Location = new System.Drawing.Point(73, 27);
+            this.PlayerSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.PlayerSearch.Name = "PlayerSearch";
+            this.PlayerSearch.Size = new System.Drawing.Size(337, 26);
+            this.PlayerSearch.TabIndex = 17;
+            this.PlayerSearch.TextChanged += new System.EventHandler(this.OnPlayerSearch);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F);
+            this.label11.Location = new System.Drawing.Point(5, 30);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 18);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Buscar";
+            // 
             // ButtonPlayerDelete
             // 
+            this.ButtonPlayerDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonPlayerDelete.BackgroundImage = global::TinyVirtualQ.Res.icon_trash;
             this.ButtonPlayerDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ButtonPlayerDelete.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonPlayerDelete.Location = new System.Drawing.Point(723, 282);
+            this.ButtonPlayerDelete.Location = new System.Drawing.Point(716, 327);
             this.ButtonPlayerDelete.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPlayerDelete.Name = "ButtonPlayerDelete";
             this.ButtonPlayerDelete.Size = new System.Drawing.Size(39, 36);
             this.ButtonPlayerDelete.TabIndex = 16;
             this.ButtonPlayerDelete.UseVisualStyleBackColor = true;
+            this.ButtonPlayerDelete.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // ListPlayers
             // 
+            this.ListPlayers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ListPlayers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9});
             this.ListPlayers.Font = new System.Drawing.Font("Arial", 12F);
             this.ListPlayers.FullRowSelect = true;
-            this.ListPlayers.Location = new System.Drawing.Point(7, 27);
+            this.ListPlayers.Location = new System.Drawing.Point(7, 61);
             this.ListPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.ListPlayers.MultiSelect = false;
             this.ListPlayers.Name = "ListPlayers";
-            this.ListPlayers.Size = new System.Drawing.Size(403, 291);
+            this.ListPlayers.Size = new System.Drawing.Size(403, 525);
             this.ListPlayers.TabIndex = 1;
             this.ListPlayers.UseCompatibleStateImageBehavior = false;
             this.ListPlayers.View = System.Windows.Forms.View.Details;
+            this.ListPlayers.SelectedIndexChanged += new System.EventHandler(this.PlayerSelection);
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Nombre";
-            this.columnHeader9.Width = 236;
+            this.columnHeader9.Width = 363;
             // 
             // ButtonPlayerNew
             // 
+            this.ButtonPlayerNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonPlayerNew.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonPlayerNew.Location = new System.Drawing.Point(615, 282);
+            this.ButtonPlayerNew.Location = new System.Drawing.Point(608, 327);
             this.ButtonPlayerNew.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPlayerNew.Name = "ButtonPlayerNew";
             this.ButtonPlayerNew.Size = new System.Drawing.Size(99, 36);
             this.ButtonPlayerNew.TabIndex = 15;
             this.ButtonPlayerNew.Text = "Nuevo...";
             this.ButtonPlayerNew.UseVisualStyleBackColor = true;
+            this.ButtonPlayerNew.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // PicturePlayersUserPic
             // 
+            this.PicturePlayersUserPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PicturePlayersUserPic.BackColor = System.Drawing.Color.DimGray;
             this.PicturePlayersUserPic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PicturePlayersUserPic.Image = global::TinyVirtualQ.Res.round_picture_white;
-            this.PicturePlayersUserPic.Location = new System.Drawing.Point(529, 27);
+            this.PicturePlayersUserPic.Location = new System.Drawing.Point(526, 27);
             this.PicturePlayersUserPic.Margin = new System.Windows.Forms.Padding(4);
             this.PicturePlayersUserPic.Name = "PicturePlayersUserPic";
-            this.PicturePlayersUserPic.Size = new System.Drawing.Size(120, 120);
+            this.PicturePlayersUserPic.Size = new System.Drawing.Size(150, 150);
             this.PicturePlayersUserPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicturePlayersUserPic.TabIndex = 13;
             this.PicturePlayersUserPic.TabStop = false;
             // 
             // ButtonPlayerSave
             // 
+            this.ButtonPlayerSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonPlayerSave.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonPlayerSave.Location = new System.Drawing.Point(507, 282);
+            this.ButtonPlayerSave.Location = new System.Drawing.Point(500, 327);
             this.ButtonPlayerSave.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPlayerSave.Name = "ButtonPlayerSave";
             this.ButtonPlayerSave.Size = new System.Drawing.Size(99, 36);
             this.ButtonPlayerSave.TabIndex = 14;
             this.ButtonPlayerSave.Text = "Guardar";
             this.ButtonPlayerSave.UseVisualStyleBackColor = true;
+            this.ButtonPlayerSave.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // ButtonPlayerSelectFile
             // 
+            this.ButtonPlayerSelectFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonPlayerSelectFile.Font = new System.Drawing.Font("Arial", 12F);
-            this.ButtonPlayerSelectFile.Location = new System.Drawing.Point(726, 228);
+            this.ButtonPlayerSelectFile.Location = new System.Drawing.Point(719, 273);
             this.ButtonPlayerSelectFile.Margin = new System.Windows.Forms.Padding(4);
             this.ButtonPlayerSelectFile.Name = "ButtonPlayerSelectFile";
             this.ButtonPlayerSelectFile.Size = new System.Drawing.Size(36, 33);
             this.ButtonPlayerSelectFile.TabIndex = 2;
             this.ButtonPlayerSelectFile.UseVisualStyleBackColor = true;
+            this.ButtonPlayerSelectFile.Click += new System.EventHandler(this.PlayersButtonsClick);
             // 
             // TextPlayerFirstname
             // 
+            this.TextPlayerFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextPlayerFirstname.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextPlayerFirstname.Location = new System.Drawing.Point(428, 177);
+            this.TextPlayerFirstname.Location = new System.Drawing.Point(421, 222);
             this.TextPlayerFirstname.Margin = new System.Windows.Forms.Padding(4);
             this.TextPlayerFirstname.Name = "TextPlayerFirstname";
             this.TextPlayerFirstname.Size = new System.Drawing.Size(161, 26);
@@ -642,9 +710,10 @@
             // 
             // TextPlayerSelectedImage
             // 
+            this.TextPlayerSelectedImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextPlayerSelectedImage.BackColor = System.Drawing.Color.White;
             this.TextPlayerSelectedImage.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextPlayerSelectedImage.Location = new System.Drawing.Point(428, 232);
+            this.TextPlayerSelectedImage.Location = new System.Drawing.Point(421, 277);
             this.TextPlayerSelectedImage.Margin = new System.Windows.Forms.Padding(4);
             this.TextPlayerSelectedImage.Name = "TextPlayerSelectedImage";
             this.TextPlayerSelectedImage.ReadOnly = true;
@@ -653,9 +722,10 @@
             // 
             // label10
             // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 8F);
-            this.label10.Location = new System.Drawing.Point(425, 217);
+            this.label10.Location = new System.Drawing.Point(418, 262);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 14);
@@ -664,8 +734,9 @@
             // 
             // TextPlayerLastname
             // 
+            this.TextPlayerLastname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TextPlayerLastname.Font = new System.Drawing.Font("Arial", 12F);
-            this.TextPlayerLastname.Location = new System.Drawing.Point(596, 177);
+            this.TextPlayerLastname.Location = new System.Drawing.Point(589, 222);
             this.TextPlayerLastname.Margin = new System.Windows.Forms.Padding(4);
             this.TextPlayerLastname.Name = "TextPlayerLastname";
             this.TextPlayerLastname.Size = new System.Drawing.Size(166, 26);
@@ -673,9 +744,10 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 8F);
-            this.label7.Location = new System.Drawing.Point(425, 163);
+            this.label7.Location = new System.Drawing.Point(418, 208);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 14);
@@ -684,37 +756,15 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 8F);
-            this.label9.Location = new System.Drawing.Point(593, 163);
+            this.label9.Location = new System.Drawing.Point(586, 208);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 14);
             this.label9.TabIndex = 11;
             this.label9.Text = "Apellido";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(397, 29);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 18);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Buscar";
-            // 
-            // SearchBox
-            // 
-            this.SearchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBox.Font = new System.Drawing.Font("Arial", 12F);
-            this.SearchBox.Location = new System.Drawing.Point(465, 26);
-            this.SearchBox.Margin = new System.Windows.Forms.Padding(4);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(298, 26);
-            this.SearchBox.TabIndex = 3;
-            this.SearchBox.TextChanged += new System.EventHandler(this.SearchQuestion);
             // 
             // OptionsForm
             // 
@@ -803,5 +853,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox PlayerSearch;
+        private System.Windows.Forms.Label label11;
     }
 }

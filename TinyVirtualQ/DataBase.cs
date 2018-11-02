@@ -182,7 +182,26 @@ namespace TinyVirtualQ
             }
             return Q.ToArray();
         }
+        public static Player[] LoadPlayers(string SearchString)
+        {
+            string sql = "SELECT * FROM players WHERE Firstname LIKE @SEARCH OR Lastname LIKE @SEARCH";
 
+            DataRowCollection D = Select(sql,
+                new OleDbParameter[] { new OleDbParameter("@SEARCH", "%" + SearchString + "%") });
+            List<Player> P = new List<Player>();
+
+            foreach (DataRow d in D)
+            {
+                Player p = new Player(
+                    d["Id"].ToString(),
+                    d["Firstname"].ToString(),
+                    d["Lastname"].ToString(),
+                    d["Picture"].ToString()
+                );
+                P.Add(p);
+            }
+            return P.ToArray();
+        }
         public static Player[] LoadPlayers(int RoundId = 0)
         {
             string sql = "SELECT * FROM players";

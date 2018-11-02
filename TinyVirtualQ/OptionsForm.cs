@@ -15,6 +15,7 @@ namespace TinyVirtualQ
         Player[] RegistredPlayers { get; set; }     // Todos los vatos
 
         Main Main;
+        ImageList PlayersPictures;
 
         public OptionsForm(Main Main)
         {
@@ -37,7 +38,6 @@ namespace TinyVirtualQ
             foreach (Contest C in RegistredContests)
             {
                 ListViewItem IT = new ListViewItem(C.Name);
-                IT.Tag = C;
                 ListContest.Items.Add(IT);
             }
         }
@@ -46,7 +46,6 @@ namespace TinyVirtualQ
         {
             ListQuestions.Items.Clear();
             TextQuestionsQuestion.Text = "";
-            TextQuestionsQuestion.Tag = null;
             TextQuestionsAnswer.Text = "";
             TextQuestionsCategory.Text = "";
 
@@ -66,16 +65,22 @@ namespace TinyVirtualQ
         void FillPlayers()
         {
             ListPlayers.Items.Clear();
-            foreach (Player P in RegistredPlayers)
+            PlayersPictures = new ImageList();
+            ListViewItem[] Items = new ListViewItem[RegistredPlayers.Length];
+
+            PlayersPictures.ImageSize = new Size(35, 35);
+            ListPlayers.SmallImageList = PlayersPictures;
+
+            for (int i = 0; i< Items.Length; i++)
             {
-                ListViewItem IT = new ListViewItem(new string[] {
-                    P.Firstname,
-                    P.Lastname,
-                    P.PictureFilename
+                Items[i] = new ListViewItem(new string[] {
+                    RegistredPlayers[i].Firstname + " " + RegistredPlayers[i].Lastname
                 });
-                IT.Tag = P;
-                ListPlayers.Items.Add(IT);
+                PlayersPictures.Images.Add("img_" + RegistredPlayers[i].Id, Image.FromFile(Application.StartupPath + "\\pics\\" + RegistredPlayers[i].PictureFilename));
+                Items[i].ImageIndex = i;
+                Items[i].ImageKey = "img_" + RegistredPlayers[i].Id;
             }
+            ListPlayers.Items.AddRange(Items);
 
             //  Preparamos para agregar nuevo
             TextPlayerFirstname.Text = TextPlayerLastname.Text = TextPlayerSelectedImage.Text = "";
@@ -95,17 +100,10 @@ namespace TinyVirtualQ
             {
                 ListViewItem IT = new ListViewItem();
 
-                string ronda = "Ronda #" + (i + 1);
-                if (C.Rounds.Length > 2 && i == C.Rounds.Length - 1)
-                    ronda = "Final";
-                if (C.Rounds.Length > 2 && i == C.Rounds.Length - 2)
-                    ronda = "Semifinal";
-
-                IT.Text = ronda;
+                IT.Text = Round.RoundName(i, C.Rounds.Length);
 
                 IT.SubItems.Add(C.Rounds[i].RequiredPlayers.ToString());
                 IT.SubItems.Add(C.Rounds[i].QuestionsByPlayer.ToString());
-                IT.Tag = C.Rounds[i];
 
                 //  Agregamos el item
                 ListRounds.Items.Add(IT);
@@ -123,13 +121,10 @@ namespace TinyVirtualQ
             if ( ListContest.SelectedItems.Count > 0)
             {
                 //  Sacamos el objeto y lo parseamos a Contest
-                Contest C = (Contest)ListContest.SelectedItems[0].Tag;
+                Contest C = RegistredContests[ListContest.SelectedIndices[0]];
 
                 //  Sacamos las rondas del Contest
                 C.Rounds = DataBase.LoadRounds(C.Id);
-
-                //  Regresamos el Contest a la lista
-                ListContest.SelectedItems[0].Tag = C;
 
                 //  Llenamos la lista de Rondas
                 FillRounds(C);
@@ -147,7 +142,8 @@ namespace TinyVirtualQ
         {
             if(ListRounds.SelectedItems.Count > 0)
             {
-                Round R = (Round)ListRounds.SelectedItems[0].Tag;
+                Round R = RegistredContests[ListContest.SelectedIndices[0]]
+                    .Rounds[ListRounds.SelectedIndices[0]];
 
                 NumberRoundPlayers.Value = R.RequiredPlayers;
                 NumberRoundQuestions.Value = R.QuestionsByPlayer;
@@ -160,7 +156,7 @@ namespace TinyVirtualQ
 
         private void RoundButtonsClick(object sender, EventArgs e)
         {
-            int CId = ((Contest)ListContest.SelectedItems[0].Tag).Id;
+            int CId =RegistredContests[ListContest.SelectedIndices[0]].Id;
 
             // Si es es el boton de agregar...
             if (sender == ButtonRoundAdd)    
@@ -176,7 +172,9 @@ namespace TinyVirtualQ
             else if( ListRounds.SelectedItems.Count > 0 )
             {
                 //  Preparamos la ronda a modificar
-                Round R = (Round)ListRounds.SelectedItems[0].Tag;
+                Round R = RegistredContests[ListContest.SelectedIndices[0]]
+                    .Rounds[ListRounds.SelectedIndices[0]];
+
                 R.RequiredPlayers = (int)NumberRoundPlayers.Value;
                 R.QuestionsByPlayer = (int)NumberRoundQuestions.Value;
 
@@ -245,7 +243,6 @@ namespace TinyVirtualQ
 
                 //  Asignamos los campos
                 TextQuestionsQuestion.Text = Q.Text;
-                TextQuestionsQuestion.Tag = Q;  // Le pasa
 
                 TextQuestionsAnswer.Text = Q.Answer;
                 TextQuestionsCategory.Text = Q.Category;
@@ -342,7 +339,7 @@ namespace TinyVirtualQ
             if (ListPlayers.SelectedItems.Count > 0)
             {
                 //  Sacamos el objeto y lo parseamos a Contest
-                Player P = (Player)ListPlayers.SelectedItems[0].Tag;
+                Player P = RegistredPlayers[ListPlayers.SelectedIndices[0]];
 
                 //  Asignamos los campos
                 TextPlayerFirstname.Text = P.Firstname;
@@ -399,7 +396,7 @@ namespace TinyVirtualQ
                     }
 
                     //  Recargamos la lista de usuarios
-                    RegistredPlayers = DataBase.LoadPlayers();
+                    RegistredPlayers = DataBase.LoadPlayers(PlayerSearch.Text.Trim());
                     FillPlayers();
                 }
                 else
@@ -412,7 +409,7 @@ namespace TinyVirtualQ
             {
                 if (ListPlayers.SelectedItems.Count > 0)
                 {
-                    Player P = (Player)ListPlayers.SelectedItems[0].Tag;
+                    Player P = RegistredPlayers[ListPlayers.SelectedIndices[0]];
 
                     if (sender == ButtonPlayerSave)
                     {
@@ -424,6 +421,8 @@ namespace TinyVirtualQ
                                 File.Copy(TextPlayerSelectedImage.Text, Application.StartupPath + "\\pics\\" + filename, true);
                                 P.PictureFilename = filename;
                             }
+                            P.Firstname = TextPlayerFirstname.Text.Trim();
+                            P.Lastname = TextPlayerLastname.Text.Trim();
 
                             if (DataBase.Update(P))
                                 MessageBox.Show("Se actualizó correctamente el jugador", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -442,7 +441,7 @@ namespace TinyVirtualQ
                     }
 
                     //  Recargamos la lista de jugadores
-                    RegistredPlayers = DataBase.LoadPlayers();
+                    RegistredPlayers = DataBase.LoadPlayers(PlayerSearch.Text.Trim());
                     FillPlayers();
                 }
             }
@@ -463,6 +462,12 @@ namespace TinyVirtualQ
         {
             QuestionBank = DataBase.LoadQuestions(SearchBox.Text.Trim());
             FillQuestions();
+        }
+
+        private void OnPlayerSearch(object sender, EventArgs e)
+        {
+            RegistredPlayers = DataBase.LoadPlayers(PlayerSearch.Text.Trim());
+            FillPlayers();
         }
     }
 }
